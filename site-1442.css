@@ -92,8 +92,6 @@ a { color: var(--ink); }
 a:hover { color: color-mix(in srgb, var(--ink) 70%, #4aa3ff); }
 
 .lg,
-.mast,
-.foot,
 .mast-nav a,
 .phone,
 .chrome,
@@ -113,8 +111,6 @@ a:hover { color: color-mix(in srgb, var(--ink) 70%, #4aa3ff); }
     0 14px 40px -18px var(--shadow);
 }
 
-.mast,
-.foot,
 .chrome {
   -webkit-backdrop-filter: blur(24px) saturate(1.9) brightness(1.1) url(#lg-lens);
   backdrop-filter: blur(24px) saturate(1.9) brightness(1.1) url(#lg-lens);
@@ -150,12 +146,23 @@ a:hover { color: color-mix(in srgb, var(--ink) 70%, #4aa3ff); }
 /* SITE-GLASS: no #fff bloom on mast/foot. Bone/brass wash. Islands stay. Not flush. */
 .mast,
 .foot {
+  background: color-mix(in srgb, #e6d8c4 48%, transparent);
+  border: 0.5px solid color-mix(in srgb, #c4a36a 42%, transparent);
+  -webkit-backdrop-filter: blur(24px) saturate(1.55) url(#lg-lens);
+  backdrop-filter: blur(24px) saturate(1.55) url(#lg-lens);
   box-shadow:
     inset 0 1px 0 color-mix(in srgb, #e6d8c4 52%, transparent),
     inset 0 -0.6px 0 color-mix(in srgb, #8a6a38 18%, transparent),
     inset 0.6px 0 0 var(--chroma-a),
     inset -0.6px 0 0 var(--chroma-b),
     0 14px 40px -18px var(--shadow);
+}
+@media (prefers-color-scheme: dark) {
+  .mast,
+  .foot {
+    background: color-mix(in srgb, #3a3228 56%, transparent);
+    border: 0.5px solid color-mix(in srgb, #c4a36a 28%, transparent);
+  }
 }
 .mast::before,
 .foot::before {
