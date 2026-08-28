@@ -45,21 +45,26 @@
     el.classList.add("breathe");
   }
 
+  function locTag() {
+    return window.NO_LOCALE || undefined;
+  }
+
   function clockText() {
-    return new Date().toLocaleTimeString(undefined, {
+    return new Date().toLocaleTimeString(locTag(), {
       hour: "numeric",
       minute: "2-digit"
     });
   }
 
   function whenText(ts) {
-    return new Date(ts).toLocaleTimeString(undefined, {
+    return new Date(ts).toLocaleTimeString(locTag(), {
       hour: "numeric",
       minute: "2-digit"
     });
   }
 
   function dogLabel(n) {
+    if (typeof window.NO_DOG === "function") return window.NO_DOG(n);
     const count = Math.max(0, Number(n) || 0);
     return count + (count === 1 ? " dog" : " dogs");
   }
@@ -155,7 +160,7 @@
       if (!meals.length) {
         const empty = document.createElement("li");
         empty.className = "empty";
-        empty.textContent = "Nothing yet.";
+        empty.textContent = (window.NO_T && window.NO_T("alisonEmpty")) || "Nothing yet.";
         log.appendChild(empty);
       } else {
         meals.forEach(function (meal) {

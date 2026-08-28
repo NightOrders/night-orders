@@ -1,125 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <title>Alison — Night Orders</title>
-  <meta name="description" content="Alison is a personal headache journal. On your device. Not a medical device." />
+  <title data-i18n="titleAlison">Alison — Night Orders</title>
+  <meta name="description" data-i18n-content="descAlison" content="Alison is a personal headache journal. On your device. Not a medical device." />
   <link rel="canonical" href="https://nightorders.app/alison.html" />
-  <meta property="og:title" content="Alison — Night Orders" />
-  <meta property="og:description" content="The record stays with you." />
+  <meta property="og:title" data-i18n-content="titleAlison" content="Alison — Night Orders" />
+  <meta property="og:description" data-i18n-content="descMotto" content="The record stays with you." />
   <meta property="og:url" content="https://nightorders.app/alison.html" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="stylesheet" href="site-1442.css" />
+  <script src="locale.js"></script>
+  <link rel="stylesheet" href="site-1510.css" />
 </head>
 <body>
   <header class="mast">
     <p class="mark"><a href="index.html">Night Orders</a></p>
-    <nav class="mast-nav" aria-label="Site">
+    <nav class="mast-nav" data-i18n-aria="navAria" aria-label="Site">
       <a href="index.html">Night Orders</a>
       <a href="alison.html">Alison</a>
       <a href="pack-run.html">Pack Run</a>
-      <a href="support.html">Support</a>
+      <a href="support.html" data-i18n="navSupport">Support</a>
     </nav>
   </header>
   <main>
     <p class="motto">Alison</p>
-    <p class="kicker">The record stays with you.</p>
-    <p class="lede">Personal headache journal. On your device. No account.</p>
+    <p class="kicker" data-i18n="motto">The record stays with you.</p>
+    <p class="lede" data-i18n="alisonLede">Personal headache journal. On your device. No account.</p>
 
     <figure class="phone-wrap">
-      <div class="phone" data-poc="alison" role="region" aria-label="Alison. Add a meal. A pair can show.">
+      <div class="phone" data-poc="alison" role="region" data-i18n-aria="alisonPocAria" aria-label="Alison. Add a meal. A pair can show.">
         <div class="phone-inner">
           <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
           <div class="screen poc-screen">
             <p class="app-name">Alison</p>
-            <p class="whisper">Food · on this phone</p>
+            <p class="whisper" data-i18n="alisonFood">Food · on this phone</p>
             <ul class="log" data-alison-log>
-              <li class="empty">Nothing yet.</li>
+              <li class="empty" data-i18n="alisonEmpty">Nothing yet.</li>
             </ul>
             <form class="add-row" data-alison-form>
-              <input type="text" name="meal" placeholder="Add a meal" maxlength="32" autocomplete="off" spellcheck="false" enterkeyhint="done" aria-label="Meal" />
-              <button type="submit">Add</button>
+              <input type="text" name="meal" data-i18n-placeholder="alisonMealPh" data-i18n-aria="alisonMealAria" placeholder="Add a meal" maxlength="32" autocomplete="off" spellcheck="false" enterkeyhint="done" aria-label="Meal" />
+              <button type="submit" data-i18n="alisonAdd">Add</button>
             </form>
             <div class="pair-card" data-alison-pair hidden aria-live="polite">
-              <p class="whisper">A pair that showed up</p>
+              <p class="whisper" data-i18n="alisonPair">A pair that showed up</p>
               <p class="app-name" data-pair-food></p>
               <p class="pair-num" data-pair-n></p>
-              <p class="whisper">migraine days. Observational. Not a forecast.</p>
+              <p class="whisper" data-i18n="alisonPairDays">migraine days. Observational. Not a forecast.</p>
             </div>
           </div>
 
         </div>
       </div>
-      <figcaption>Add a meal. A pair can show.</figcaption>
+      <figcaption data-i18n="alisonFig">Add a meal. A pair can show.</figcaption>
     </figure>
 
     <div class="prose">
-      <p>Start when it begins. Stop when it ends. Log meals, water, and sleep as they happen. Journal is what you already wrote.</p>
-      <p class="mute">Observational pairs with migraine days (foods, weather, sleep, meds, env). Three repeats. A warning is what has shown up together, not a forecast. Not a medical device. Not ICHD-3. Health is a pipe. It does not diagnose, treat, cure, or prevent migraine or any condition.</p>
-      <p>Ingredient-level food log (Open Food Facts). You can override any hint and delete any row.</p>
+      <p data-i18n="alisonProse1">Start when it begins. Stop when it ends. Log meals, water, and sleep as they happen. Journal is what you already wrote.</p>
+      <p class="mute" data-i18n="alisonProse2">Observational pairs with migraine days (foods, weather, sleep, meds, env). Three repeats. A warning is what has shown up together, not a forecast. Not a medical device. Not ICHD-3. Health is a pipe. It does not diagnose, treat, cure, or prevent migraine or any condition.</p>
+      <p data-i18n="alisonProse3">Ingredient-level food log (Open Food Facts). You can override any hint and delete any row.</p>
     </div>
 
     <div class="keep">
-      <h2>Keep</h2>
-      <p>Paid download $0.99. Journal readable without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
+      <h2 data-i18n="keepH">Keep</h2>
+      <p data-i18n="alisonKeepP">Paid download $0.99. Journal readable without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
     </div>
 
-    <p class="note">Optional Apple Watch marks start and intensity. Optional Apple Health reads food, water, and sleep already on the device — Turn On All if you want that overlay. Deny still works. The journal still works.</p>
+    <p class="note" data-i18n="alisonNote">Optional Apple Watch marks start and intensity. Optional Apple Health reads food, water, and sleep already on the device — Turn On All if you want that overlay. Deny still works. The journal still works.</p>
 
     <section class="faq" aria-label="Alison">
       <h2>Alison</h2>
       <details class="faq-item">
-        <summary>What is Alison?</summary>
-        <p>A personal headache journal. On your device. No account. Not a medical device. Not ICHD-3. Health is a pipe. It does not diagnose, treat, or prescribe.</p>
+        <summary data-i18n="alisonWhat">What is Alison?</summary>
+        <p data-i18n="alisonWhatShortA">A personal headache journal. On your device. No account. Not a medical device. Not ICHD-3. Health is a pipe. It does not diagnose, treat, or prescribe.</p>
       </details>
       <details class="faq-item">
-        <summary>What do I actually do?</summary>
-        <p>If a headache is on, tap Start. When it ends, tap Stop. Log meals on Food. Type numbers; sliders are optional. Details can wait.</p>
+        <summary data-i18n="alisonDo">What do I actually do?</summary>
+        <p data-i18n="alisonDoA">If a headache is on, tap Start. When it ends, tap Stop. Log meals on Food. Type numbers; sliders are optional. Details can wait.</p>
       </details>
       <details class="faq-item">
-        <summary>What is a pair?</summary>
-        <p>A diary fact: something you logged that showed up with migraine days. Three repeats. A warning is what has shown up together. Observational. Not a trigger test, not causality, not a forecast. You can override any hint and delete any row.</p>
+        <summary data-i18n="alisonPairQ">What is a pair?</summary>
+        <p data-i18n="alisonPairA">A diary fact: something you logged that showed up with migraine days. Three repeats. A warning is what has shown up together. Observational. Not a trigger test, not causality, not a forecast. You can override any hint and delete any row.</p>
       </details>
       <details class="faq-item">
-        <summary>Watch?</summary>
-        <p>Optional. Same journal. Start and intensity on a paired Watch. Watch does not read Apple Health.</p>
+        <summary data-i18n="alisonWatchQ">Watch?</summary>
+        <p data-i18n="alisonWatchA">Optional. Same journal. Start and intensity on a paired Watch. Watch does not read Apple Health.</p>
       </details>
       <details class="faq-item">
-        <summary>Apple Health?</summary>
-        <p>Optional read of food, water, and sleep already on the device. Turn On All if you want that overlay. Deny still works. Did not connect still works. Do not log into MyFitnessPal, Cronometer, or Lose It.</p>
+        <summary data-i18n="alisonHealthQ">Apple Health?</summary>
+        <p data-i18n="alisonHealthA">Optional read of food, water, and sleep already on the device. Turn On All if you want that overlay. Deny still works. Did not connect still works. Do not log into MyFitnessPal, Cronometer, or Lose It.</p>
       </details>
       <details class="faq-item">
-        <summary>Where does my journal live?</summary>
-        <p>On your device. Deleting the app removes it. We cannot restore a local-only journal.</p>
+        <summary data-i18n="alisonWhere">Where does my journal live?</summary>
+        <p data-i18n="alisonWhereA">On your device. Deleting the app removes it. We cannot restore a local-only journal.</p>
       </details>
       <details class="faq-item">
-        <summary>Keep?</summary>
-        <p>Keep is a 30-day free trial, then $0.99/month through Apple. Journal stays readable without it. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Cancel in Apple Subscriptions, not in Alison.</p>
+        <summary data-i18n="alisonKeepQ">Keep?</summary>
+        <p data-i18n="alisonKeepCancelA">Keep is a 30-day free trial, then $0.99/month through Apple. Journal stays readable without it. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Cancel in Apple Subscriptions, not in Alison.</p>
       </details>
     </section>
 
     <p class="legal-row">
-      <a href="privacy-alison.html">Privacy</a>
-      <a href="support.html">Support</a>
-      <a href="legal.html">Legal</a>
+      <a href="privacy-alison.html" data-i18n="navPrivacy">Privacy</a>
+      <a href="support.html" data-i18n="navSupport">Support</a>
+      <a href="legal.html" data-i18n="navLegal">Legal</a>
     </p>
-    <p class="coming">Coming to the App Store</p>
+    <p class="coming" data-i18n="coming">Coming to the App Store</p>
   </main>
   <footer class="foot">
     <div class="foot-links">
       <a href="alison.html">Alison</a>
       <a href="pack-run.html">Pack Run</a>
-      <a href="support.html">Support</a>
-      <a href="faq.html">FAQ</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="legal.html">Legal</a>
+      <a href="support.html" data-i18n="navSupport">Support</a>
+      <a href="faq.html" data-i18n="navFaq">FAQ</a>
+      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+      <a href="legal.html" data-i18n="navLegal">Legal</a>
     </div>
-    <p>Support: <a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a>.</p>
+    <p><span data-i18n="supportPrefix">Support:</span> <a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a>.</p>
   </footer>
+  <script src="i18n.js"></script>
+  <script src="i18n2.js"></script>
+  <script src="i18n3.js"></script>
   <script src="site.js"></script>
 </body>
 </html>
