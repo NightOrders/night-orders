@@ -134,8 +134,6 @@ a:hover { color: color-mix(in srgb, var(--ink) 70%, #4aa3ff); }
   border-radius: 1.45rem;
   overflow: hidden;
 }
-.mast::before,
-.foot::before,
 .phone::before,
 .chrome::before {
   content: "";
@@ -149,8 +147,28 @@ a:hover { color: color-mix(in srgb, var(--ink) 70%, #4aa3ff); }
   mix-blend-mode: screen;
   opacity: 0.9;
 }
-.mast::after,
-.foot::after,
+.mast,
+.foot {
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #e6d8c4 52%, transparent),
+    inset 0 -0.6px 0 color-mix(in srgb, #8a6a38 18%, transparent),
+    inset 0.6px 0 0 var(--chroma-a),
+    inset -0.6px 0 0 var(--chroma-b),
+    0 14px 40px -18px var(--shadow);
+}
+.mast::before,
+.foot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at var(--lx) var(--ly), color-mix(in srgb, #e6d8c4 34%, transparent), transparent 50%),
+    linear-gradient(180deg, color-mix(in srgb, #b08a4a 16%, transparent) 0%, transparent 42%);
+  mix-blend-mode: soft-light;
+  opacity: 0.72;
+}
 .phone::after {
   content: "";
   position: absolute;
@@ -160,6 +178,17 @@ a:hover { color: color-mix(in srgb, var(--ink) 70%, #4aa3ff); }
   box-shadow:
     inset 0 0 0 1px color-mix(in srgb, #fff 22%, transparent),
     inset 0 10px 18px -16px rgba(255, 255, 255, 0.85);
+}
+.mast::after,
+.foot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, #c4a36a 24%, transparent),
+    inset 0 10px 18px -16px color-mix(in srgb, #e6d8c4 28%, transparent);
 }
 .mark {
   position: relative;
@@ -197,15 +226,11 @@ a:hover { color: color-mix(in srgb, var(--ink) 70%, #4aa3ff); }
   border-radius: 999px;
   font-size: 0.92rem;
   font-weight: 590;
+  white-space: nowrap;
+  flex: 0 0 auto;
 }
 .mast-nav a::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  background: radial-gradient(120% 80% at var(--lx) 0%, rgba(255, 255, 255, 0.5), transparent 48%);
-  mix-blend-mode: screen;
+  content: none;
 }
 .mast-nav a:hover {
   background: var(--glass-strong);
@@ -647,6 +672,8 @@ a:hover { color: color-mix(in srgb, var(--ink) 70%, #4aa3ff); }
     min-height: 36px;
     padding: 0 0.55rem;
     font-size: 0.82rem;
+    white-space: nowrap;
+    flex: 0 0 auto;
   }
   .foot {
     position: static;
@@ -660,6 +687,17 @@ a:hover { color: color-mix(in srgb, var(--ink) 70%, #4aa3ff); }
   .legal-row a, .foot-links a { min-height: 36px; }
   .foot p { margin: 0.28rem 0 0; }
   main { padding: 4.8rem 1rem 1.4rem; }
+}
+@media (max-width: 390px) {
+  .mast,
+  .mast-nav {
+    flex-wrap: nowrap;
+  }
+  .mast-nav a,
+  .mast-nav a[href$="pack-run.html"] {
+    white-space: nowrap;
+    flex: 0 0 auto;
+  }
 }
 @media (min-width: 720px) {
   .pair { grid-template-columns: 1fr 1fr; gap: 2.2rem; align-items: start; }
@@ -727,4 +765,142 @@ html[dir="rtl"] .table td { text-align: right; }
   html[dir="rtl"] .mast {
     padding: 0.28rem 0.8rem 0.28rem 0.38rem;
   }
+}
+
+.rooms-screen {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 4.6rem;
+}
+.room {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 100%;
+}
+.room[hidden] { display: none !important; }
+.room.opening {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 0.6rem;
+}
+.room.opening .start { align-self: stretch; margin-top: auto; }
+.room-title {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.phone .sheet {
+  padding: 0.75rem 0.8rem 0.85rem;
+  border-radius: 1.05rem;
+  background: color-mix(in srgb, var(--canvas) 72%, transparent);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.32rem;
+}
+.no-ads {
+  margin: 0.35rem 0 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mute);
+  font-weight: 650;
+}
+.glass-bar {
+  position: absolute;
+  left: 0.42rem;
+  right: 0.42rem;
+  bottom: 0.42rem;
+  z-index: 8;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.18rem;
+  padding: 0.28rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(22px) saturate(1.85) brightness(1.08);
+  backdrop-filter: blur(22px) saturate(1.85) brightness(1.08);
+  border: 0.5px solid var(--rim);
+  box-shadow:
+    inset 0 1px 0 var(--spec),
+    inset 0 -0.6px 0 color-mix(in srgb, var(--ink) 10%, transparent),
+    inset 0.6px 0 0 var(--chroma-a),
+    inset -0.6px 0 0 var(--chroma-b),
+    0 10px 28px -16px var(--shadow);
+}
+.glass-bar[hidden] { display: none !important; }
+.glass-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at var(--lx) var(--ly), rgba(255, 255, 255, 0.5), transparent 46%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, transparent 38%);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+.nav-tab {
+  position: relative;
+  z-index: 1;
+  min-height: 36px;
+  min-width: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0.15rem 0.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--mute);
+  font: inherit;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.nav-tab.is-on,
+.nav-tab[aria-selected="true"] {
+  color: var(--ink);
+  background: var(--glass-strong);
+}
+html[lang="zh-Hant"] {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Hiragino Sans CNS", "Noto Sans TC", "Songti TC", system-ui, sans-serif;
+  overflow-wrap: anywhere;
+  line-break: strict;
+}
+html[lang="ko"] {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "AppleGothic", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+html[lang="th"] {
+  font-family: -apple-system, BlinkMacSystemFont, "Thonburi", "Sukhumvit Set", "Sathu", "Noto Sans Thai", Tahoma, system-ui, sans-serif;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+html[lang="vi"] {
+  font-family: -apple-system, BlinkMacSystemFont, "Be Vietnam Pro", "Helvetica Neue", "Noto Sans", Arial, system-ui, sans-serif;
+}
+html[lang="ar-SA"] {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Arabic", "Geeza Pro", "Tahoma", "Noto Naskh Arabic", "Noto Sans Arabic", system-ui, sans-serif;
+}
+html[lang="ur-PK"] {
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Nastaliq Urdu", "Noto Naskh Arabic", "Geeza Pro", "Tahoma", system-ui, sans-serif;
+}
+html[lang="zh-Hant"] .glass-bar,
+html[lang="ko"] .glass-bar,
+html[lang="th"] .glass-bar,
+html[lang="vi"] .glass-bar,
+html[lang="ja"] .glass-bar {
+  white-space: nowrap;
+  letter-spacing: normal;
 }

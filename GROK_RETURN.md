@@ -1,19 +1,14 @@
-# GROK_RETURN — SITE-50
-Stamp: 2026-08-28T15:33:00Z
-Seat: MiniCos nested SITE-50. Act: task-1510. Live grade Test.
+# GROK_RETURN — SITE-GLASS+KEEP
+Stamp: 2026-08-28T15:59:37Z
+Seat: MiniCos nested SITE-GLASS-KEEP. Act: task-1510. Live grade Test.
 
-BELAY nine-locale wave. All 50 ASC locales. Same URLs. No `/es/` hops.
-`navigator.language` → `html lang` + `dir`. RTL: ar-SA, he, ur-PK.
+SITE-GLASS on `site-1442.css` tokens. Dropped `#fff` bloom on mast/foot. Bone/brass wash. Phone islands and glass bars stay. Mast/foot not flush (`width: min(52rem, calc(100% - 1.4rem))`, inset, radius). Pack Run pill `nowrap` at 390.
 
-Wired `i18n/{en,rtl,cjk,indic,iberian,west,east}.js` plus wave packs `i18n2.js` / `i18n3.js`. Apply last in `i18n.js`. English is missing-string fallback.
+KEEP-COPY: dropped every Paid download line on index, alison, support, faq, privacy-alison, i18n (en/west/east/iberian/indic/rtl/cjk + i18n2/i18n3). Copy is 30-day trial then $0.99/month. Not a paid download.
 
-mailto: `mailto:support@nightorders.app`. No `(at)`. Cloudflare `email_off` + `restoreMail`. No fake imprint. No fake EU trader.
+SITE-TWIN rooms already sat. All 50 locale.js. mailto:support@nightorders.app. No (at). No /es/ hops. No occupancy POST. No fake imprint.
 
-Islands: one glass bar per phone. CSS `site-1442.css`. Pack pill nowrap. CJK / Indic / Thai / RTL fit.
-
-SHA `50f4941d67d208690304e5239a966a65de92801b` on `NightOrders/night-orders` and `NightOrders/site` main.
-
-Public 200: `/` `/alison.html` `/pack-run.html` `/support.html` `/faq.html` `/legal.html` `/privacy.html` `/locale.js` `/i18n.js` `/i18n/{en,rtl,cjk,indic,iberian,west,east}.js` `/site-1442.css`.
+SHA `470aff8e44f23a9a29d68ba977a95043a6f93eae` this tree. KEEP-COPY sat `0ff2b7c`.
 
 Did not xcodebuild. Did not POST Submit. Did not merge PR #5.
 
