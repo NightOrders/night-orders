@@ -78,7 +78,7 @@
     packNoPhoto: "No photo. No GPS track.",
     packKeepRoom: "Park list stays. Check-in waits on Keep. 30-day trial, then $0.99/month through Apple.",
     packPrivacyRoom: "When In Use, parks only. 90 minutes, then erased. No account. No GPS track.",
-    packFig: "OPEN. Dogs, parks, check-in, Keep, privacy.",
+    packFig: "Open. Dogs, parks, check-in, Keep, privacy.",
     homeWhat: "What is this?",
     homeWhatA: "A small studio. Two apps at launch: Alison and Pack Run. The record stays with you.",
     homeData: "Where does my data live?",
@@ -112,7 +112,7 @@
       "You check in from your phone. Parks don't share with each other, and nobody owns a park.",
     packFollow: "Does it follow me?",
     packFollowA:
-      "Location is When In Use, parks only. No Always. Your location, photos, and dog names stay on this phone. No account.",
+      "Location is When In Use, parks only. Your location, photos, and dog names stay on this phone. No account.",
     packKeepQ: "Keep?",
     packKeepA:
       "Keep is a 30-day free trial, then {price}/month through Apple. Park list stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions.",
@@ -159,17 +159,17 @@
       "Location is When In Use, for nearby parks. Deny it and a short list still works. No background tracking. No account. No chat.",
     packWhoLongA:
       "You check in from your phone. A park in one city doesn't see a park in another. Nobody owns a park, and you don't run anything extra on your phone.",
-    packPosted: "What gets posted when I check in?",
+    packPosted: "What do other people see?",
     packPostedA:
-      "Park, pack size, time, and a hashed device id. GPS, photos, and dog names stay on your device. After 90 minutes the row is erased. Leave deletes it now.",
+      "The park, how many dogs, and when. Names, photos, and your exact spot stay on this phone. After 90 minutes it disappears. Leave and it is gone now.",
     packWhy90: "Why 90 minutes?",
-    packWhy90A: "So the board stays now, not last week. Still at the park? Check in again. The app does not invent a crowd.",
+    packWhy90A: "So the board is now, not last week. Still at the park? Check in again. Empty parks stay empty.",
     packHowMany: "How many dogs at a park?",
     packHowManyA:
       "Each park shows a live count. When it's busy, the oldest check-in drops off so the board stays current. Parks stay separate. With location off, you still get a short list.",
     packLoc: "Location?",
     packLocA:
-      "When In Use, optional. Nearby OpenStreetMap dog parks. No Always. No background track. Deny location and a short list still works.",
+      "Location is When In Use, and only if you want it. Nearby dog parks when it is on. Turn it off and you still get a short list. Nothing runs in the background.",
     packAcct: "Do I need an account?",
     packAcctA: "No. No chat. No ads. Dogs you add live on your device.",
     packKeepCancelA:
@@ -179,16 +179,16 @@
     alisonSupportAria: "Alison support",
     alisonSupportNote:
       "A journal on your phone. Not a medical device. Talk to a clinician about symptoms.",
-    supportFirst: "First open",
+    supportFirst: "How do I start?",
     supportFirstA:
-      "If a headache is on, tap Start. When it ends, tap Stop. Log meals, water, and sleep as they happen. Journal is what you already wrote. Watch and Apple Health are optional. Open Food Facts is live search when you look up a food. Ingredient-level food log (Open Food Facts). You can override any hint and delete any row.",
-    supportHealth: "Health says did not connect",
+      "If a headache is on, tap Start. When it ends, tap Stop. Log meals, water, and sleep as they happen. The journal is what you already wrote. Watch and Apple Health are optional. Look up a food when you want. Change or delete any row.",
+    supportHealth: "Health did not connect",
     supportHealthA:
-      "Optional. Turn On All if you want food, water, and sleep already on the device. Deny still works. The journal still works.",
+      "That is optional. You can let Alison read food, water, and sleep already on the phone. If you say no, the journal still works.",
     supportNotes: "Notes",
     supportNotesA:
       "Off by default. Warn-only for what has shown up together. Three repeats. Not a medical alarm. Not a forecast. You can override any hint and delete any row.",
-    supportKeepRow: "Keep will not start a new row",
+    supportKeepRow: "I can't start a new entry",
     supportKeepRowA:
       "Journal stays readable. Keep is a 30-day free trial, then {price} / month. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
     packSupportAria: "Pack Run support",
@@ -196,11 +196,11 @@
       "Are dogs at this park. Check-in lasts 90 minutes, then it is erased.",
     supportNoParks: "No nearby parks",
     supportNoParksA:
-      "Allow Location When In Use. Parks only. No Always. If location is off, or the map is down, a short list still works.",
+      "Allow location When In Use, parks only. If location is off, or the map is down, a short list still works.",
     supportGone: "Check-in disappeared",
     supportGoneA:
       "That's on purpose. Check-in lasts 90 minutes, or until you leave. Still at the park? Check in again. Camera and photos stay on this phone.",
-    supportKeepIn: "Keep will not check in",
+    supportKeepIn: "I can't check in",
     supportKeepInA:
       "Park list stays. Keep is a 30-day free trial, then {price} / month. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions.",
     alisonPrivacyLink: "Alison privacy",
@@ -233,17 +233,17 @@
     htmlLang: "en-GB",
     packLetsGo: "Let's go",
     packLocA:
-      "When In Use, optional. Nearby OpenStreetMap parks. No Always. No background track. Deny location and a short list still works."
+      "Location is When In Use, and only if you want it. Nearby parks when it is on. Turn it off and you still get a short list. Nothing runs in the background."
   });
   catalogs["en-AU"] = assign(catalogs["en-US"], {
     htmlLang: "en-AU",
     packLocA:
-      "When In Use, optional. Nearby OpenStreetMap dog parks. No Always. No background track. Deny location and a short list still works."
+      "Location is When In Use, and only if you want it. Nearby dog parks when it is on. Turn it off and you still get a short list. Nothing runs in the background."
   });
   catalogs["en-CA"] = assign(catalogs["en-US"], {
     htmlLang: "en-CA",
     packLocA:
-      "When In Use, optional. Nearby OpenStreetMap dog parks. No Always. No background track. Deny location and a short list still works."
+      "Location is When In Use, and only if you want it. Nearby dog parks when it is on. Turn it off and you still get a short list. Nothing runs in the background."
   });
 
   function pickStorefront(raw) {
