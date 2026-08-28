@@ -10,23 +10,91 @@
 </head>
 <body>
   <header class="mast">
-    <p class="mark">Night Orders</p>
+    <nav class="mast-nav" aria-label="Site">
+      <a href="index.html" aria-current="page">Night Orders</a>
+      <a href="alison.html">Alison</a>
+      <a href="pack-run.html">Pack Run</a>
+      <a href="support.html">Support</a>
+    </nav>
     <p class="motto">The record stays with you.</p>
   </header>
   <main>
     <section class="choices" aria-label="Apps">
-      <a class="choice" href="alison.html">
-        <h2>Alison</h2>
-        <p>A journal on your device. Not a medical device.</p>
-        <span class="act">Get Alison</span>
-        <span class="coming">Coming to the App Store</span>
-      </a>
-      <a class="choice" href="pack-run.html">
-        <h2>Pack Run</h2>
-        <p>Are dogs at this park. Users check in. They do not host.</p>
-        <span class="act">Get Pack Run</span>
-        <span class="coming">Coming to the App Store</span>
-      </a>
+      <article class="choice alison-card">
+        <figure class="phone-wrap">
+          <div class="phone" data-poc="alison" role="region" aria-label="Alison. Add a meal. A pair can show.">
+            <div class="phone-inner">
+              <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
+              <div class="screen poc-screen">
+                <p class="app-name">Alison</p>
+                <p class="whisper">Food · on this phone</p>
+                <ul class="log" data-alison-log>
+                  <li class="empty">Nothing yet.</li>
+                </ul>
+                <form class="add-row" data-alison-form>
+                  <input type="text" name="meal" placeholder="Add a meal" maxlength="32" autocomplete="off" spellcheck="false" enterkeyhint="done" aria-label="Meal" />
+                  <button type="submit">Add</button>
+                </form>
+                <div class="pair-card" data-alison-pair hidden aria-live="polite">
+                  <p class="whisper">A pair that showed up</p>
+                  <p class="app-name" data-pair-food></p>
+                  <p class="pair-num" data-pair-n></p>
+                  <p class="whisper">migraine days. Observational. Not a forecast.</p>
+                </div>
+              </div>
+              <div class="home-pip" aria-hidden="true"></div>
+            </div>
+          </div>
+          <figcaption>Add a meal. A pair can show.</figcaption>
+        </figure>
+        <a class="choice-hit" href="alison.html">
+          <h2>Alison</h2>
+          <p>A journal on your device. Not a medical device.</p>
+          <span class="act">Get Alison</span>
+          <span class="coming">Coming to the App Store</span>
+        </a>
+      </article>
+      <article class="choice pack-card">
+        <figure class="phone-wrap">
+          <div class="phone pack" data-poc="pack" role="region" aria-label="Pack Run. Add a dog, then check in. Parks show dog counts, not names.">
+            <div class="phone-inner">
+              <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
+              <div class="screen poc-screen">
+                <div data-pack-dogs>
+                  <p class="app-name">Pack Run</p>
+                  <p class="whisper">Your dogs · counts, no names</p>
+                  <p class="whisper"><span data-pack-dogs-count aria-live="polite">0 dogs</span>. No names.</p>
+                  <button type="button" class="check" data-pack-add>Add a dog</button>
+                  <button type="button" class="leave" data-pack-go hidden>Let's go</button>
+                </div>
+                <div data-pack-list hidden>
+                  <p class="app-name">Pack Run</p>
+                  <p class="whisper">Nearby parks · counts, no names</p>
+                  <div data-pack-rows></div>
+                </div>
+                <div data-pack-detail hidden>
+                  <button type="button" class="back" data-pack-back>Parks</button>
+                  <p class="app-name" data-pack-name></p>
+                  <p class="whisper"><span data-pack-count aria-live="polite">0</span>. No names.</p>
+                  <button type="button" class="check" data-pack-in>Check in</button>
+                  <button type="button" class="leave" data-pack-leave hidden>Leave</button>
+                  <p class="erase" data-pack-erase hidden>Erases in 90 minutes.</p>
+                  <p class="ttl" data-pack-ttl hidden></p>
+                  <p class="whisper">No photo. No GPS track.</p>
+                </div>
+              </div>
+              <div class="home-pip" aria-hidden="true"></div>
+            </div>
+          </div>
+          <figcaption>Add a dog. Then check in. Counts, not names.</figcaption>
+        </figure>
+        <a class="choice-hit" href="pack-run.html">
+          <h2>Pack Run</h2>
+          <p>Are dogs at this park. Users check in. They do not host.</p>
+          <span class="act">Get Pack Run</span>
+          <span class="coming">Coming to the App Store</span>
+        </a>
+      </article>
     </section>
     <p class="mail">
       <a class="act" href="mailto:support@nightorders.app">support@nightorders.app</a>
@@ -34,11 +102,11 @@
   </main>
   <footer class="foot">
     <div class="foot-links">
-      <a href="index.html">Night Orders</a>
-      <a href="support.html">Support</a>
       <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
       <a href="legal.html">Legal</a>
     </div>
   </footer>
+  <script src="site.js"></script>
 </body>
 </html>
