@@ -1,15 +1,15 @@
-# GROK_RETURN — SITE-GLASS+KEEP
-Stamp: 2026-08-28T15:59:37Z
-Seat: MiniCos nested SITE-GLASS-KEEP. Act: task-1510. Live grade Test.
+# GROK_RETURN — SITE-FFF-SIT
+Stamp: 2026-08-28T16:18:49Z
+Seat: MiniCos nested SITE-FFF-SIT. Act: task-1510. Live grade Test.
 
-SITE-GLASS on `site-1442.css` tokens. Dropped `#fff` bloom on mast/foot. Bone/brass wash. Phone islands and glass bars stay. Mast/foot not flush (`width: min(52rem, calc(100% - 1.4rem))`, inset, radius). Pack Run pill `nowrap` at 390.
+Falsify: live sheet is `site-1442.css` (linked on all HTML). Mast/foot still inherited `--glass` / `--rim` (`#ffffff`) and brightness bloom. Dropped fill/rim to bone `#e6d8c4` / brass `#c4a36a`. Dark fill `#3a3228`. No brightness(1.1) on mast/foot.
 
-KEEP-COPY: dropped every Paid download line on index, alison, support, faq, privacy-alison, i18n (en/west/east/iberian/indic/rtl/cjk + i18n2/i18n3). Copy is 30-day trial then $0.99/month. Not a paid download.
+Islands stay: `.phone`, `.chrome`, `.glass-bar`, `.lg`, nav pills keep `#fff` glass. Mast/foot not flush (`width: min(52rem, calc(100% - 1.4rem))`, inset, radius). Pack Run pill `nowrap` at 390.
 
-SITE-TWIN rooms already sat. All 50 locale.js. mailto:support@nightorders.app. No (at). No /es/ hops. No occupancy POST. No fake imprint.
+KEEP-COPY already sat. All 50 locale.js. mailto:support@nightorders.app. No occupancy POST. Public URLs 200.
 
-SHA `186f70c0770c78b7c9d675adf6c0f8d053140a51` this tree. KEEP-COPY sat `0ff2b7c`.
+SHA `97a99682e94b4aa00eec189635bfdd466dbbd9aa` this tree.
 
-Did not xcodebuild. Did not POST Submit. Did not merge PR #5.
+Did not xcodebuild. Did not mill iOS. Did not POST Submit. Did not merge PR #5.
 
 Did not Submit.
