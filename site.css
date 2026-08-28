@@ -1,22 +1,22 @@
 :root {
-  --ink: #f0e8d8;
-  --mute: #a89f91;
-  --stone: #12141c;
-  --iron: #1a2030;
-  --navy: #0c121c;
-  --line: #3a4354;
-  --carve: #262d3c;
-  --paper: #231f1a;
-  --paper-ink: #e4d6c4;
-  --paper-mute: #9a8d7e;
-  --sand: #1c1610;
-  --sand-ink: #e4d2b8;
-  --sand-mute: #8a7a68;
-  --collar: #c45c28;
+  --ink: #2a2118;
+  --mute: #7a6a58;
+  --stone: #f4ead8;
+  --iron: color-mix(in srgb, #fff8ee 78%, #f4ead8);
+  --navy: color-mix(in srgb, #fff 55%, #f4ead8);
+  --line: color-mix(in srgb, #2a2118 14%, transparent);
+  --carve: color-mix(in srgb, #fff 42%, #f4ead8);
+  --paper: #f3eee6;
+  --paper-ink: #2c2620;
+  --paper-mute: #74685c;
+  --sand: #f4ead8;
+  --sand-ink: #2a2118;
+  --sand-mute: #7a6a58;
+  --collar: #e07a2a;
 }
 * { box-sizing: border-box; }
 html {
-  color-scheme: dark;
+  color-scheme: light;
   background: var(--stone);
 }
 html, body {
@@ -27,8 +27,8 @@ html, body {
 body {
   min-height: 100dvh;
   background:
-    radial-gradient(900px 420px at 12% -8%, #1c2736 0%, transparent 58%),
-    radial-gradient(700px 380px at 108% 0%, #151a24 0%, transparent 52%),
+    radial-gradient(900px 420px at 12% -8%, color-mix(in srgb, #fff 70%, var(--stone)) 0%, transparent 58%),
+    radial-gradient(700px 380px at 108% 0%, color-mix(in srgb, #fff 40%, var(--stone)) 0%, transparent 52%),
     var(--stone);
 }
 body::before {
@@ -42,11 +42,12 @@ body::before {
 }
 .mast, main, .foot { position: relative; z-index: 1; }
 a { color: var(--ink); }
-a:hover { color: #f2eadc; }
+a:hover { color: color-mix(in srgb, var(--ink) 70%, #000); }
 .mast {
   padding: 2.2rem 1.2rem 1.15rem;
-  background: var(--navy);
+  background: color-mix(in srgb, #fff 42%, var(--navy));
   border-bottom: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 70%, transparent);
 }
 .mark {
   margin: 0;
@@ -117,9 +118,10 @@ main { padding: 1.25rem 1.2rem 3rem; max-width: 56rem; margin: 0 auto; }
 .keep {
   margin: 1.3rem 0;
   padding: 1rem 1.05rem;
-  background: var(--iron);
+  background: color-mix(in srgb, #fff 55%, var(--iron));
   border: 1px solid var(--line);
   border-radius: 10px;
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 70%, transparent);
 }
 .keep h2 { margin: 0 0 0.4rem; font-size: 1.05rem; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
 .faq { margin: 2rem 0 0; }
@@ -158,7 +160,7 @@ main { padding: 1.25rem 1.2rem 3rem; max-width: 56rem; margin: 0 auto; }
 .foot {
   padding: 1.4rem 1.2rem 2.4rem;
   border-top: 1px solid var(--line);
-  background: var(--navy);
+  background: color-mix(in srgb, #fff 40%, var(--navy));
   color: var(--mute);
   font-size: 0.88rem;
 }
@@ -183,12 +185,13 @@ main { padding: 1.25rem 1.2rem 3rem; max-width: 56rem; margin: 0 auto; }
   aspect-ratio: 9 / 19.2;
   margin: 0 auto;
   padding: 0.72rem 0.62rem 0.78rem;
-  background: #07090e;
-  border: 1px solid #4a5364;
+  background: color-mix(in srgb, #fff 28%, #d8cfc2);
+  border: 1px solid color-mix(in srgb, #fff 55%, #8a7a68);
   border-radius: 2rem;
   box-shadow:
-    inset 0 0 0 2px #161b26,
-    0 1.2rem 2.4rem rgba(0, 0, 0, 0.45);
+    inset 0 1px 0 color-mix(in srgb, #fff 80%, transparent),
+    inset 0 0 0 2px color-mix(in srgb, #fff 22%, #c8bfb2),
+    0 1.2rem 2.4rem rgba(42, 33, 24, 0.18);
   -webkit-tap-highlight-color: transparent;
 }
 .phone button:focus-visible,
