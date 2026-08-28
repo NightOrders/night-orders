@@ -14,7 +14,7 @@
 <link rel="icon" href="../favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <script src="../locale.js"></script>
-  <link rel="stylesheet" href="../site-1510.css" />
+  <link rel="stylesheet" href="../site-1442.css" />
 </head>
 <body>
   <header class="mast">
@@ -32,30 +32,52 @@
     <p class="lede" data-i18n="alisonLede">Personal headache journal. On your device. No account.</p>
 
     <figure class="phone-wrap">
-      <div class="phone" data-poc="alison" role="region" data-i18n-aria="alisonPocAria" aria-label="Alison. Add a meal. A pair can show.">
+      <div class="phone" data-rooms="alison" role="region" data-i18n-aria="alisonRoomsAria" aria-label="Alison. Home Start and Stop. Food, Journal, Health, Yours.">
         <div class="phone-inner">
           <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
-          <div class="screen poc-screen">
-            <p class="app-name">Alison</p>
-            <p class="whisper" data-i18n="alisonFood">Food · on this phone</p>
-            <ul class="log" data-alison-log>
-              <li class="empty" data-i18n="alisonEmpty">Nothing yet.</li>
-            </ul>
-            <form class="add-row" data-alison-form>
-              <input type="text" name="meal" data-i18n-placeholder="alisonMealPh" data-i18n-aria="alisonMealAria" placeholder="Add a meal" maxlength="32" autocomplete="off" spellcheck="false" enterkeyhint="done" aria-label="Meal" />
-              <button type="submit" data-i18n="alisonAdd">Add</button>
-            </form>
-            <div class="pair-card" data-alison-pair hidden aria-live="polite">
-              <p class="whisper" data-i18n="alisonPair">A pair that showed up</p>
-              <p class="app-name" data-pair-food></p>
-              <p class="pair-num" data-pair-n></p>
-              <p class="whisper" data-i18n="alisonPairDays">migraine days. Observational. Not a forecast.</p>
+          <div class="screen rooms-screen">
+            <div class="room is-on" data-room="home">
+              <p class="app-name">Alison</p>
+              <p class="whisper" data-i18n="alisonHomeWhisper">Start when it begins. Stop when it ends.</p>
+              <div class="sheet">
+                <p class="room-title" data-i18n="alisonHeadacheNow">Headache now</p>
+                <p class="whisper" data-i18n="alisonHugeStart">Tap Start. Details can wait.</p>
+                <button type="button" class="start" data-alison-start data-i18n="alisonStart">Start</button>
+                <button type="button" class="leave" data-alison-stop hidden data-i18n="alisonStop">Stop</button>
+              </div>
+            </div>
+            <div class="room" data-room="food" hidden>
+              <p class="app-name" data-i18n="alisonTabFood">Food</p>
+              <p class="whisper" data-i18n="alisonFoodWhisper">Ingredient log. On this phone.</p>
+              <ul class="log"><li><span data-i18n="alisonFoodRow">Oats · water</span><span class="qty">Off</span></li></ul>
+              <p class="whisper" data-i18n="alisonFoodNote">Open Food Facts when you look up a food. Override any hint. Delete any row.</p>
+            </div>
+            <div class="room" data-room="journal" hidden>
+              <p class="app-name" data-i18n="alisonTabJournal">Journal</p>
+              <p class="whisper" data-i18n="alisonJournalWhisper">What you already wrote.</p>
+              <p class="whisper" data-i18n="alisonJournalEmpty">Nothing yet. Start, then Stop. Meals on Food.</p>
+            </div>
+            <div class="room" data-room="health" hidden>
+              <p class="app-name" data-i18n="alisonTabHealth">Health</p>
+              <p class="whisper" data-i18n="alisonHealthWhisper">Health is a pipe. Optional read of food, water, and sleep already on the device.</p>
+              <p class="whisper" data-i18n="alisonHealthNote">Turn On All if you want that overlay. Deny still works. Not a medical device.</p>
+            </div>
+            <div class="room" data-room="yours" hidden>
+              <p class="app-name" data-i18n="alisonTabYours">Yours</p>
+              <p class="whisper" data-i18n="alisonYoursWhisper">Light. Health. Pulse. Privacy. Data is yours.</p>
+              <p class="whisper" data-i18n="alisonYoursNote">Not a medical device. Journal stays on this phone.</p>
             </div>
           </div>
-
+          <nav class="glass-bar alison-tabbar" role="tablist" data-i18n-aria="alisonTabAria" aria-label="Alison">
+            <button type="button" class="nav-tab is-on" role="tab" data-tab="home" aria-selected="true" data-i18n="alisonTabHome">Home</button>
+            <button type="button" class="nav-tab" role="tab" data-tab="food" aria-selected="false" data-i18n="alisonTabFood">Food</button>
+            <button type="button" class="nav-tab" role="tab" data-tab="journal" aria-selected="false" data-i18n="alisonTabJournal">Journal</button>
+            <button type="button" class="nav-tab" role="tab" data-tab="health" aria-selected="false" data-i18n="alisonTabHealth">Health</button>
+            <button type="button" class="nav-tab" role="tab" data-tab="yours" aria-selected="false" data-i18n="alisonTabYours">Yours</button>
+          </nav>
         </div>
       </div>
-      <figcaption data-i18n="alisonFig">Add a meal. A pair can show.</figcaption>
+      <figcaption data-i18n="alisonFig">Home. Start and Stop. Food, Journal, Health, Yours.</figcaption>
     </figure>
 
     <div class="prose">
@@ -121,9 +143,16 @@
     </div>
     <p><span data-i18n="supportPrefix">Support:</span> <!--email_off--><a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a><!--/email_off-->.</p>
   </footer>
-  <script src="../i18n.js"></script>
+  <script src="../i18n/en.js"></script>
+  <script src="../i18n/rtl.js"></script>
+  <script src="../i18n/cjk.js"></script>
+  <script src="../i18n/indic.js"></script>
+  <script src="../i18n/iberian.js"></script>
+  <script src="../i18n/west.js"></script>
+  <script src="../i18n/east.js"></script>
   <script src="../i18n2.js"></script>
   <script src="../i18n3.js"></script>
+  <script src="../i18n.js"></script>
   <script src="../site.js"></script>
 </body>
 </html>

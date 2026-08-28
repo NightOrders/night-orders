@@ -14,7 +14,7 @@
 <link rel="icon" href="favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script src="locale.js"></script>
-  <link rel="stylesheet" href="site-1510.css" />
+  <link rel="stylesheet" href="site-1442.css" />
 </head>
 <body>
   <header class="mast">
@@ -31,37 +31,60 @@
     <p class="kicker" data-i18n="motto">The record stays with you.</p>
     <p class="lede" data-i18n="packLede">Are dogs at this park. Nearby parks when location is on.</p>
     <figure class="phone-wrap">
-      <div class="phone pack" data-poc="pack" role="region" data-i18n-aria="packPocAria" aria-label="Pack Run. Add a dog, then check in. Parks show dog counts, not names.">
+      <div class="phone pack" data-rooms="pack" role="region" data-i18n-aria="packRoomsAria" aria-label="Pack Run. Opening, dogs, parks, check-in, Keep, privacy.">
         <div class="phone-inner">
           <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
-          <div class="screen poc-screen">
-            <div data-pack-dogs>
-              <p class="app-name">Pack Run</p>
-              <p class="whisper" data-i18n="packDogsWhisper">Your dogs · counts, no names</p>
-              <p class="whisper"><span data-pack-dogs-count aria-live="polite">0 dogs</span> <span data-i18n="packNoNames">No names.</span></p>
-              <button type="button" class="check" data-pack-add data-i18n="packAddDog">Add a dog</button>
-              <button type="button" class="leave" data-pack-go hidden data-i18n="packLetsGo">Let's go</button>
+          <div class="screen rooms-screen">
+            <div class="room is-on opening" data-room="opening">
+              <p class="whisper">Pack Run</p>
+              <p class="app-name" data-i18n="packTagline">One park. One count.</p>
+              <p class="whisper" data-i18n="packOpeningLine">Check-in lasts 90 minutes, then it is erased.</p>
+              <p class="no-ads" data-i18n="packNoAds">No ads forever</p>
+              <button type="button" class="start" data-pack-open data-i18n="packOpen">OPEN</button>
             </div>
-            <div data-pack-list hidden>
-              <p class="app-name">Pack Run</p>
+            <div class="room" data-room="dogs" hidden>
+              <p class="app-name" data-i18n="packTabDogs">Dogs</p>
+              <p class="whisper" data-i18n="packDogsWhisper">Your dogs · on this phone</p>
+              <div class="sheet">
+                <p class="room-title" data-i18n="packDogOnPhone">On this phone</p>
+                <p class="whisper" data-i18n="packNoNames">No names on the park board.</p>
+              </div>
+            </div>
+            <div class="room" data-room="parks" hidden>
+              <p class="app-name" data-i18n="packTabParks">Parks</p>
               <p class="whisper" data-i18n="packNearby">Nearby parks · counts, no names</p>
-              <div data-pack-rows></div>
+              <button type="button" class="park-btn" data-pack-to-checkin>
+                <span data-i18n="packNamedPark">Named park</span>
+                <span class="qty">2</span>
+              </button>
             </div>
-            <div data-pack-detail hidden>
-              <button type="button" class="back" data-pack-back data-i18n="packBack">Parks</button>
-              <p class="app-name" data-pack-name></p>
-              <p class="whisper"><span data-pack-count aria-live="polite">0</span> <span data-i18n="packNoNames">No names.</span></p>
-              <button type="button" class="check" data-pack-in data-i18n="packCheckIn">Check in</button>
-              <button type="button" class="leave" data-pack-leave hidden data-i18n="packLeave">Leave</button>
-              <p class="erase" data-pack-erase hidden data-i18n="packErase">Erases in 90 minutes.</p>
-              <p class="ttl" data-pack-ttl hidden></p>
+            <div class="room" data-room="checkin" hidden>
+              <button type="button" class="back" data-pack-to-parks data-i18n="packBack">Parks</button>
+              <p class="app-name" data-i18n="packNamedPark">Named park</p>
+              <p class="whisper" data-i18n="packNoNames">No names on the park board.</p>
+              <button type="button" class="check" data-i18n="packCheckIn">Check in</button>
+              <p class="erase" data-i18n="packErase">Erases in 90 minutes.</p>
               <p class="whisper" data-i18n="packNoPhoto">No photo. No GPS track.</p>
             </div>
+            <div class="room" data-room="keep" hidden>
+              <p class="app-name" data-i18n="packTabKeep">Keep</p>
+              <p class="whisper" data-i18n="packKeepRoom">Park list stays. Check-in waits on Keep. 30-day trial, then $0.99/month through Apple.</p>
+            </div>
+            <div class="room" data-room="privacy" hidden>
+              <p class="app-name" data-i18n="packTabPrivacy">Privacy</p>
+              <p class="whisper" data-i18n="packPrivacyRoom">When In Use, parks only. 90 minutes, then erased. No account. No GPS track.</p>
+            </div>
           </div>
-
+          <nav class="glass-bar pack-tabbar" hidden role="tablist" data-i18n-aria="packTabAria" aria-label="Pack Run">
+            <button type="button" class="nav-tab" role="tab" data-tab="dogs" aria-selected="false" data-i18n="packTabDogs">Dogs</button>
+            <button type="button" class="nav-tab" role="tab" data-tab="parks" aria-selected="false" data-i18n="packTabParks">Parks</button>
+            <button type="button" class="nav-tab" role="tab" data-tab="checkin" aria-selected="false" data-i18n="packTabCheckIn">Check-in</button>
+            <button type="button" class="nav-tab" role="tab" data-tab="keep" aria-selected="false" data-i18n="packTabKeep">Keep</button>
+            <button type="button" class="nav-tab" role="tab" data-tab="privacy" aria-selected="false" data-i18n="packTabPrivacy">Privacy</button>
+          </nav>
         </div>
       </div>
-      <figcaption data-i18n="packFig">Add a dog. Then check in. Counts, not names.</figcaption>
+      <figcaption data-i18n="packFig">OPEN. Dogs, parks, check-in, Keep, privacy.</figcaption>
     </figure>
     <div class="prose">
       <p data-i18n="packProse1">One job: are dogs at this park. The list shows a count, not names. Still there after 90 minutes? Check in again.</p>
@@ -125,9 +148,16 @@
     </div>
     <p><span data-i18n="supportPrefix">Support:</span> <!--email_off--><a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a><!--/email_off-->.</p>
   </footer>
-  <script src="i18n.js"></script>
+  <script src="i18n/en.js"></script>
+  <script src="i18n/rtl.js"></script>
+  <script src="i18n/cjk.js"></script>
+  <script src="i18n/indic.js"></script>
+  <script src="i18n/iberian.js"></script>
+  <script src="i18n/west.js"></script>
+  <script src="i18n/east.js"></script>
   <script src="i18n2.js"></script>
   <script src="i18n3.js"></script>
+  <script src="i18n.js"></script>
   <script src="site.js"></script>
 </body>
 </html>
