@@ -88,7 +88,7 @@
     homeAdsA: "No account. No ads. No analytics on this site or in the apps. No plus, no confetti.",
     homeKeep: "What is Keep?",
     homeKeepA:
-      "Paid download {price}. Keep is a 30-day free trial, then {price}/month through Apple. Alison: the journal stays readable without Keep; new Start, Food, and Health pull wait on Keep. Pack Run: the park list stays; check-in waits on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+      "Keep is a 30-day free trial, then {price}/month through Apple. Alison: the journal stays readable without Keep; new Start, Food, and Health pull wait on Keep. Pack Run: the park list stays; check-in waits on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
     homeReach: "How do I reach you?",
     titleFaq: "FAQ — Night Orders",
     faqMotto: "FAQ",
@@ -101,7 +101,7 @@
       "An on-device headache journal. Observational pairs with migraine days (foods, weather, sleep, meds, env). Three repeats. A warning is what has shown up together, not a forecast. Not a medical device. Not ICHD-3. Health is a pipe. Notes are Off by default, warn-only, not a medical alarm. You can override any hint and delete any row.",
     alisonKeepQ: "Keep?",
     alisonKeepA:
-      "Paid download {price}. Keep is a 30-day free trial, then {price}/month through Apple. Journal stays readable without it. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Cancel in Apple Subscriptions.",
+      "Keep is a 30-day free trial, then {price}/month through Apple. Journal stays readable without it. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Cancel in Apple Subscriptions.",
     faqWatchFood: "Watch, Health, food?",
     faqWatchFoodA:
       "Optional. Watch: start and intensity, same journal. Health is a pipe: optional read of food, water, and sleep already on the device. Open Food Facts is an ingredient-level food log. You can override any hint and delete any row. Deny still works.",
@@ -126,7 +126,7 @@
     alisonProse3: "Ingredient-level food log (Open Food Facts). You can override any hint and delete any row.",
     keepH: "Keep",
     alisonKeepP:
-      "Paid download {price}. Journal readable without Keep. Keep is a 30-day free trial, then {price}/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+      "Journal readable without Keep. Keep is a 30-day free trial, then {price}/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
     alisonNote:
       "Optional Apple Watch marks start and intensity. Optional Apple Health reads food, water, and sleep already on the device — Turn On All if you want that overlay. Deny still works. The journal still works.",
     alisonWhatShortA:
@@ -190,7 +190,7 @@
       "Off by default. Warn-only for what has shown up together. Three repeats. Not a medical alarm. Not a forecast. You can override any hint and delete any row.",
     supportKeepRow: "Keep will not start a new row",
     supportKeepRowA:
-      "Paid download {price}. Journal stays readable. Keep is a 30-day free trial, then {price} / month. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+      "Journal stays readable. Keep is a 30-day free trial, then {price} / month. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
     packSupportAria: "Pack Run support",
     packSupportNote:
       "Are dogs at this park. Check-in lasts 90 minutes, then it is erased. Users check in. They do not host.",
