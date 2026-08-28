@@ -88,7 +88,7 @@
     homeAdsA: "No account. No ads. No analytics on this site or in the apps. No plus, no confetti.",
     homeKeep: "What is Keep?",
     homeKeepA:
-      "Keep is a 30-day free trial, then {price}/month through Apple. Alison: the journal stays readable without Keep; new Start, Food, and Health pull wait on Keep. Pack Run: the park list stays; check-in waits on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+      "Keep is a 30-day free trial, then $0.99/month through Apple. Alison: the journal stays readable without Keep; new Start, Food, and Health pull wait on Keep. Pack Run: the park list stays; check-in waits on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
     homeReach: "How do I reach you?",
     titleFaq: "FAQ — Night Orders",
     faqMotto: "FAQ",
@@ -101,7 +101,7 @@
       "An on-device headache journal. Observational pairs with migraine days (foods, weather, sleep, meds, env). Three repeats. A warning is what has shown up together, not a forecast. Not a medical device. Not ICHD-3. Health is a pipe. Notes are Off by default, warn-only, not a medical alarm. You can override any hint and delete any row.",
     alisonKeepQ: "Keep?",
     alisonKeepA:
-      "Keep is a 30-day free trial, then {price}/month through Apple. Journal stays readable without it. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Cancel in Apple Subscriptions.",
+      "Keep is a 30-day free trial, then $0.99/month through Apple. Journal stays readable without it. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Cancel in Apple Subscriptions.",
     faqWatchFood: "Watch, Health, food?",
     faqWatchFoodA:
       "Optional. Watch: start and intensity, same journal. Health is a pipe: optional read of food, water, and sleep already on the device. Open Food Facts is an ingredient-level food log. You can override any hint and delete any row. Deny still works.",
@@ -115,7 +115,7 @@
       "Location is When In Use, parks only. Your location, photos, and dog names stay on this phone. No account.",
     packKeepQ: "Keep?",
     packKeepA:
-      "Keep is a 30-day free trial, then {price}/month through Apple. Park list stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions.",
+      "Keep is a 30-day free trial, then $0.99/month through Apple. Park list stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions.",
     titleAlison: "Alison — Night Orders",
     descAlison: "Alison is a personal headache journal. On your device. Not a medical device.",
     alisonLede: "Personal headache journal. On your device. No account.",
@@ -126,7 +126,7 @@
     alisonProse3: "Ingredient-level food log (Open Food Facts). You can override any hint and delete any row.",
     keepH: "Keep",
     alisonKeepP:
-      "Journal readable without Keep. Keep is a 30-day free trial, then {price}/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+      "Journal readable without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
     alisonNote:
       "Optional Apple Watch marks start and intensity. Optional Apple Health reads food, water, and sleep already on the device — Turn On All if you want that overlay. Deny still works. The journal still works.",
     alisonWhatShortA:
@@ -145,7 +145,7 @@
     alisonWhere: "Where does my journal live?",
     alisonWhereA: "On your device. Deleting the app removes it. We cannot restore a local-only journal.",
     alisonKeepCancelA:
-      "Keep is a 30-day free trial, then {price}/month through Apple. Journal stays readable without it. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Cancel in Apple Subscriptions, not in Alison.",
+      "Keep is a 30-day free trial, then $0.99/month through Apple. Journal stays readable without it. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Cancel in Apple Subscriptions, not in Alison.",
     titlePack: "Pack Run — Night Orders",
     descPack: "Pack Run: are dogs at this park. Check-in lasts 90 minutes, then it is erased.",
     packLede: "Are dogs at this park. Nearby parks when location is on.",
@@ -154,7 +154,7 @@
     packProseMute:
       "Check in at a park and the count goes up. Parks stay separate. Your location, photos, and dog names stay on this phone. You can still see the park list without Keep.",
     packKeepP:
-      "Park list stays without Keep. Keep is a 30-day free trial, then {price}/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+      "Park list stays without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.",
     packNote:
       "Location is When In Use, for nearby parks. Deny it and a short list still works. No background tracking. No account. No chat.",
     packWhoLongA:
@@ -173,7 +173,7 @@
     packAcct: "Do I need an account?",
     packAcctA: "No. No chat. No ads. Dogs you add live on your device.",
     packKeepCancelA:
-      "Keep is a 30-day free trial, then {price}/month through Apple. Park list stays without it. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions, not in Pack Run.",
+      "Keep is a 30-day free trial, then $0.99/month through Apple. Park list stays without it. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions, not in Pack Run.",
     titleSupport: "Support — Night Orders",
     supportMotto: "Support",
     alisonSupportAria: "Alison support",
@@ -190,7 +190,7 @@
       "Off by default. Warn-only for what has shown up together. Three repeats. Not a medical alarm. Not a forecast. You can override any hint and delete any row.",
     supportKeepRow: "I can't start a new entry",
     supportKeepRowA:
-      "Journal stays readable. Keep is a 30-day free trial, then {price} / month. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+      "Journal stays readable. Keep is a 30-day free trial, then $0.99 / month. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
     packSupportAria: "Pack Run support",
     packSupportNote:
       "Are dogs at this park. Check-in lasts 90 minutes, then it is erased.",
@@ -202,7 +202,7 @@
       "That's on purpose. Check-in lasts 90 minutes, or until you leave. Still at the park? Check in again. Camera and photos stay on this phone.",
     supportKeepIn: "I can't check in",
     supportKeepInA:
-      "Park list stays. Keep is a 30-day free trial, then {price} / month. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions.",
+      "Park list stays. Keep is a 30-day free trial, then $0.99 / month. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions.",
     alisonPrivacyLink: "Alison privacy",
     packPrivacyLink: "Pack Run privacy",
     titleLegal: "Legal — Night Orders",
