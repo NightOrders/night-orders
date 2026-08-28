@@ -135,11 +135,15 @@
 
   function ingestFamilyObject(obj) {
     if (!obj) return;
-    if (obj.copy) {
-      Object.keys(obj.copy).forEach(function (code) { mergeChrome(code, obj.copy[code]); });
+    var copy = obj.copy;
+    var locales = obj.LOCALES || obj.locales;
+    if (typeof copy === "function" && locales && locales.length) {
+      locales.forEach(function (code) { mergeChrome(code, copy(code)); });
+    } else if (copy && typeof copy === "object") {
+      Object.keys(copy).forEach(function (code) { mergeChrome(code, copy[code]); });
     }
     Object.keys(obj).forEach(function (code) {
-      if (code === "copy" || code === "family" || code === "locales" || typeof obj[code] !== "object" || !obj[code]) return;
+      if (code === "copy" || code === "family" || code === "locales" || code === "LOCALES" || typeof obj[code] !== "object" || !obj[code]) return;
       if (obj[code].motto || obj[code].navAria || obj[code].lede || obj[code].navSupport) mergeChrome(code, obj[code]);
     });
   }
@@ -219,8 +223,12 @@
       var tv = t(titleEl.getAttribute("data-i18n"));
       if (tv) document.title = tv;
     }
-    if (window.NO_CJK && typeof window.NO_CJK.apply === "function") {
-      try { window.NO_CJK.apply(window.NO_LOCALE); } catch (e) { /* fit-only */ }
+    var loc = window.NO_LOCALE;
+    if (window.NO_CJK && window.NO_CJK.locales && window.NO_CJK.locales.indexOf(loc) !== -1 && typeof window.NO_CJK.apply === "function") {
+      try { window.NO_CJK.apply(loc); } catch (e) { /* fit-only */ }
+    }
+    if (window.NO_INDIC && window.NO_INDIC.LOCALES && window.NO_INDIC.LOCALES.indexOf(loc) !== -1 && typeof window.NO_INDIC.apply === "function") {
+      try { window.NO_INDIC.apply(loc); } catch (e2) { /* fit-only */ }
     }
   }
 

@@ -156,7 +156,7 @@
 
   var nl = {
     navAria: "Site",
-    navSupport: "Support",
+    navSupport: "Hulp",
     navFaq: "FAQ",
     navPrivacy: "Privacy",
     navLegal: "Juridisch",
