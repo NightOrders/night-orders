@@ -8,7 +8,7 @@ KEEP-COPY: dropped every Paid download line on index, alison, support, faq, priv
 
 SITE-TWIN rooms already sat. All 50 locale.js. mailto:support@nightorders.app. No (at). No /es/ hops. No occupancy POST. No fake imprint.
 
-SHA `470aff8e44f23a9a29d68ba977a95043a6f93eae` this tree. KEEP-COPY sat `0ff2b7c`.
+SHA `186f70c0770c78b7c9d675adf6c0f8d053140a51` this tree. KEEP-COPY sat `0ff2b7c`.
 
 Did not xcodebuild. Did not POST Submit. Did not merge PR #5.
 
