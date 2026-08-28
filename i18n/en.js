@@ -107,12 +107,12 @@
       "Optional. Watch: start and intensity, same journal. Health is a pipe: optional read of food, water, and sleep already on the device. Open Food Facts is an ingredient-level food log. You can override any hint and delete any row. Deny still works.",
     packWhat: "What is Pack Run?",
     packWhatA: "Are dogs at this park. Nearby parks when location is on. Check-in lasts 90 minutes, then it is erased.",
-    packWho: "Who hosts?",
+    packWho: "How do park counts work?",
     packWhoA:
-      "One Cloudflare host. Users check in. They do not host. Each park is its own room of 80. A park does not see another park. Nobody owns a park.",
+      "You check in from your phone. Parks don't share with each other, and nobody owns a park.",
     packFollow: "Does it follow me?",
     packFollowA:
-      "Location is When In Use, parks only. No Always. No GPS track, photos, or dog names on the occupancy wire. No account.",
+      "Location is When In Use, parks only. No Always. Your location, photos, and dog names stay on this phone. No account.",
     packKeepQ: "Keep?",
     packKeepA:
       "Keep is a 30-day free trial, then {price}/month through Apple. Park list stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions.",
@@ -152,13 +152,13 @@
     packProse1:
       "One job: are dogs at this park. The list shows a count, not names. Still there after 90 minutes? Check in again.",
     packProseMute:
-      "Users check in. They do not host. One host. Each park is its own room. No GPS track, photos, or dog names on the occupancy wire. Park list stays without Keep.",
+      "Check in at a park and the count goes up. Parks stay separate. Your location, photos, and dog names stay on this phone. You can still see the park list without Keep.",
     packKeepP:
       "Park list stays without Keep. Keep is a 30-day free trial, then {price}/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.",
     packNote:
       "Location is When In Use, for nearby parks. Deny it and a short list still works. No background tracking. No account. No chat.",
     packWhoLongA:
-      "One Cloudflare host. Users check in. They do not host. Each park is its own room. A park in one city does not see a park in another. Nobody owns a park. Nobody runs a server on their phone.",
+      "You check in from your phone. A park in one city doesn't see a park in another. Nobody owns a park, and you don't run anything extra on your phone.",
     packPosted: "What gets posted when I check in?",
     packPostedA:
       "Park, pack size, time, and a hashed device id. GPS, photos, and dog names stay on your device. After 90 minutes the row is erased. Leave deletes it now.",
@@ -166,7 +166,7 @@
     packWhy90A: "So the board stays now, not last week. Still at the park? Check in again. The app does not invent a crowd.",
     packHowMany: "How many dogs at a park?",
     packHowManyA:
-      "Each park holds 80 check-ins. Oldest drops when a park is full. Other parks are their own rooms. Ask with no park list and the board is empty.",
+      "Each park shows a live count. When it's busy, the oldest check-in drops off so the board stays current. Parks stay separate. With location off, you still get a short list.",
     packLoc: "Location?",
     packLocA:
       "When In Use, optional. Nearby OpenStreetMap dog parks. No Always. No background track. Deny location and a short list still works.",
@@ -178,7 +178,7 @@
     supportMotto: "Support",
     alisonSupportAria: "Alison support",
     alisonSupportNote:
-      "On-device journal. Not a medical device. Not ICHD-3. Health is a pipe. Talk to a clinician about symptoms.",
+      "A journal on your phone. Not a medical device. Talk to a clinician about symptoms.",
     supportFirst: "First open",
     supportFirstA:
       "If a headache is on, tap Start. When it ends, tap Stop. Log meals, water, and sleep as they happen. Journal is what you already wrote. Watch and Apple Health are optional. Open Food Facts is live search when you look up a food. Ingredient-level food log (Open Food Facts). You can override any hint and delete any row.",
@@ -193,13 +193,13 @@
       "Journal stays readable. Keep is a 30-day free trial, then {price} / month. New Start, Food, and Health pull wait on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
     packSupportAria: "Pack Run support",
     packSupportNote:
-      "Are dogs at this park. Check-in lasts 90 minutes, then it is erased. Users check in. They do not host.",
+      "Are dogs at this park. Check-in lasts 90 minutes, then it is erased.",
     supportNoParks: "No nearby parks",
     supportNoParksA:
       "Allow Location When In Use. Parks only. No Always. If location is off, or the map is down, a short list still works.",
     supportGone: "Check-in disappeared",
     supportGoneA:
-      "That is the product. Ninety minutes, then erased, or when you leave. Still at the park? Check in again. Camera and photos stay on this phone. They are not on the occupancy wire.",
+      "That's on purpose. Check-in lasts 90 minutes, or until you leave. Still at the park? Check in again. Camera and photos stay on this phone.",
     supportKeepIn: "Keep will not check in",
     supportKeepInA:
       "Park list stays. Keep is a 30-day free trial, then {price} / month. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions.",
