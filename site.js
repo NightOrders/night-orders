@@ -400,3 +400,13 @@
     document.body.appendChild(svg);
   })();
 })();
+(function restoreMail() {
+    const addr = "support@nightorders.app";
+    document.querySelectorAll("a.mail, a[href*='email-protection']").forEach(function (a) {
+      a.setAttribute("href", "mailto:" + addr);
+      const text = (a.textContent || "").replace(/\s+/g, " ").trim();
+      if (!text || text.indexOf("(at)") !== -1 || text.indexOf("[email") !== -1 || text.indexOf("protected") !== -1) {
+        a.textContent = addr;
+      }
+    });
+  })();
