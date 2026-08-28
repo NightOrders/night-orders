@@ -4,17 +4,119 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pack Run — Night Orders</title>
-  <meta http-equiv="refresh" content="0; url=https://nightorders.app/pack-run.html" />
+  <meta name="description" content="Pack Run: are dogs at this park. Check-in lasts 90 minutes, then it is erased." />
   <link rel="canonical" href="https://nightorders.app/pack-run.html" />
   <link rel="stylesheet" href="site.css" />
 </head>
 <body>
   <header class="mast">
     <p class="mark"><a href="index.html">Night Orders</a></p>
+    <nav class="mast-nav" aria-label="Site">
+      <a href="index.html">Night Orders</a>
+      <a href="alison.html">Alison</a>
+      <a href="pack-run.html">Pack Run</a>
+      <a href="support.html">Support</a>
+    </nav>
     <p class="motto">Pack Run</p>
+    <p class="kicker">The record stays with you.</p>
   </header>
-  <main class="prose">
-    <p><a href="pack-run.html">Pack Run</a></p>
+  <main>
+    <p class="lede">Are dogs at this park. Nearby parks when location is on.</p>
+    <figure class="phone-wrap">
+      <div class="phone pack" data-poc="pack" role="region" aria-label="Pack Run. Add a dog, then check in. Parks show dog counts, not names.">
+        <div class="phone-inner">
+          <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
+          <div class="screen poc-screen">
+            <div data-pack-dogs>
+              <p class="app-name">Pack Run</p>
+              <p class="whisper">Your dogs · counts, no names</p>
+              <p class="whisper"><span data-pack-dogs-count aria-live="polite">0 dogs</span>. No names.</p>
+              <button type="button" class="check" data-pack-add>Add a dog</button>
+              <button type="button" class="leave" data-pack-go hidden>Let's go</button>
+            </div>
+            <div data-pack-list hidden>
+              <p class="app-name">Pack Run</p>
+              <p class="whisper">Nearby parks · counts, no names</p>
+              <div data-pack-rows></div>
+            </div>
+            <div data-pack-detail hidden>
+              <button type="button" class="back" data-pack-back>Parks</button>
+              <p class="app-name" data-pack-name></p>
+              <p class="whisper"><span data-pack-count aria-live="polite">0</span>. No names.</p>
+              <button type="button" class="check" data-pack-in>Check in</button>
+              <button type="button" class="leave" data-pack-leave hidden>Leave</button>
+              <p class="erase" data-pack-erase hidden>Erases in 90 minutes.</p>
+              <p class="ttl" data-pack-ttl hidden></p>
+              <p class="whisper">No photo. No GPS track.</p>
+            </div>
+          </div>
+          <div class="home-pip" aria-hidden="true"></div>
+        </div>
+      </div>
+      <figcaption>Add a dog. Then check in. Counts, not names.</figcaption>
+    </figure>
+    <div class="prose">
+      <p>One job: are dogs at this park. The list shows a count, not names. Still there after 90 minutes? Check in again.</p>
+      <p class="mute">Users check in. They do not host. One host. Each park is its own room. No GPS track, photos, or dog names on the occupancy wire. Park list stays without Keep.</p>
+    </div>
+    <div class="keep">
+      <h2>Keep</h2>
+      <p>Park list stays without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
+    </div>
+    <p class="note">Location is When In Use, for nearby parks. Deny it and a short list still works. No background tracking. No account. No chat.</p>
+    <section class="faq" aria-label="Pack Run">
+      <h2>Pack Run</h2>
+      <details class="faq-item">
+        <summary>What is Pack Run?</summary>
+        <p>Are dogs at this park. Nearby parks when location is on. Check-in lasts 90 minutes, then it is erased.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Who hosts?</summary>
+        <p>One Cloudflare host. Users check in. They do not host. Each park is its own room. A park in one city does not see a park in another. Nobody owns a park. Nobody runs a server on their phone.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What gets posted when I check in?</summary>
+        <p>Park, pack size, time, and a hashed device id. GPS, photos, and dog names stay on your device. After 90 minutes the row is erased. Leave deletes it now.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why 90 minutes?</summary>
+        <p>So the board stays now, not last week. Still at the park? Check in again. The app does not invent a crowd.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How many dogs at a park?</summary>
+        <p>Each park holds 80 check-ins. Oldest drops when a park is full. Other parks are their own rooms. Ask with no park list and the board is empty.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Location?</summary>
+        <p>When In Use, optional. Nearby OpenStreetMap dog parks. No Always. No background track. Deny location and a short list still works.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need an account?</summary>
+        <p>No. No chat. No ads. Dogs you add live on your device.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Keep?</summary>
+        <p>Keep is a 30-day free trial, then $0.99/month through Apple. Park list stays without it. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions, not in Pack Run.</p>
+      </details>
+    </section>
+    <p class="legal-row">
+      <a href="privacy-pack-run.html">Privacy</a>
+      <a href="support.html">Support</a>
+      <a href="legal.html">Legal</a>
+    </p>
+    <p class="store">On the App Store</p>
   </main>
+  <footer class="foot">
+    <div class="foot-links">
+      <a href="alison.html">Alison</a>
+      <a href="pack-run.html">Pack Run</a>
+      <a href="support.html">Support</a>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="legal.html">Legal</a>
+    </div>
+    <p>Support: <a href="mailto:support@nightorders.app">support@nightorders.app</a>.</p>
+  </footer>
+  <script src="site.js"></script>
 </body>
 </html>
