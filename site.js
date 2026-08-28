@@ -378,4 +378,25 @@
   setInterval(tickClocks, 30000);
   document.querySelectorAll('[data-poc="alison"]').forEach(armAlison);
   document.querySelectorAll('[data-poc="pack"]').forEach(armPack);
+
+  (function armGlass() {
+    const root = document.documentElement;
+    if (!reduce) {
+      window.addEventListener("pointermove", function (ev) {
+        const w = Math.max(window.innerWidth, 1);
+        const h = Math.max(window.innerHeight, 1);
+        root.style.setProperty("--lx", ((ev.clientX / w) * 100).toFixed(2) + "%");
+        root.style.setProperty("--ly", ((ev.clientY / h) * 100).toFixed(2) + "%");
+      }, { passive: true });
+    }
+    if (document.getElementById("lg-defs")) return;
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("id", "lg-defs");
+    svg.setAttribute("aria-hidden", "true");
+    svg.setAttribute("width", "0");
+    svg.setAttribute("height", "0");
+    svg.style.position = "absolute";
+    svg.innerHTML = '<defs><filter id="lg-lens" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="14" xChannelSelector="R" yChannelSelector="G"/></filter></defs>';
+    document.body.appendChild(svg);
+  })();
 })();
