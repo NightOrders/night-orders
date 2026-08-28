@@ -93,7 +93,7 @@
     titleFaq: "FAQ — Night Orders",
     faqMotto: "FAQ",
     faqDataA:
-      "On your device. No Night Orders account. GDPR / CCPA: we do not sell personal information and we do not share it for ads. Pack Run occupancy is one host: hashed device, park, pack size, and time, 90 minutes, then erased.",
+      "On your device. No Night Orders account. GDPR / CCPA: we do not sell personal information and we do not share it for ads. Pack Run check-in is park and count only. It lasts 90 minutes, then it's gone.",
     faqAds: "Ads? Account?",
     faqAdsA: "No ads. No account. No analytics. No plus, no confetti.",
     alisonWhat: "What is Alison?",
