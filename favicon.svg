@@ -17,5 +17,6 @@
   <rect x="1" y="1" width="30" height="30" rx="8" fill="url(#spec)"/>
   <rect x="1.4" y="1.4" width="29.2" height="29.2" rx="7.4" fill="none" stroke="#ffffff" stroke-opacity=".72" stroke-width="1"/>
   <rect x="1.6" y="1.6" width="28.8" height="28.8" rx="7.2" fill="none" stroke="#6aa8ff" stroke-opacity=".35" stroke-width=".7"/>
-  <path d="M10.2 22.2 V9.8 h5.1 c2.7 0 4.5 1.55 4.5 4.05 0 2.5-1.75 4.1-4.55 4.1H12.5" fill="none" stroke="#14202c" stroke-opacity=".82" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.4 7.1 A7.3 7.3 0 1 0 18.4 21.7 A5.55 5.55 0 1 1 18.4 7.1 Z" fill="#14202c" fill-opacity=".82"/>
+  <rect x="10.2" y="24.05" width="11.6" height="1.7" rx=".85" fill="#14202c" fill-opacity=".82"/>
 </svg>
