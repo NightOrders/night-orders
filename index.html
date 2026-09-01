@@ -14,9 +14,25 @@
 <link rel="icon" href="favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script src="locale.js"></script>
-  <link rel="stylesheet" href="site-1442.css?v=twin58" />
+  <link rel="stylesheet" href="site-1836.css?v=power4" />
+  <style>
+    body.power { --bloom-b: rgba(64, 168, 196, 0.28); --chroma-b: rgba(64, 168, 196, 0.22); }
+    body.power main { max-width: min(74rem, calc(100% - 1.2rem)); }
+    body.power .pair.stage { display: grid; gap: 1.4rem; align-items: stretch; }
+    @media (min-width: 64rem) {
+      body.power .pair.stage { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+    body.power .phone.play {
+      --w: min(26rem, 92vw);
+      width: var(--w);
+      max-width: 100%;
+      height: min(42rem, calc(100dvh - 11.2rem));
+      min-height: 28rem;
+      max-height: calc(100dvh - 11.2rem);
+    }
+  </style>
 </head>
-<body>
+<body class="power">
   <header class="mast">
     <p class="mark">Night Orders</p>
     <nav class="mast-nav" data-i18n-aria="navAria" aria-label="Site">
@@ -28,19 +44,17 @@
   </header>
   <main>
     <p class="motto" data-i18n="motto">The record stays with you.</p>
-    <p class="lede" data-i18n="homeLede">Two apps at launch. On your device. No account. Help first.</p>
 
-    <section class="pair">
+    <section class="pair stage">
       <article class="app-block">
         <figure class="phone-wrap">
-          <div class="phone alison-phone" data-rooms="alison" role="region" data-i18n-aria="alisonRoomsAria" aria-label="Alison. Opening, Home, Food, Journal, Clinic, Yours.">
+          <div class="phone alison-phone play" data-rooms="alison" role="region" data-i18n-aria="alisonRoomsAria" aria-label="Alison. Opening, Home, Food, Journal, Clinic, Yours.">
           <div class="phone-inner">
             <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
             <div class="screen rooms-screen">
               <div class="room is-on opening" data-room="opening">
                 <p class="app-name">Alison</p>
                 <p class="whisper" data-i18n="alisonOpeningLine">The journal is yours. Not a diagnosis.</p>
-                <p class="whisper" data-i18n="alisonJournalNotDx">Personal journal. Not a diagnosis.</p>
                 <p class="no-ads" data-i18n="alisonNoAds">No ads forever</p>
                 <p class="whisper privacy-line" data-i18n="alisonPrivacyLine">Journal stays on this phone. Location is optional, weather only. Apple Health is optional: journal overlay, not diagnosis. Not a medical device.</p>
                 <a class="privacy-link" href="privacy-alison.html" data-i18n="alisonPrivacyPolicy">Privacy policy</a>
@@ -52,25 +66,33 @@
                 <div class="sheet">
                   <p class="room-title" data-i18n="alisonHeadacheNow">Headache right now?</p>
                   <p class="whisper" data-i18n="alisonHugeStart">Huge Start. Someone else can tap it. Details fill later.</p>
+                  <p class="whisper" data-alison-live hidden></p>
                   <button type="button" class="start start-now" data-alison-start data-i18n="alisonStart">Start</button>
                   <button type="button" class="leave" data-alison-stop hidden data-i18n="alisonStop">Stop</button>
                 </div>
               </div>
               <div class="room" data-room="food" hidden>
                 <p class="app-name" data-i18n="alisonTabFood">Food</p>
-                <p class="whisper" data-i18n="alisonFoodWhisper">Search, scan, or type. Ingredients are the help. Not calories. Not a trigger test.</p>
-                <ul class="log"><li><span data-i18n="alisonFoodRow">Oats · water</span><span class="qty" data-i18n="alisonFoodOff">Off</span></li></ul>
-                <p class="whisper" data-i18n="alisonFoodNote">Open Food Facts when you look up a food. Override any hint. Delete any row.</p>
+                <p class="whisper" data-i18n="alisonFoodHelp">Ingredients are the help.</p>
+                <div class="add-row">
+                  <input type="text" data-alison-food-input autocomplete="off" enterkeyhint="done" maxlength="80" placeholder="Type a food" aria-label="Type a food" />
+                  <button type="button" data-alison-food-add data-i18n="alisonAdd">Add</button>
+                </div>
+                <ul class="log" data-alison-food-log></ul>
               </div>
               <div class="room" data-room="journal" hidden>
                 <p class="app-name" data-i18n="alisonTabJournal">Journal</p>
                 <p class="whisper" data-i18n="alisonJournalWhisper">Journal is nothing extra. It is what you already wrote.</p>
-                <p class="whisper" data-i18n="alisonJournalEmpty">Nothing yet. Start, then Stop. Meals on Food.</p>
+                <p class="whisper" data-alison-journal-empty data-i18n="alisonJournalEmpty">Nothing yet. Start, then Stop. Meals on Food.</p>
+                <ul class="log" data-alison-journal></ul>
               </div>
               <div class="room" data-room="clinic" hidden>
                 <p class="app-name" data-i18n="alisonTabClinic">Clinic</p>
-                <p class="whisper" data-i18n="alisonClinicWhisper">Clinic letter stays closed until the count is honest. You can still share the month page. Not a diagnosis.</p>
+                <p class="whisper" data-alison-clinic-lock data-i18n="alisonClinicWhisper">Clinic letter stays closed until the count is honest. You can still share the month page. Not a diagnosis.</p>
+                <p class="whisper" data-alison-clinic-count></p>
                 <p class="whisper" data-i18n="alisonClinicNote">Five episodes, eight meals, seven days. Your words. Not a medical device.</p>
+                <button type="button" class="leave" data-alison-share data-i18n="alisonShareMonth">Share month</button>
+                <p class="whisper" data-alison-share-ack hidden></p>
               </div>
               <div class="room" data-room="yours" hidden>
                 <p class="app-name" data-i18n="alisonTabYours">Yours</p>
@@ -78,10 +100,10 @@
                 <div class="sheet">
                   <p class="room-title" data-i18n="alisonHealthPipe">Apple Health</p>
                   <p class="health-ack" data-alison-health-ack data-i18n="alisonHealthStillOff">Still off</p>
-                  <p class="whisper" data-i18n="alisonHealthTruth">Optional. This browser cannot read Apple Health. Journal still works.</p>
+                  <p class="whisper" data-alison-health-truth data-i18n="alisonHealthTruth">Optional. This browser cannot read Apple Health. Journal still works.</p>
                   <button type="button" class="leave" data-alison-health data-i18n="alisonHealthConnect">Connect</button>
                 </div>
-                <p class="whisper" data-i18n="alisonYoursNote">The journal stays on this phone. No account. Apple Health is optional. Not a medical device.</p>
+                <p class="whisper" data-i18n="alisonKeepP">Journal readable without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
               </div>
             </div>
             <nav class="glass-bar alison-tabbar" hidden role="tablist" data-i18n-aria="alisonTabAria" aria-label="Alison">
@@ -93,18 +115,12 @@
             </nav>
           </div>
         </div>
-        <figcaption data-i18n="alisonFig">OPEN. Home, Food, Journal, Clinic, Yours.</figcaption>
         </figure>
-        <div class="app-copy">
-          <h2>Alison</h2>
-          <p data-i18n="alisonBlurb">A journal on your device. Not a medical device.</p>
-          <a class="more" href="alison.html" data-i18n="moreUsage">Usage, Keep, privacy</a>
-        </div>
       </article>
 
       <article class="app-block">
         <figure class="phone-wrap">
-          <div class="phone pack" data-rooms="pack" role="region" data-i18n-aria="packRoomsAria" aria-label="Pack Run. Opening, dogs, parks, Keep.">
+          <div class="phone pack play" data-rooms="pack" role="region" data-i18n-aria="packRoomsAria" aria-label="Pack Run. Opening, dogs, parks, Keep.">
           <div class="phone-inner">
             <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
             <div class="screen rooms-screen">
@@ -119,21 +135,22 @@
               <div class="room" data-room="dogs" hidden>
                 <p class="app-name" data-i18n="packTabDogs">Dogs</p>
                 <p class="whisper" data-i18n="packDogsWhisper">Your dogs. On this phone. No names on the park board.</p>
-                <div class="sheet">
-                  <p class="room-title" data-i18n="packDogSample">Maple</p>
-                  <p class="whisper" data-i18n="packDogOnPhone">On this phone</p>
+                <div class="add-row">
+                  <input type="text" data-pack-dog-input autocomplete="off" enterkeyhint="done" maxlength="40" placeholder="Dog name" aria-label="Dog name" />
+                  <button type="button" data-pack-dog-add data-i18n="packAddDog">Add</button>
                 </div>
+                <ul class="log" data-pack-dog-log></ul>
               </div>
               <div class="room" data-room="parks" hidden>
                 <p class="app-name" data-i18n="packTabParks">Parks</p>
                 <p class="whisper" data-i18n="packNearby">Nearby parks. Counts, no names.</p>
                 <button type="button" class="park-btn" data-pack-park="named" data-pack-to-checkin>
                   <span data-i18n="packNamedPark">Named park</span>
-                  <span class="qty" data-pack-count="named">2</span>
+                  <span class="qty" data-pack-count="named">0</span>
                 </button>
                 <button type="button" class="park-btn" data-pack-park="hill" data-pack-to-checkin>
                   <span data-i18n="packHillPark">Hill park</span>
-                  <span class="qty" data-pack-count="hill">1</span>
+                  <span class="qty" data-pack-count="hill">0</span>
                 </button>
                 <p class="whisper" data-i18n="packThisPhone">This phone only.</p>
               </div>
@@ -141,18 +158,18 @@
                 <button type="button" class="back" data-pack-to-parks data-i18n="packBack">Parks</button>
                 <p class="app-name" data-pack-park-title data-i18n="packNamedPark">Named park</p>
                 <p class="whisper" data-i18n="packNoNames">No names on the park board.</p>
-                <p class="count-num" data-pack-detail-count>2</p>
+                <p class="count-num" data-pack-detail-count>0</p>
                 <button type="button" class="check" data-pack-checkin data-i18n="packCheckIn">Check in</button>
                 <button type="button" class="leave" data-pack-leave hidden data-i18n="packLeave">Leave</button>
-                <p class="erase" data-i18n="packErase">Erases in 90 minutes.</p>
+                <p class="erase" data-pack-ttl data-i18n="packErase">Erases in 90 minutes.</p>
                 <p class="whisper" data-i18n="packNoPhoto">No photo. No GPS track.</p>
               </div>
               <div class="room" data-room="keep" hidden>
                 <p class="app-name" data-i18n="packTabKeep">Keep</p>
                 <p class="whisper" data-i18n="packKeepTrial">30-day free trial, then $0.99 / month through Apple.</p>
+                <p class="whisper" data-i18n="packKeepPaid">Not a paid download.</p>
                 <p class="whisper" data-i18n="packKeepRoom">The live count stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.</p>
                 <p class="whisper" data-i18n="packKeepMute">No ads. Auto-renews. Cancel in Apple Subscriptions.</p>
-                <p class="whisper" data-i18n="packKeepStore">Keep is in the App Store build.</p>
               </div>
             </div>
             <nav class="glass-bar pack-tabbar" hidden role="tablist" data-i18n-aria="packTabAria" aria-label="Pack Run">
@@ -162,41 +179,10 @@
             </nav>
           </div>
         </div>
-        <figcaption data-i18n="packFig">OPEN. Dogs, parks, Keep.</figcaption>
         </figure>
-        <div class="app-copy">
-          <h2>Pack Run</h2>
-          <p data-i18n="packBlurb">Are dogs at this park. Check-in lasts 90 minutes, then it is erased.</p>
-          <a class="more" href="pack-run.html" data-i18n="moreUsage">Usage, Keep, privacy</a>
-        </div>
       </article>
     </section>
 
-    <p class="coming" data-i18n="coming">Coming to the App Store</p>
-
-    <section class="faq" aria-label="Night Orders">
-      <h2>Night Orders</h2>
-      <details class="faq-item">
-        <summary data-i18n="homeWhat">What is this?</summary>
-        <p data-i18n="homeWhatA">A small studio. Two apps at launch: Alison and Pack Run. The record stays with you.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="homeData">Where does my data live?</summary>
-        <p data-i18n="homeDataA">On your device. No Night Orders account. Alison does not upload the journal. Pack Run check-in is park, pack size, time, and a hashed device id for 90 minutes, then erased.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="homeAds">Is there an account? Ads?</summary>
-        <p data-i18n="homeAdsA">No account. No ads. No analytics on this site or in the apps. No plus, no confetti.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="homeKeep">What is Keep?</summary>
-        <p data-i18n="homeKeepA">Keep is a 30-day free trial, then $0.99/month through Apple. Alison: the journal stays readable without Keep; new Start, Food, and Health pull wait on Keep. Pack Run: the park list stays; check-in waits on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="homeReach">How do I reach you?</summary>
-        <p><span data-i18n="supportPrefix">Support:</span> <!--email_off--><a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a><!--/email_off-->.</p>
-      </details>
-    </section>
   </main>
   <footer class="foot">
     <div class="foot-links">
@@ -207,6 +193,7 @@
       <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
       <a href="legal.html" data-i18n="navLegal">Legal</a>
     </div>
+    <p class="coming" data-i18n="coming">Coming to the App Store</p>
     <p data-i18n="footLine">Night Orders. No ads. No account.</p>
     <p><span data-i18n="supportPrefix">Support:</span> <!--email_off--><a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a><!--/email_off-->.</p>
   </footer>

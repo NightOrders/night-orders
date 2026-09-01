@@ -14,9 +14,18 @@
 <link rel="icon" href="favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script src="locale.js"></script>
-  <link rel="stylesheet" href="site-1442.css?v=twin58" />
+  <link rel="stylesheet" href="site-1836.css?v=power4" />
+  <style>
+    body.power { --bloom-b: rgba(64, 168, 196, 0.28); --chroma-b: rgba(64, 168, 196, 0.22); }
+    body.power .phone.play {
+      --w: min(26rem, 92vw);
+      width: var(--w);
+      max-width: 100%;
+      min-height: min(42rem, 78dvh);
+    }
+  </style>
 </head>
-<body>
+<body class="power">
   <header class="mast">
     <p class="mark"><a href="index.html">Night Orders</a></p>
     <nav class="mast-nav" data-i18n-aria="navAria" aria-label="Site">
@@ -27,11 +36,8 @@
     </nav>
   </header>
   <main>
-    <p class="motto">Pack Run</p>
-    <p class="kicker" data-i18n="motto">The record stays with you.</p>
-    <p class="lede" data-i18n="packLede">Are dogs at this park. Nearby parks when location is on.</p>
     <figure class="phone-wrap">
-      <div class="phone pack" data-rooms="pack" role="region" data-i18n-aria="packRoomsAria" aria-label="Pack Run. Opening, dogs, parks, Keep.">
+      <div class="phone pack play" data-rooms="pack" role="region" data-i18n-aria="packRoomsAria" aria-label="Pack Run. Opening, dogs, parks, Keep.">
         <div class="phone-inner">
           <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
           <div class="screen rooms-screen">
@@ -40,27 +46,29 @@
               <p class="app-name" data-i18n="packTagline">One park. One count.</p>
               <p class="whisper" data-i18n="packOpeningLine">Check-in lasts 90 minutes, then it's gone. Still here? Check in again. The count is this park, this pack. If the board is quiet, it's just this phone. Location is only to find nearby parks.</p>
               <p class="no-ads" data-i18n="packNoAds">No ads forever</p>
+              <p class="whisper privacy-line" data-i18n="packPrivacyRoom">When In Use, parks only. 90 minutes, then erased. No account. No GPS track.</p>
               <a class="privacy-link" href="privacy-pack-run.html" data-i18n="packPrivacyPolicy">Privacy policy</a>
               <button type="button" class="open-btn pack-open-btn" data-pack-open data-i18n="packOpen">OPEN</button>
             </div>
             <div class="room" data-room="dogs" hidden>
               <p class="app-name" data-i18n="packTabDogs">Dogs</p>
               <p class="whisper" data-i18n="packDogsWhisper">Your dogs. On this phone. No names on the park board.</p>
-              <div class="sheet">
-                <p class="room-title" data-i18n="packDogSample">Maple</p>
-                <p class="whisper" data-i18n="packDogOnPhone">On this phone</p>
+              <div class="add-row">
+                <input type="text" data-pack-dog-input autocomplete="off" enterkeyhint="done" maxlength="40" placeholder="Dog name" aria-label="Dog name" />
+                <button type="button" data-pack-dog-add data-i18n="packAddDog">Add</button>
               </div>
+              <ul class="log" data-pack-dog-log></ul>
             </div>
             <div class="room" data-room="parks" hidden>
               <p class="app-name" data-i18n="packTabParks">Parks</p>
               <p class="whisper" data-i18n="packNearby">Nearby parks. Counts, no names.</p>
               <button type="button" class="park-btn" data-pack-park="named" data-pack-to-checkin>
                 <span data-i18n="packNamedPark">Named park</span>
-                <span class="qty" data-pack-count="named">2</span>
+                <span class="qty" data-pack-count="named">0</span>
               </button>
               <button type="button" class="park-btn" data-pack-park="hill" data-pack-to-checkin>
                 <span data-i18n="packHillPark">Hill park</span>
-                <span class="qty" data-pack-count="hill">1</span>
+                <span class="qty" data-pack-count="hill">0</span>
               </button>
               <p class="whisper" data-i18n="packThisPhone">This phone only.</p>
             </div>
@@ -68,18 +76,19 @@
               <button type="button" class="back" data-pack-to-parks data-i18n="packBack">Parks</button>
               <p class="app-name" data-pack-park-title data-i18n="packNamedPark">Named park</p>
               <p class="whisper" data-i18n="packNoNames">No names on the park board.</p>
-              <p class="count-num" data-pack-detail-count>2</p>
+              <p class="count-num" data-pack-detail-count>0</p>
               <button type="button" class="check" data-pack-checkin data-i18n="packCheckIn">Check in</button>
               <button type="button" class="leave" data-pack-leave hidden data-i18n="packLeave">Leave</button>
-              <p class="erase" data-i18n="packErase">Erases in 90 minutes.</p>
+              <p class="erase" data-pack-ttl data-i18n="packErase">Erases in 90 minutes.</p>
               <p class="whisper" data-i18n="packNoPhoto">No photo. No GPS track.</p>
             </div>
             <div class="room" data-room="keep" hidden>
               <p class="app-name" data-i18n="packTabKeep">Keep</p>
               <p class="whisper" data-i18n="packKeepTrial">30-day free trial, then $0.99 / month through Apple.</p>
+              <p class="whisper" data-i18n="packKeepPaid">Not a paid download.</p>
               <p class="whisper" data-i18n="packKeepRoom">The live count stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.</p>
               <p class="whisper" data-i18n="packKeepMute">No ads. Auto-renews. Cancel in Apple Subscriptions.</p>
-              <p class="whisper" data-i18n="packKeepStore">Keep is in the App Store build.</p>
+              <a class="privacy-link" href="privacy-pack-run.html" data-i18n="packPrivacyPolicy">Privacy policy</a>
             </div>
           </div>
           <nav class="glass-bar pack-tabbar" hidden role="tablist" data-i18n-aria="packTabAria" aria-label="Pack Run">
@@ -91,53 +100,21 @@
       </div>
       <figcaption data-i18n="packFig">OPEN. Dogs, parks, Keep.</figcaption>
     </figure>
-    <div class="prose">
-      <p data-i18n="packProse1">One job: are dogs at this park. The list shows a count, not names. Still there after 90 minutes? Check in again.</p>
-      <p class="mute" data-i18n="packProseMute">Check in at a park and the count goes up. Parks stay separate. Your location, photos, and dog names stay on this phone. You can still see the park list without Keep.</p>
-    </div>
+
+    <p class="motto">Pack Run</p>
+    <p class="kicker" data-i18n="motto">The record stays with you.</p>
+
     <div class="keep">
       <h2 data-i18n="keepH">Keep</h2>
       <p data-i18n="packKeepP">Park list stays without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
     </div>
+
     <p class="note" data-i18n="packNote">Location is When In Use, for nearby parks. Deny it and a short list still works. No background tracking. No account. No chat.</p>
-    <section class="faq" aria-label="Pack Run">
-      <h2>Pack Run</h2>
-      <details class="faq-item">
-        <summary data-i18n="packWhat">What is Pack Run?</summary>
-        <p data-i18n="packWhatA">Are dogs at this park. Nearby parks when location is on. Check-in lasts 90 minutes, then it is erased.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="packWho">How do park counts work?</summary>
-        <p data-i18n="packWhoLongA">You check in from your phone. A park in one city doesn't see a park in another. Nobody owns a park, and you don't run anything extra on your phone.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="packPosted">What do other people see?</summary>
-        <p data-i18n="packPostedA">The park, how many dogs, and when. Names, photos, and your exact spot stay on this phone. After 90 minutes it disappears. Leave and it is gone now.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="packWhy90">Why 90 minutes?</summary>
-        <p data-i18n="packWhy90A">So the board is now, not last week. Still at the park? Check in again. Empty parks stay empty.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="packHowMany">How many dogs at a park?</summary>
-        <p data-i18n="packHowManyA">Each park shows a live count. When it's busy, the oldest check-in drops off so the board stays current. Parks stay separate. With location off, you still get a short list.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="packLoc">Location?</summary>
-        <p data-i18n="packLocA">Location is When In Use, and only if you want it. Nearby dog parks when it is on. Turn it off and you still get a short list. Nothing runs in the background.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="packAcct">Do I need an account?</summary>
-        <p data-i18n="packAcctA">No. No chat. No ads. Dogs you add live on your device.</p>
-      </details>
-      <details class="faq-item">
-        <summary data-i18n="packKeepQ">Keep?</summary>
-        <p data-i18n="packKeepCancelA">Keep is a 30-day free trial, then $0.99/month through Apple. Park list stays without it. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions, not in Pack Run.</p>
-      </details>
-    </section>
+
     <p class="legal-row">
       <a href="privacy-pack-run.html" data-i18n="navPrivacy">Privacy</a>
       <a href="support.html" data-i18n="navSupport">Support</a>
+      <a href="faq.html" data-i18n="navFaq">FAQ</a>
       <a href="legal.html" data-i18n="navLegal">Legal</a>
     </p>
     <p class="coming" data-i18n="coming">Coming to the App Store</p>
