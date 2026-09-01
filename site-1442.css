@@ -946,3 +946,248 @@ html[lang="ja"] .glass-bar {
   white-space: nowrap;
   letter-spacing: normal;
 }
+
+/* SITE-TWIN: phone mocks match live Alison 73 / Pack 58 glass. Flush to inner bottom. */
+@property --glass-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 210deg;
+}
+.phone {
+  --home-floor: 10px;
+}
+.phone .phone-inner {
+  --lg-spec: color-mix(in oklab, #fffaf3 62%, transparent);
+  --lg-spec-edge: color-mix(in oklab, #fffaf3 78%, transparent);
+  --lg-fill: color-mix(in oklab, #fffaf3 32%, transparent);
+  --lg-fill-dense: color-mix(in oklab, #fffaf3 52%, transparent);
+  --lg-rim: color-mix(in oklab, #2c2620 16%, transparent);
+  --lg-blur: blur(28px) saturate(1.55) brightness(1.04);
+  --lg-lift: 0 10px 28px -16px color-mix(in oklab, #2c2620 28%, transparent);
+  background:
+    radial-gradient(120% 80% at 18% -10%, color-mix(in oklab, #fff 50%, #f3eee6) 0%, transparent 56%),
+    #f3eee6;
+  color: #2c2620;
+}
+.phone.alison-phone .phone-inner,
+.phone:not(.pack) .phone-inner {
+  background:
+    radial-gradient(120% 80% at 18% -10%, color-mix(in oklab, #fff 50%, #f3eee6) 0%, transparent 56%),
+    #f3eee6;
+  color: #2c2620;
+}
+.phone.pack .phone-inner {
+  --glass-dark: #1c1610;
+  --glass-bone: #f3ead8;
+  --glass-brass: #c4a04a;
+  --glass-spec: color-mix(in oklab, var(--glass-bone) 28%, transparent);
+  --glass-spec-hot: color-mix(in oklab, var(--glass-bone) 72%, var(--glass-brass));
+  --glass-inset: color-mix(in oklab, #1c1610 42%, transparent);
+  --glass-fill: color-mix(in oklab, #2a241c 52%, transparent);
+  --glass-tint: color-mix(in oklab, #d2691e 14%, transparent);
+  --glass-rim: color-mix(in oklab, var(--glass-bone) 22%, transparent);
+  --glass-blur: blur(18px) saturate(1.2) brightness(1.02) contrast(1.04);
+  --glass-angle: 210deg;
+  background: #1c1610;
+  color: #f3ead8;
+  animation: glass-spec 9s linear infinite;
+}
+@keyframes glass-spec {
+  to { --glass-angle: 570deg; }
+}
+.phone .rooms-screen {
+  padding: 2.4rem 0.85rem 4.85rem;
+  height: 100%;
+  box-sizing: border-box;
+}
+.phone .room.opening {
+  position: relative;
+  min-height: 100%;
+  padding: 0.2rem 0.15rem 4.6rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.45rem;
+}
+.phone .privacy-line {
+  max-width: 16rem;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+.phone .privacy-link {
+  margin-top: 0.15rem;
+  color: inherit;
+  font-size: 0.78rem;
+  font-weight: 650;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+}
+.phone.pack .privacy-link { color: #d2691e; }
+.phone:not(.pack) .privacy-link { color: #6e4a42; }
+.phone .no-ads {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  letter-spacing: 0.08em;
+}
+.phone .no-ads::before {
+  content: "";
+  width: 0.9rem;
+  height: 0.9rem;
+  border: 1.25px solid currentColor;
+  border-radius: 999px;
+  background:
+    linear-gradient(115deg, transparent 46%, currentColor 46%, currentColor 54%, transparent 54%);
+  opacity: 0.85;
+  flex: 0 0 auto;
+}
+.phone .open-btn,
+.phone .pack-open-btn,
+.phone.pack [data-pack-open],
+.phone [data-alison-open] {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  align-self: stretch;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  min-height: calc(3.15rem + var(--home-floor));
+  padding: 0.85rem 0 var(--home-floor);
+  font: inherit;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.phone [data-alison-open] {
+  color: #2c2620;
+  background:
+    linear-gradient(180deg, color-mix(in oklab, #fffaf3 52%, transparent), color-mix(in oklab, #fffaf3 32%, transparent));
+  border-top: 1px solid color-mix(in oklab, #2c2620 16%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, #fffaf3 78%, transparent);
+  backdrop-filter: blur(28px) saturate(1.55);
+  -webkit-backdrop-filter: blur(28px) saturate(1.55);
+}
+.phone.pack .open-btn,
+.phone.pack .pack-open-btn,
+.phone.pack [data-pack-open] {
+  color: #f3ead8;
+  background: #c45a18;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  border: 0;
+}
+.phone .glass-bar {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 0;
+  padding: 0.4rem 0.4rem var(--home-floor);
+  gap: 0.28rem;
+}
+.phone .alison-tabbar {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  background: color-mix(in oklab, #fffaf3 32%, transparent);
+  border: 0;
+  border-top: 1px solid color-mix(in oklab, #2c2620 16%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, #fffaf3 62%, transparent);
+  backdrop-filter: blur(28px) saturate(1.55);
+  -webkit-backdrop-filter: blur(28px) saturate(1.55);
+}
+.phone.pack .pack-tabbar {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background:
+    linear-gradient(180deg, color-mix(in oklab, #f3ead8 18%, transparent) 0%, color-mix(in oklab, #d2691e 14%, transparent) 100%),
+    #1c1610;
+  border: 0;
+  border-top: 0.5px solid color-mix(in oklab, #f3ead8 22%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in oklab, #f3ead8 28%, transparent),
+    0 10px 28px -16px rgb(28 22 16 / 0.55);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+.phone .nav-tab {
+  min-height: 40px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #74685c;
+}
+.phone.pack .nav-tab { color: #8a7a68; }
+.phone .nav-tab.is-on,
+.phone .nav-tab[aria-selected="true"] {
+  color: #2c2620;
+  background: color-mix(in oklab, #fffaf3 52%, transparent);
+}
+.phone.pack .nav-tab.is-on,
+.phone.pack .nav-tab[aria-selected="true"] {
+  color: #f3ead8;
+  background:
+    linear-gradient(180deg, color-mix(in oklab, #f3ead8 22%, transparent) 0%, transparent 46%),
+    color-mix(in oklab, #d2691e 32%, color-mix(in oklab, #f3ead8 18%, transparent));
+  border: 0.5px solid color-mix(in oklab, #f3ead8 22%, transparent);
+}
+.phone .sheet {
+  background: color-mix(in oklab, #fffaf3 32%, transparent);
+  border: 1px solid color-mix(in oklab, #2c2620 16%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, #fffaf3 62%, transparent);
+  backdrop-filter: blur(22px) saturate(1.45);
+  -webkit-backdrop-filter: blur(22px) saturate(1.45);
+}
+.phone.pack .sheet {
+  background: color-mix(in oklab, #2a241c 52%, transparent);
+  border: 0.5px solid color-mix(in oklab, #f3ead8 22%, transparent);
+  color: #f3ead8;
+}
+.phone .start-now,
+.phone [data-alison-start] {
+  min-height: 3.4rem;
+  border-radius: 1.15rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #2c2620;
+  background:
+    linear-gradient(180deg, color-mix(in oklab, #fffaf3 52%, transparent), color-mix(in oklab, #fffaf3 32%, transparent));
+  border: 1px solid color-mix(in oklab, #2c2620 16%, transparent);
+}
+.phone .health-ack {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+.phone .count-num {
+  margin: 0.2rem 0 0;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  text-align: center;
+}
+.phone.pack .park-btn {
+  background: color-mix(in oklab, #2a241c 52%, transparent);
+  border: 0.5px solid color-mix(in oklab, #f3ead8 22%, transparent);
+  color: #f3ead8;
+}
+.phone.pack .check {
+  background: #c45a18;
+  color: #f3ead8;
+  border: 0;
+  border-radius: 1.15rem;
+  backdrop-filter: none;
+}
+.phone.pack .whisper,
+.phone.pack .erase,
+.phone.pack .qty { color: #8a7a68; }
+.phone.pack .app-name,
+.phone.pack .room-title { color: #f3ead8; }
+.phone.pack .chrome { color: #8a7a68; }
+.phone.pack .clock { color: #f3ead8; }
+.phone.pack .back { color: #8a7a68; }

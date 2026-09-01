@@ -33,12 +33,30 @@
     });
   }
 
+  function copy(key, fallback) {
+    if (window.NO_T) {
+      const hit = window.NO_T(key);
+      if (hit) return hit;
+    }
+    return fallback;
+  }
+
   function armAlison(phone) {
     const bar = phone.querySelector(".glass-bar");
-    if (bar) bar.hidden = false;
+    const openBtn = phone.querySelector("[data-alison-open]");
+    const hasOpening = phone.querySelector('[data-room="opening"]');
+    function enter(id) {
+      if (bar) bar.hidden = id === "opening";
+      showRoom(phone, id);
+    }
+    if (openBtn) {
+      openBtn.addEventListener("click", function () {
+        enter("home");
+      });
+    }
     phone.querySelectorAll(".glass-bar [data-tab]").forEach(function (tab) {
       tab.addEventListener("click", function () {
-        showRoom(phone, tab.getAttribute("data-tab"));
+        enter(tab.getAttribute("data-tab"));
       });
     });
     const start = phone.querySelector("[data-alison-start]");
@@ -53,12 +71,31 @@
         start.hidden = false;
       });
     }
-    showRoom(phone, "home");
+    const ack = phone.querySelector("[data-alison-health-ack]");
+    const healthBtn = phone.querySelector("[data-alison-health]");
+    if (ack) ack.textContent = copy("alisonHealthStillOff", "Still off");
+    if (healthBtn && ack) {
+      healthBtn.addEventListener("click", function () {
+        ack.textContent = copy("alisonHealthNotHere", "Health not on this device. Journal still works.");
+      });
+    }
+    enter(hasOpening ? "opening" : "home");
   }
 
   function armPack(phone) {
     const bar = phone.querySelector(".glass-bar");
     const openBtn = phone.querySelector("[data-pack-open]");
+    const counts = { named: 2, hill: 1 };
+    let here = null;
+    let park = "named";
+    function paintCounts() {
+      phone.querySelectorAll("[data-pack-count]").forEach(function (el) {
+        const id = el.getAttribute("data-pack-count");
+        if (id && counts[id] != null) el.textContent = String(counts[id]);
+      });
+      const detail = phone.querySelector("[data-pack-detail-count]");
+      if (detail && counts[park] != null) detail.textContent = String(counts[park]);
+    }
     function enter(id) {
       if (bar) bar.hidden = id === "opening";
       showRoom(phone, id);
@@ -75,6 +112,15 @@
     });
     phone.querySelectorAll("[data-pack-to-checkin]").forEach(function (btn) {
       btn.addEventListener("click", function () {
+        park = btn.getAttribute("data-pack-park") || "named";
+        const title = phone.querySelector("[data-pack-park-title]");
+        const label = btn.querySelector("span");
+        if (title && label) title.textContent = label.textContent;
+        const check = phone.querySelector("[data-pack-checkin]");
+        const leave = phone.querySelector("[data-pack-leave]");
+        if (check) check.hidden = here === park;
+        if (leave) leave.hidden = here !== park;
+        paintCounts();
         enter("checkin");
       });
     });
@@ -83,6 +129,30 @@
         enter("parks");
       });
     });
+    const checkBtn = phone.querySelector("[data-pack-checkin]");
+    const leaveBtn = phone.querySelector("[data-pack-leave]");
+    if (checkBtn) {
+      checkBtn.addEventListener("click", function () {
+        if (here === park) return;
+        if (here && counts[here] != null) counts[here] = Math.max(0, counts[here] - 1);
+        counts[park] = (counts[park] || 0) + 1;
+        here = park;
+        checkBtn.hidden = true;
+        if (leaveBtn) leaveBtn.hidden = false;
+        paintCounts();
+      });
+    }
+    if (leaveBtn) {
+      leaveBtn.addEventListener("click", function () {
+        if (here !== park) return;
+        if (counts[park] != null) counts[park] = Math.max(0, counts[park] - 1);
+        here = null;
+        leaveBtn.hidden = true;
+        if (checkBtn) checkBtn.hidden = false;
+        paintCounts();
+      });
+    }
+    paintCounts();
     enter("opening");
   }
 

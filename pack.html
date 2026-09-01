@@ -14,7 +14,7 @@
 <link rel="icon" href="favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script src="locale.js"></script>
-  <link rel="stylesheet" href="site-1442.css?v=prose" />
+  <link rel="stylesheet" href="site-1442.css?v=twin58" />
 </head>
 <body>
   <header class="mast">
@@ -31,60 +31,65 @@
     <p class="kicker" data-i18n="motto">The record stays with you.</p>
     <p class="lede" data-i18n="packLede">Are dogs at this park. Nearby parks when location is on.</p>
     <figure class="phone-wrap">
-      <div class="phone pack" data-rooms="pack" role="region" data-i18n-aria="packRoomsAria" aria-label="Pack Run. Opening, dogs, parks, check-in, Keep, privacy.">
+      <div class="phone pack" data-rooms="pack" role="region" data-i18n-aria="packRoomsAria" aria-label="Pack Run. Opening, dogs, parks, Keep.">
         <div class="phone-inner">
           <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
           <div class="screen rooms-screen">
             <div class="room is-on opening" data-room="opening">
               <p class="whisper">Pack Run</p>
               <p class="app-name" data-i18n="packTagline">One park. One count.</p>
-              <p class="whisper" data-i18n="packOpeningLine">Check-in lasts 90 minutes, then it is erased.</p>
+              <p class="whisper" data-i18n="packOpeningLine">Check-in lasts 90 minutes, then it's gone. Still here? Check in again. The count is this park, this pack. If the board is quiet, it's just this phone. Location is only to find nearby parks.</p>
               <p class="no-ads" data-i18n="packNoAds">No ads forever</p>
-              <button type="button" class="start" data-pack-open data-i18n="packOpen">OPEN</button>
+              <a class="privacy-link" href="privacy-pack-run.html" data-i18n="packPrivacyPolicy">Privacy policy</a>
+              <button type="button" class="open-btn pack-open-btn" data-pack-open data-i18n="packOpen">OPEN</button>
             </div>
             <div class="room" data-room="dogs" hidden>
               <p class="app-name" data-i18n="packTabDogs">Dogs</p>
-              <p class="whisper" data-i18n="packDogsWhisper">Your dogs · on this phone</p>
+              <p class="whisper" data-i18n="packDogsWhisper">Your dogs. On this phone. No names on the park board.</p>
               <div class="sheet">
-                <p class="room-title" data-i18n="packDogOnPhone">On this phone</p>
-                <p class="whisper" data-i18n="packNoNames">No names on the park board.</p>
+                <p class="room-title" data-i18n="packDogSample">Maple</p>
+                <p class="whisper" data-i18n="packDogOnPhone">On this phone</p>
               </div>
             </div>
             <div class="room" data-room="parks" hidden>
               <p class="app-name" data-i18n="packTabParks">Parks</p>
-              <p class="whisper" data-i18n="packNearby">Nearby parks · counts, no names</p>
-              <button type="button" class="park-btn" data-pack-to-checkin>
+              <p class="whisper" data-i18n="packNearby">Nearby parks. Counts, no names.</p>
+              <button type="button" class="park-btn" data-pack-park="named" data-pack-to-checkin>
                 <span data-i18n="packNamedPark">Named park</span>
-                <span class="qty">2</span>
+                <span class="qty" data-pack-count="named">2</span>
               </button>
+              <button type="button" class="park-btn" data-pack-park="hill" data-pack-to-checkin>
+                <span data-i18n="packHillPark">Hill park</span>
+                <span class="qty" data-pack-count="hill">1</span>
+              </button>
+              <p class="whisper" data-i18n="packThisPhone">This phone only.</p>
             </div>
             <div class="room" data-room="checkin" hidden>
               <button type="button" class="back" data-pack-to-parks data-i18n="packBack">Parks</button>
-              <p class="app-name" data-i18n="packNamedPark">Named park</p>
+              <p class="app-name" data-pack-park-title data-i18n="packNamedPark">Named park</p>
               <p class="whisper" data-i18n="packNoNames">No names on the park board.</p>
-              <button type="button" class="check" data-i18n="packCheckIn">Check in</button>
+              <p class="count-num" data-pack-detail-count>2</p>
+              <button type="button" class="check" data-pack-checkin data-i18n="packCheckIn">Check in</button>
+              <button type="button" class="leave" data-pack-leave hidden data-i18n="packLeave">Leave</button>
               <p class="erase" data-i18n="packErase">Erases in 90 minutes.</p>
               <p class="whisper" data-i18n="packNoPhoto">No photo. No GPS track.</p>
             </div>
             <div class="room" data-room="keep" hidden>
               <p class="app-name" data-i18n="packTabKeep">Keep</p>
-              <p class="whisper" data-i18n="packKeepRoom">Park list stays. Check-in waits on Keep. 30-day trial, then $0.99/month through Apple.</p>
-            </div>
-            <div class="room" data-room="privacy" hidden>
-              <p class="app-name" data-i18n="packTabPrivacy">Privacy</p>
-              <p class="whisper" data-i18n="packPrivacyRoom">When In Use, parks only. 90 minutes, then erased. No account. No GPS track.</p>
+              <p class="whisper" data-i18n="packKeepTrial">30-day free trial, then $0.99 / month through Apple.</p>
+              <p class="whisper" data-i18n="packKeepRoom">The live count stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.</p>
+              <p class="whisper" data-i18n="packKeepMute">No ads. Auto-renews. Cancel in Apple Subscriptions.</p>
+              <p class="whisper" data-i18n="packKeepStore">Keep is in the App Store build.</p>
             </div>
           </div>
           <nav class="glass-bar pack-tabbar" hidden role="tablist" data-i18n-aria="packTabAria" aria-label="Pack Run">
             <button type="button" class="nav-tab" role="tab" data-tab="dogs" aria-selected="false" data-i18n="packTabDogs">Dogs</button>
             <button type="button" class="nav-tab" role="tab" data-tab="parks" aria-selected="false" data-i18n="packTabParks">Parks</button>
-            <button type="button" class="nav-tab" role="tab" data-tab="checkin" aria-selected="false" data-i18n="packTabCheckIn">Check-in</button>
             <button type="button" class="nav-tab" role="tab" data-tab="keep" aria-selected="false" data-i18n="packTabKeep">Keep</button>
-            <button type="button" class="nav-tab" role="tab" data-tab="privacy" aria-selected="false" data-i18n="packTabPrivacy">Privacy</button>
           </nav>
         </div>
       </div>
-      <figcaption data-i18n="packFig">Open. Dogs, parks, check-in, Keep, privacy.</figcaption>
+      <figcaption data-i18n="packFig">OPEN. Dogs, parks, Keep.</figcaption>
     </figure>
     <div class="prose">
       <p data-i18n="packProse1">One job: are dogs at this park. The list shows a count, not names. Still there after 90 minutes? Check in again.</p>

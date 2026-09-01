@@ -14,7 +14,7 @@
 <link rel="icon" href="../favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <script src="../locale.js"></script>
-  <link rel="stylesheet" href="../site-1442.css?v=prose" />
+  <link rel="stylesheet" href="../site-1442.css?v=twin58" />
 </head>
 <body>
   <header class="mast">
@@ -32,52 +32,67 @@
     <p class="lede" data-i18n="alisonLede">Personal headache journal. On your device. No account.</p>
 
     <figure class="phone-wrap">
-      <div class="phone" data-rooms="alison" role="region" data-i18n-aria="alisonRoomsAria" aria-label="Alison. Home Start and Stop. Food, Journal, Health, Yours.">
+      <div class="phone alison-phone" data-rooms="alison" role="region" data-i18n-aria="alisonRoomsAria" aria-label="Alison. Opening, Home, Food, Journal, Clinic, Yours.">
         <div class="phone-inner">
           <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
           <div class="screen rooms-screen">
-            <div class="room is-on" data-room="home">
+            <div class="room is-on opening" data-room="opening">
               <p class="app-name">Alison</p>
+              <p class="whisper" data-i18n="alisonOpeningLine">The journal is yours. Not a diagnosis.</p>
+              <p class="whisper" data-i18n="alisonJournalNotDx">Personal journal. Not a diagnosis.</p>
+              <p class="no-ads" data-i18n="alisonNoAds">No ads forever</p>
+              <p class="whisper privacy-line" data-i18n="alisonPrivacyLine">Journal stays on this phone. Location is optional, weather only. Apple Health is optional: journal overlay, not diagnosis. Not a medical device.</p>
+              <a class="privacy-link" href="../privacy-alison.html" data-i18n="alisonPrivacyPolicy">Privacy policy</a>
+              <button type="button" class="open-btn" data-alison-open data-i18n="alisonOpen">OPEN</button>
+            </div>
+            <div class="room" data-room="home" hidden>
+              <p class="app-name" data-i18n="alisonTabHome">Home</p>
               <p class="whisper" data-i18n="alisonHomeWhisper">Start when it begins. Stop when it ends.</p>
               <div class="sheet">
-                <p class="room-title" data-i18n="alisonHeadacheNow">Headache now</p>
-                <p class="whisper" data-i18n="alisonHugeStart">Tap Start. Details can wait.</p>
-                <button type="button" class="start" data-alison-start data-i18n="alisonStart">Start</button>
+                <p class="room-title" data-i18n="alisonHeadacheNow">Headache right now?</p>
+                <p class="whisper" data-i18n="alisonHugeStart">Huge Start. Someone else can tap it. Details fill later.</p>
+                <button type="button" class="start start-now" data-alison-start data-i18n="alisonStart">Start</button>
                 <button type="button" class="leave" data-alison-stop hidden data-i18n="alisonStop">Stop</button>
               </div>
             </div>
             <div class="room" data-room="food" hidden>
               <p class="app-name" data-i18n="alisonTabFood">Food</p>
-              <p class="whisper" data-i18n="alisonFoodWhisper">Ingredient log. On this phone.</p>
-              <ul class="log"><li><span data-i18n="alisonFoodRow">Oats · water</span><span class="qty">Off</span></li></ul>
+              <p class="whisper" data-i18n="alisonFoodWhisper">Search, scan, or type. Ingredients are the help. Not calories. Not a trigger test.</p>
+              <ul class="log"><li><span data-i18n="alisonFoodRow">Oats · water</span><span class="qty" data-i18n="alisonFoodOff">Off</span></li></ul>
               <p class="whisper" data-i18n="alisonFoodNote">Open Food Facts when you look up a food. Override any hint. Delete any row.</p>
             </div>
             <div class="room" data-room="journal" hidden>
               <p class="app-name" data-i18n="alisonTabJournal">Journal</p>
-              <p class="whisper" data-i18n="alisonJournalWhisper">What you already wrote.</p>
+              <p class="whisper" data-i18n="alisonJournalWhisper">Journal is nothing extra. It is what you already wrote.</p>
               <p class="whisper" data-i18n="alisonJournalEmpty">Nothing yet. Start, then Stop. Meals on Food.</p>
             </div>
-            <div class="room" data-room="health" hidden>
-              <p class="app-name" data-i18n="alisonTabHealth">Health</p>
-              <p class="whisper" data-i18n="alisonHealthWhisper">Health is a pipe. Optional read of food, water, and sleep already on the device.</p>
-              <p class="whisper" data-i18n="alisonHealthNote">Turn On All if you want that overlay. Deny still works. Not a medical device.</p>
+            <div class="room" data-room="clinic" hidden>
+              <p class="app-name" data-i18n="alisonTabClinic">Clinic</p>
+              <p class="whisper" data-i18n="alisonClinicWhisper">Clinic letter stays closed until the count is honest. You can still share the month page. Not a diagnosis.</p>
+              <p class="whisper" data-i18n="alisonClinicNote">Five episodes, eight meals, seven days. Your words. Not a medical device.</p>
             </div>
             <div class="room" data-room="yours" hidden>
               <p class="app-name" data-i18n="alisonTabYours">Yours</p>
-              <p class="whisper" data-i18n="alisonYoursWhisper">Light. Health. Pulse. Privacy. Data is yours.</p>
-              <p class="whisper" data-i18n="alisonYoursNote">Not a medical device. Journal stays on this phone.</p>
+              <p class="whisper" data-i18n="alisonYoursWhisper">Data is beautiful. It is yours.</p>
+              <div class="sheet">
+                <p class="room-title" data-i18n="alisonHealthPipe">Apple Health</p>
+                <p class="health-ack" data-alison-health-ack data-i18n="alisonHealthStillOff">Still off</p>
+                <p class="whisper" data-i18n="alisonHealthTruth">Optional. This browser cannot read Apple Health. Journal still works.</p>
+                <button type="button" class="leave" data-alison-health data-i18n="alisonHealthConnect">Connect</button>
+              </div>
+              <p class="whisper" data-i18n="alisonYoursNote">The journal stays on this phone. No account. Apple Health is optional. Not a medical device.</p>
             </div>
           </div>
-          <nav class="glass-bar alison-tabbar" role="tablist" data-i18n-aria="alisonTabAria" aria-label="Alison">
-            <button type="button" class="nav-tab is-on" role="tab" data-tab="home" aria-selected="true" data-i18n="alisonTabHome">Home</button>
+          <nav class="glass-bar alison-tabbar" hidden role="tablist" data-i18n-aria="alisonTabAria" aria-label="Alison">
+            <button type="button" class="nav-tab" role="tab" data-tab="home" aria-selected="false" data-i18n="alisonTabHome">Home</button>
             <button type="button" class="nav-tab" role="tab" data-tab="food" aria-selected="false" data-i18n="alisonTabFood">Food</button>
             <button type="button" class="nav-tab" role="tab" data-tab="journal" aria-selected="false" data-i18n="alisonTabJournal">Journal</button>
-            <button type="button" class="nav-tab" role="tab" data-tab="health" aria-selected="false" data-i18n="alisonTabHealth">Health</button>
+            <button type="button" class="nav-tab" role="tab" data-tab="clinic" aria-selected="false" data-i18n="alisonTabClinic">Clinic</button>
             <button type="button" class="nav-tab" role="tab" data-tab="yours" aria-selected="false" data-i18n="alisonTabYours">Yours</button>
           </nav>
         </div>
       </div>
-      <figcaption data-i18n="alisonFig">Home. Start and Stop. Food, Journal, Health, Yours.</figcaption>
+      <figcaption data-i18n="alisonFig">OPEN. Home, Food, Journal, Clinic, Yours.</figcaption>
     </figure>
 
     <div class="prose">
