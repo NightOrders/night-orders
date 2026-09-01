@@ -14,14 +14,16 @@
 <link rel="icon" href="../favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <script src="../locale.js"></script>
-  <link rel="stylesheet" href="../site-1836.css?v=power4" />
+  <link rel="stylesheet" href="../site-1836.css?v=power5" />
   <style>
     body.power { --bloom-b: rgba(64, 168, 196, 0.28); --chroma-b: rgba(64, 168, 196, 0.22); }
     body.power .phone.play {
       --w: min(26rem, 92vw);
       width: var(--w);
       max-width: 100%;
-      min-height: min(42rem, 78dvh);
+      height: min(42rem, calc(100dvh - var(--chrome-stack)));
+      min-height: 28rem;
+      max-height: calc(100dvh - var(--chrome-stack));
     }
   </style>
 </head>
@@ -50,15 +52,6 @@
               <a class="privacy-link" href="../privacy-pack-run.html" data-i18n="packPrivacyPolicy">Privacy policy</a>
               <button type="button" class="open-btn pack-open-btn" data-pack-open data-i18n="packOpen">OPEN</button>
             </div>
-            <div class="room" data-room="dogs" hidden>
-              <p class="app-name" data-i18n="packTabDogs">Dogs</p>
-              <p class="whisper" data-i18n="packDogsWhisper">Your dogs. On this phone. No names on the park board.</p>
-              <div class="add-row">
-                <input type="text" data-pack-dog-input autocomplete="off" enterkeyhint="done" maxlength="40" placeholder="Dog name" aria-label="Dog name" />
-                <button type="button" data-pack-dog-add data-i18n="packAddDog">Add</button>
-              </div>
-              <ul class="log" data-pack-dog-log></ul>
-            </div>
             <div class="room" data-room="parks" hidden>
               <p class="app-name" data-i18n="packTabParks">Parks</p>
               <p class="whisper" data-i18n="packNearby">Nearby parks. Counts, no names.</p>
@@ -82,6 +75,15 @@
               <p class="erase" data-pack-ttl data-i18n="packErase">Erases in 90 minutes.</p>
               <p class="whisper" data-i18n="packNoPhoto">No photo. No GPS track.</p>
             </div>
+            <div class="room" data-room="dogs" hidden>
+              <p class="app-name" data-i18n="packTabDogs">Dogs</p>
+              <p class="whisper" data-i18n="packDogsWhisper">Your dogs. On this phone. No names on the park board.</p>
+              <div class="add-row">
+                <input type="text" data-pack-dog-input autocomplete="off" enterkeyhint="done" maxlength="40" placeholder="Dog name" aria-label="Dog name" />
+                <button type="button" data-pack-dog-add data-i18n="packAddDog">Add</button>
+              </div>
+              <ul class="log" data-pack-dog-log></ul>
+            </div>
             <div class="room" data-room="keep" hidden>
               <p class="app-name" data-i18n="packTabKeep">Keep</p>
               <p class="whisper" data-i18n="packKeepTrial">30-day free trial, then $0.99 / month through Apple.</p>
@@ -92,8 +94,8 @@
             </div>
           </div>
           <nav class="glass-bar pack-tabbar" hidden role="tablist" data-i18n-aria="packTabAria" aria-label="Pack Run">
-            <button type="button" class="nav-tab" role="tab" data-tab="dogs" aria-selected="false" data-i18n="packTabDogs">Dogs</button>
             <button type="button" class="nav-tab" role="tab" data-tab="parks" aria-selected="false" data-i18n="packTabParks">Parks</button>
+            <button type="button" class="nav-tab" role="tab" data-tab="dogs" aria-selected="false" data-i18n="packTabDogs">Dogs</button>
             <button type="button" class="nav-tab" role="tab" data-tab="keep" aria-selected="false" data-i18n="packTabKeep">Keep</button>
           </nav>
         </div>

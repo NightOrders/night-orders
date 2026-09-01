@@ -14,14 +14,16 @@
 <link rel="icon" href="../favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
   <script src="../locale.js"></script>
-  <link rel="stylesheet" href="../site-1836.css?v=power4" />
+  <link rel="stylesheet" href="../site-1836.css?v=power5" />
   <style>
     body.power { --bloom-b: rgba(64, 168, 196, 0.28); --chroma-b: rgba(64, 168, 196, 0.22); }
     body.power .phone.play {
       --w: min(26rem, 92vw);
       width: var(--w);
       max-width: 100%;
-      min-height: min(42rem, 78dvh);
+      height: min(42rem, calc(100dvh - var(--chrome-stack)));
+      min-height: 28rem;
+      max-height: calc(100dvh - var(--chrome-stack));
     }
   </style>
 </head>

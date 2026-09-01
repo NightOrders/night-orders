@@ -582,6 +582,7 @@
     function enter(id) {
       if (bar) bar.hidden = id === "opening" || id === "checkin";
       showRoom(phone, id);
+      if (id === "parks") paintCounts();
     }
 
     expireIfNeeded();

@@ -195,9 +195,9 @@
   function t(key) {
     var loc = window.NO_LOCALE || "en-US";
     var pack = I[loc] || {};
-    if (pack[key] != null && String(pack[key]).length) return String(pack[key]);
+    if (pack[key] != null && String(pack[key]).length && String(pack[key]) !== key) return String(pack[key]);
     var en = I["en-US"] || I.en || {};
-    if (en[key] != null && String(en[key]).length) return String(en[key]);
+    if (en[key] != null && String(en[key]).length && String(en[key]) !== key) return String(en[key]);
     return null;
   }
 
@@ -223,27 +223,31 @@
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
       var val = t(key);
-      if (val == null) return;
+      if (val == null || val === key) return;
       var attr = el.getAttribute("data-i18n-attr");
       if (attr) el.setAttribute(attr, val);
       else el.textContent = val;
     });
     document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
-      var val = t(el.getAttribute("data-i18n-placeholder"));
-      if (val != null) el.setAttribute("placeholder", val);
+      var key = el.getAttribute("data-i18n-placeholder");
+      var val = t(key);
+      if (val != null && val !== key) el.setAttribute("placeholder", val);
     });
     document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
-      var val = t(el.getAttribute("data-i18n-aria"));
-      if (val != null) el.setAttribute("aria-label", val);
+      var key = el.getAttribute("data-i18n-aria");
+      var val = t(key);
+      if (val != null && val !== key) el.setAttribute("aria-label", val);
     });
     document.querySelectorAll("[data-i18n-content]").forEach(function (el) {
-      var val = t(el.getAttribute("data-i18n-content"));
-      if (val != null) el.setAttribute("content", val);
+      var key = el.getAttribute("data-i18n-content");
+      var val = t(key);
+      if (val != null && val !== key) el.setAttribute("content", val);
     });
     var titleEl = document.querySelector("title[data-i18n]");
     if (titleEl) {
-      var tv = t(titleEl.getAttribute("data-i18n"));
-      if (tv) document.title = tv;
+      var tk = titleEl.getAttribute("data-i18n");
+      var tv = t(tk);
+      if (tv && tv !== tk) document.title = tv;
     }
     var loc = window.NO_LOCALE;
     if (window.NO_CJK && window.NO_CJK.locales && window.NO_CJK.locales.indexOf(loc) !== -1 && typeof window.NO_CJK.apply === "function") {

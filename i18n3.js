@@ -446,27 +446,40 @@
       if (p !== "pt" && p !== "zh") pack = I[p];
     }
     if (!pack) pack = I.en;
-    if (pack && pack[key] != null && pack[key] !== "") return pack[key];
-    if (I.en && I.en[key] != null) return I.en[key];
-    return key;
+    if (pack && pack[key] != null && pack[key] !== "" && pack[key] !== key) return pack[key];
+    if (I.en && I.en[key] != null && I.en[key] !== "" && I.en[key] !== key) return I.en[key];
+    return null;
+  }
+
+  function paint(el, attr, val, key) {
+    if (val == null || val === "" || val === key) return;
+    if (attr) el.setAttribute(attr, val);
+    else el.textContent = val;
   }
 
   function apply() {
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      var v = t(el.getAttribute("data-i18n"));
-      if (v != null) el.textContent = v;
+      var key = el.getAttribute("data-i18n");
+      paint(el, el.getAttribute("data-i18n-attr"), t(key), key);
     });
     document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
-      el.setAttribute("placeholder", t(el.getAttribute("data-i18n-placeholder")));
+      var key = el.getAttribute("data-i18n-placeholder");
+      paint(el, "placeholder", t(key), key);
     });
     document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
-      el.setAttribute("aria-label", t(el.getAttribute("data-i18n-aria")));
+      var key = el.getAttribute("data-i18n-aria");
+      paint(el, "aria-label", t(key), key);
     });
     document.querySelectorAll("[data-i18n-content]").forEach(function (el) {
-      el.setAttribute("content", t(el.getAttribute("data-i18n-content")));
+      var key = el.getAttribute("data-i18n-content");
+      paint(el, "content", t(key), key);
     });
     var titleEl = document.querySelector("title[data-i18n]");
-    if (titleEl) document.title = t(titleEl.getAttribute("data-i18n"));
+    if (titleEl) {
+      var tk = titleEl.getAttribute("data-i18n");
+      var tv = t(tk);
+      if (tv != null && tv !== "" && tv !== tk) document.title = tv;
+    }
   }
 
   function dogLabel(n) {
@@ -477,8 +490,7 @@
     try {
       cat = new Intl.PluralRules(tag).select(count);
     } catch (e) {}
-    var tmpl = t("dog." + cat);
-    if (!tmpl || tmpl === "dog." + cat) tmpl = t("dog.other");
+    var tmpl = t("dog." + cat) || t("dog.other") || "{n} dogs";
     return String(tmpl).replace(/\{n\}/g, String(count));
   }
 
