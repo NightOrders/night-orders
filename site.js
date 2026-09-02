@@ -2,6 +2,7 @@
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const ARM_MS = 300;
   const PACK_TTL_MS = 90 * 60 * 1000;
+  const PACK_OPEN_AUTO_MS = 5000;
   const ALISON_KEY = "no.site.alison.v1";
   const PACK_KEY = "no.site.pack.v1";
   const CLINIC_NEED = { episodes: 5, meals: 8, days: 7 };
@@ -43,7 +44,6 @@
       const hit = window.NO_T(key);
       if (hit && hit !== key) return hit;
     }
-    if (key === "packAddDog") return "Add a dog";
     return fallback;
   }
 
@@ -125,6 +125,23 @@
     };
   }
 
+  function readSession(key, fallback) {
+    try {
+      const raw = sessionStorage.getItem(key);
+      if (!raw) return fallback;
+      const parsed = JSON.parse(raw);
+      return parsed && typeof parsed === "object" ? parsed : fallback;
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  function writeSession(key, value) {
+    try {
+      sessionStorage.setItem(key, JSON.stringify(value));
+    } catch (e) { /* private mode still plays in memory */ }
+  }
+
   function loadPack() {
     const blank = {
       dogs: [{ id: "maple", name: "Maple" }],
@@ -132,7 +149,7 @@
       here: null,
       until: 0
     };
-    const raw = readJson(PACK_KEY, null);
+    const raw = readSession(PACK_KEY, null);
     if (!raw) return blank;
     const dogs = Array.isArray(raw.dogs)
       ? raw.dogs.filter(function (d) { return d && String(d.name || "").trim(); })
@@ -147,7 +164,7 @@
   }
 
   function savePack(state) {
-    writeJson(PACK_KEY, {
+    writeSession(PACK_KEY, {
       dogs: state.dogs,
       parks: state.parks,
       here: state.here,
@@ -556,10 +573,9 @@
         dogLog.appendChild(li);
       });
       if (dogAdd) {
-        const addLabel = copy("packAddDog", "Add a dog");
         dogAdd.textContent = editing
           ? copy("packSave", "Save")
-          : (addLabel === "packAddDog" ? "Add a dog" : addLabel);
+          : copy("packAddDog", "Add a dog") || "Add a dog";
       }
     }
 
@@ -587,14 +603,23 @@
       if (bar) bar.hidden = id === "opening" || id === "checkin";
       showRoom(phone, id);
       if (id === "parks") paintCounts();
+      if (id === "dogs") paintDogs();
+      if (id === "checkin") paintCheck();
+    }
+
+    function openParks() {
+      paintCounts();
+      enter("parks");
     }
 
     expireIfNeeded();
 
     if (openBtn) {
-      armOpen(openBtn, function () {
-        enter("parks");
-      });
+      armOpen(openBtn, openParks);
+      window.setTimeout(function () {
+        const opening = phone.querySelector('[data-room="opening"]');
+        if (opening && !opening.hidden) openParks();
+      }, PACK_OPEN_AUTO_MS);
     }
     phone.querySelectorAll(".glass-bar [data-tab]").forEach(function (tab) {
       tab.addEventListener("click", function () {
@@ -605,7 +630,7 @@
       btn.addEventListener("click", function () {
         park = btn.getAttribute("data-pack-park") || "named";
         const title = phone.querySelector("[data-pack-park-title]");
-        const label = btn.querySelector("span");
+        const label = btn.querySelector("[data-pack-park-label]");
         if (title && label) title.textContent = label.textContent;
         paintCounts();
         paintCheck();
