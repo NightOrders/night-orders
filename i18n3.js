@@ -448,10 +448,12 @@
     if (!pack) pack = I.en;
     if (pack && pack[key] != null && pack[key] !== "" && pack[key] !== key) return pack[key];
     if (I.en && I.en[key] != null && I.en[key] !== "" && I.en[key] !== key) return I.en[key];
+    if (key === "packAddDog") return "Add a dog";
     return null;
   }
 
   function paint(el, attr, val, key) {
+    if (key === "packAddDog" && (val == null || val === "" || val === key)) val = "Add a dog";
     if (val == null || val === "" || val === key) return;
     if (attr) el.setAttribute(attr, val);
     else el.textContent = val;

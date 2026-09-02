@@ -198,6 +198,7 @@
     if (pack[key] != null && String(pack[key]).length && String(pack[key]) !== key) return String(pack[key]);
     var en = I["en-US"] || I.en || {};
     if (en[key] != null && String(en[key]).length && String(en[key]) !== key) return String(en[key]);
+    if (key === "packAddDog") return "Add a dog";
     return null;
   }
 
@@ -223,6 +224,7 @@
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       var key = el.getAttribute("data-i18n");
       var val = t(key);
+      if (key === "packAddDog" && (val == null || val === "" || val === key)) val = "Add a dog";
       if (val == null || val === key) return;
       var attr = el.getAttribute("data-i18n-attr");
       if (attr) el.setAttribute(attr, val);

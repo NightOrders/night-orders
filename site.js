@@ -41,8 +41,9 @@
   function copy(key, fallback) {
     if (window.NO_T) {
       const hit = window.NO_T(key);
-      if (hit) return hit;
+      if (hit && hit !== key) return hit;
     }
+    if (key === "packAddDog") return "Add a dog";
     return fallback;
   }
 
@@ -175,8 +176,10 @@
   function armOpen(btn, onOpen) {
     if (!btn) return;
     let armed = false;
+    btn.style.pointerEvents = "none";
     window.setTimeout(function () {
       armed = true;
+      btn.style.pointerEvents = "";
     }, ARM_MS);
     btn.addEventListener("click", function () {
       if (!armed) return;
@@ -553,9 +556,10 @@
         dogLog.appendChild(li);
       });
       if (dogAdd) {
+        const addLabel = copy("packAddDog", "Add a dog");
         dogAdd.textContent = editing
           ? copy("packSave", "Save")
-          : copy("packAddDog", "Add");
+          : (addLabel === "packAddDog" ? "Add a dog" : addLabel);
       }
     }
 
