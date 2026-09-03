@@ -77,6 +77,54 @@
       .trim();
   }
 
+  const FOOD_SLOTS = [
+    { id: "breakfast", label: "Breakfast" },
+    { id: "lunch", label: "Lunch" },
+    { id: "dinner", label: "Dinner" },
+    { id: "snack", label: "Snacks" }
+  ];
+
+  function localDay(at) {
+    const d = new Date(at == null ? Date.now() : at);
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return y + "-" + m + "-" + day;
+  }
+
+  function shiftDay(iso, delta) {
+    const parts = String(iso).split("-").map(Number);
+    const d = new Date(parts[0], parts[1] - 1, parts[2]);
+    d.setDate(d.getDate() + delta);
+    return localDay(d.getTime());
+  }
+
+  function parseDayParts(iso) {
+    const parts = String(iso).split("-").map(Number);
+    return { y: parts[0], m: parts[1] - 1, d: parts[2] };
+  }
+
+  function mealSlotOf(row) {
+    const slot = row && row.slot;
+    if (slot === "breakfast" || slot === "lunch" || slot === "dinner" || slot === "snack") return slot;
+    const kind = row && row.kind;
+    if (kind === "breakfast" || kind === "lunch" || kind === "dinner" || kind === "snack") return kind;
+    return "snack";
+  }
+
+  function normalizeMeal(row) {
+    if (!row || typeof row.text !== "string" || !row.text.trim()) return null;
+    const at = typeof row.at === "number" ? row.at : Date.now();
+    return {
+      id: String(row.id || uid()),
+      text: row.text.trim(),
+      at: at,
+      slot: mealSlotOf(row),
+      amount: typeof row.amount === "number" && row.amount > 0 ? row.amount : 1,
+      unit: typeof row.unit === "string" && row.unit.trim() ? row.unit.trim() : "Serving"
+    };
+  }
+
   function loadAlison() {
     const blank = { open: null, episodes: [], meals: [] };
     const raw = readJson(ALISON_KEY, blank);
@@ -90,9 +138,7 @@
       episodes: episodes.filter(function (row) {
         return row && typeof row.at === "number";
       }).slice(0, 400),
-      meals: meals.filter(function (row) {
-        return row && typeof row.text === "string" && row.text.trim();
-      }).slice(0, 800)
+      meals: meals.map(normalizeMeal).filter(Boolean).slice(0, 800)
     };
   }
 
@@ -211,9 +257,16 @@
     const start = phone.querySelector("[data-alison-start]");
     const stop = phone.querySelector("[data-alison-stop]");
     const live = phone.querySelector("[data-alison-live]");
-    const foodLog = phone.querySelector("[data-alison-food-log]");
-    const foodInput = phone.querySelector("[data-alison-food-input]");
-    const foodAdd = phone.querySelector("[data-alison-food-add]");
+    const foodRoot = phone.querySelector('[data-room="food"]');
+    const foodDayLabel = phone.querySelector("[data-alison-food-day-label]");
+    const foodDayHint = phone.querySelector("[data-alison-food-day-hint]");
+    const foodDayTot = phone.querySelector("[data-alison-food-day-tot]");
+    const foodCal = phone.querySelector("[data-alison-food-cal]");
+    const foodCalGrid = phone.querySelector("[data-alison-food-cal-grid]");
+    const foodCalTitle = phone.querySelector("[data-alison-food-cal-title]");
+    let foodDay = localDay();
+    let foodCalOpen = false;
+    let foodCalCursor = parseDayParts(foodDay);
     const journalLog = phone.querySelector("[data-alison-journal]");
     const journalEmpty = phone.querySelector("[data-alison-journal-empty]");
     const clinicLock = phone.querySelector("[data-alison-clinic-lock]");
@@ -283,30 +336,119 @@
       });
     }
 
-    function paintFood() {
-      if (!foodLog) return;
-      foodLog.textContent = "";
-      if (!state.meals.length) {
-        const li = document.createElement("li");
-        li.className = "empty";
-        li.textContent = copy("alisonEmpty", "Nothing yet.");
-        foodLog.appendChild(li);
-        return;
-      }
-      state.meals.slice().sort(function (a, b) { return b.at - a.at; }).forEach(function (row) {
-        const li = document.createElement("li");
-        li.setAttribute("data-id", row.id);
-        const name = document.createElement("span");
-        name.textContent = row.text;
-        const del = document.createElement("button");
-        del.type = "button";
-        del.className = "back";
-        del.setAttribute("data-alison-food-del", row.id);
-        del.textContent = copy("alisonDelete", "Delete");
-        li.appendChild(name);
-        li.appendChild(del);
-        foodLog.appendChild(li);
+    function dayLabel(iso) {
+      const parts = parseDayParts(iso);
+      const d = new Date(parts.y, parts.m, parts.d);
+      return d.toLocaleDateString(locTag(), { weekday: "short", month: "short", day: "numeric" });
+    }
+
+    function mealsOnFoodDay() {
+      return state.meals.filter(function (row) {
+        return localDay(row.at) === foodDay;
       });
+    }
+
+    function paintFoodCalendar() {
+      if (!foodCal || !foodCalGrid || !foodCalTitle) return;
+      foodCal.hidden = !foodCalOpen;
+      if (!foodCalOpen) return;
+      const y = foodCalCursor.y;
+      const m0 = foodCalCursor.m;
+      const titleDate = new Date(y, m0, 1);
+      foodCalTitle.textContent = titleDate.toLocaleDateString(locTag(), { month: "long", year: "numeric" });
+      foodCalGrid.textContent = "";
+      const marked = {};
+      state.meals.forEach(function (row) {
+        marked[localDay(row.at)] = true;
+      });
+      const start = new Date(2026, 8, 6);
+      for (let i = 0; i < 7; i++) {
+        const d = new Date(start);
+        d.setDate(start.getDate() + i);
+        const dow = document.createElement("span");
+        dow.className = "food-cal-dow";
+        dow.textContent = d.toLocaleDateString(locTag(), { weekday: "narrow" });
+        foodCalGrid.appendChild(dow);
+      }
+      const first = new Date(y, m0, 1);
+      const pad = first.getDay();
+      const daysInMonth = new Date(y, m0 + 1, 0).getDate();
+      const todayIso = localDay();
+      for (let i = 0; i < pad; i++) {
+        const empty = document.createElement("span");
+        empty.className = "food-cal-empty";
+        foodCalGrid.appendChild(empty);
+      }
+      for (let day = 1; day <= daysInMonth; day++) {
+        const iso = localDay(new Date(y, m0, day).getTime());
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = iso === foodDay ? "ink-btn food-cal-day" : "ghost-btn food-cal-day";
+        btn.textContent = String(day);
+        btn.setAttribute("data-alison-food-pick", iso);
+        if (marked[iso]) btn.setAttribute("data-has", "1");
+        if (iso === todayIso) btn.setAttribute("data-today", "1");
+        foodCalGrid.appendChild(btn);
+      }
+    }
+
+    function paintFood() {
+      if (!foodRoot) return;
+      const todayIso = localDay();
+      if (foodDayLabel) foodDayLabel.textContent = dayLabel(foodDay);
+      if (foodDayHint) {
+        foodDayHint.textContent = foodDay === todayIso
+          ? copy("alisonFoodDayHintToday", "Today. Tap for another day.")
+          : copy("alisonFoodDayHintOther", "Tap for another day.");
+      }
+      if (foodDayTot) {
+        foodDayTot.hidden = false;
+        foodDayTot.textContent = copy(
+          "alisonFoodNoCals",
+          "No calories on this day yet. Typed foods keep name and amount only."
+        );
+      }
+      FOOD_SLOTS.forEach(function (slot) {
+        const section = foodRoot.querySelector('[data-alison-food-slot="' + slot.id + '"]');
+        if (!section) return;
+        const log = section.querySelector("[data-alison-food-log]");
+        const sub = section.querySelector("[data-alison-food-sub]");
+        if (!log) return;
+        log.textContent = "";
+        const rows = mealsOnFoodDay().filter(function (row) { return row.slot === slot.id; })
+          .sort(function (a, b) { return a.at - b.at; });
+        if (sub) sub.textContent = "";
+        if (!rows.length) {
+          const li = document.createElement("li");
+          li.className = "empty";
+          li.textContent = copy("alisonFoodSlotEmpty", "Nothing here yet.");
+          log.appendChild(li);
+          return;
+        }
+        rows.forEach(function (row) {
+          const li = document.createElement("li");
+          li.setAttribute("data-id", row.id);
+          const body = document.createElement("div");
+          body.className = "food-item";
+          const name = document.createElement("p");
+          name.className = "food-item-name";
+          name.textContent = row.text;
+          const meta = document.createElement("p");
+          meta.className = "whisper";
+          meta.textContent = String(row.amount) + " " + row.unit + " · " + clockText(row.at);
+          body.appendChild(name);
+          body.appendChild(meta);
+          const del = document.createElement("button");
+          del.type = "button";
+          del.className = "back";
+          del.setAttribute("data-alison-food-del", row.id);
+          del.textContent = copy("alisonDelete", "Delete");
+          li.appendChild(body);
+          li.appendChild(del);
+          log.appendChild(li);
+        });
+      });
+      paintFoodCalendar();
     }
 
     function paintClinic() {
@@ -368,33 +510,133 @@
       });
     }
 
-    function addFood() {
-      if (!foodInput) return;
-      const text = stripKcal(foodInput.value);
-      if (!text) return;
-      state.meals.unshift({ id: uid(), text: text, at: Date.now() });
-      state.meals = state.meals.slice(0, 800);
-      foodInput.value = "";
-      persist();
-      foodInput.focus();
+    function slotHour(slot) {
+      if (slot === "breakfast") return 8;
+      if (slot === "lunch") return 12;
+      if (slot === "dinner") return 18;
+      return 15;
     }
 
-    if (foodAdd) foodAdd.addEventListener("click", addFood);
-    if (foodInput) {
-      foodInput.addEventListener("keydown", function (ev) {
-        if (ev.key === "Enter") {
-          ev.preventDefault();
-          addFood();
-        }
+    function atOnFoodDay(slot) {
+      if (foodDay === localDay()) return Date.now();
+      const parts = parseDayParts(foodDay);
+      const d = new Date(parts.y, parts.m, parts.d, slotHour(slot), 0, 0, 0);
+      return d.getTime();
+    }
+
+    function closeFoodAddPanels(except) {
+      if (!foodRoot) return;
+      foodRoot.querySelectorAll("[data-alison-food-add-panel]").forEach(function (panel) {
+        if (except && panel === except) return;
+        panel.hidden = true;
       });
     }
-    if (foodLog) {
-      foodLog.addEventListener("click", function (ev) {
-        const btn = ev.target.closest("[data-alison-food-del]");
-        if (!btn) return;
-        const id = btn.getAttribute("data-alison-food-del");
-        state.meals = state.meals.filter(function (row) { return row.id !== id; });
-        persist();
+
+    function addFoodFrom(panel) {
+      if (!panel) return;
+      const section = panel.closest("[data-alison-food-slot]");
+      if (!section) return;
+      const slot = section.getAttribute("data-alison-food-slot");
+      const input = panel.querySelector("[data-alison-food-input]");
+      if (!input || !slot) return;
+      const name = stripKcal(input.value);
+      if (!name) return;
+      state.meals.unshift({
+        id: uid(),
+        text: name,
+        at: atOnFoodDay(slot),
+        slot: slot,
+        amount: 1,
+        unit: "Serving"
+      });
+      state.meals = state.meals.slice(0, 800);
+      input.value = "";
+      panel.hidden = true;
+      persist();
+    }
+
+    if (foodRoot) {
+      foodRoot.addEventListener("click", function (ev) {
+        const toggle = ev.target.closest("[data-alison-food-cal-toggle]");
+        if (toggle) {
+          foodCalOpen = !foodCalOpen;
+          if (foodCalOpen) foodCalCursor = parseDayParts(foodDay);
+          paintFoodCalendar();
+          return;
+        }
+        const prev = ev.target.closest("[data-alison-food-cal-prev]");
+        if (prev) {
+          const dt = new Date(foodCalCursor.y, foodCalCursor.m - 1, 1);
+          foodCalCursor = { y: dt.getFullYear(), m: dt.getMonth(), d: 1 };
+          paintFoodCalendar();
+          return;
+        }
+        const next = ev.target.closest("[data-alison-food-cal-next]");
+        if (next) {
+          const dt = new Date(foodCalCursor.y, foodCalCursor.m + 1, 1);
+          foodCalCursor = { y: dt.getFullYear(), m: dt.getMonth(), d: 1 };
+          paintFoodCalendar();
+          return;
+        }
+        const close = ev.target.closest("[data-alison-food-cal-close]");
+        if (close) {
+          foodCalOpen = false;
+          paintFoodCalendar();
+          return;
+        }
+        const yesterday = ev.target.closest("[data-alison-food-cal-yesterday]");
+        if (yesterday) {
+          foodDay = shiftDay(localDay(), -1);
+          foodCalOpen = false;
+          paintFood();
+          return;
+        }
+        const todayBtn = ev.target.closest("[data-alison-food-cal-today]");
+        if (todayBtn) {
+          foodDay = localDay();
+          foodCalOpen = false;
+          paintFood();
+          return;
+        }
+        const pick = ev.target.closest("[data-alison-food-pick]");
+        if (pick) {
+          foodDay = pick.getAttribute("data-alison-food-pick") || foodDay;
+          foodCalOpen = false;
+          paintFood();
+          return;
+        }
+        const openAdd = ev.target.closest("[data-alison-food-add-open]");
+        if (openAdd) {
+          const section = openAdd.closest("[data-alison-food-slot]");
+          const panel = section && section.querySelector("[data-alison-food-add-panel]");
+          if (!panel) return;
+          const willOpen = panel.hidden;
+          closeFoodAddPanels();
+          panel.hidden = !willOpen;
+          if (willOpen) {
+            const input = panel.querySelector("[data-alison-food-input]");
+            if (input) input.focus();
+          }
+          return;
+        }
+        const addBtn = ev.target.closest("[data-alison-food-add]");
+        if (addBtn) {
+          addFoodFrom(addBtn.closest("[data-alison-food-add-panel]"));
+          return;
+        }
+        const del = ev.target.closest("[data-alison-food-del]");
+        if (del) {
+          const id = del.getAttribute("data-alison-food-del");
+          state.meals = state.meals.filter(function (row) { return row.id !== id; });
+          persist();
+        }
+      });
+      foodRoot.addEventListener("keydown", function (ev) {
+        if (ev.key !== "Enter") return;
+        const input = ev.target.closest("[data-alison-food-input]");
+        if (!input) return;
+        ev.preventDefault();
+        addFoodFrom(input.closest("[data-alison-food-add-panel]"));
       });
     }
 
@@ -434,7 +676,8 @@
         lines.push(copy("alisonEmpty", "Nothing yet."));
       } else {
         state.meals.slice().sort(function (a, b) { return b.at - a.at; }).forEach(function (row) {
-          lines.push("- " + row.text + " · " + clockText(row.at));
+          const label = (FOOD_SLOTS.find(function (s) { return s.id === row.slot; }) || {}).label || "Snacks";
+          lines.push("- " + label + ": " + row.text + " · " + String(row.amount || 1) + " " + (row.unit || "Serving") + " · " + clockText(row.at));
         });
       }
       lines.push("");

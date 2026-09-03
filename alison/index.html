@@ -13,8 +13,8 @@
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="../favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
-  <script src="../locale.js?v=e7"></script>
-  <link rel="stylesheet" href="../site-1836.css?v=e7" />
+  <script src="../locale.js?v=a76"></script>
+  <link rel="stylesheet" href="../site-1836.css?v=a76" />
   <style>
     body.power { --bloom-b: rgba(64, 168, 196, 0.28); --chroma-b: rgba(64, 168, 196, 0.22); }
     body.power .phone.play {
@@ -64,12 +64,88 @@
             </div>
             <div class="room" data-room="food" hidden>
               <p class="app-name" data-i18n="alisonTabFood">Food</p>
-              <p class="whisper" data-i18n="alisonFoodHelp">Ingredients are the help.</p>
-              <div class="add-row">
-                <input type="text" data-alison-food-input autocomplete="off" enterkeyhint="done" maxlength="80" placeholder="Type a food" aria-label="Type a food" />
-                <button type="button" data-alison-food-add data-i18n="alisonAdd">Add</button>
+              <p class="whisper" data-i18n="alisonFoodHelp">A day first. Breakfast, lunch, dinner, snacks. Type what you ate. Ingredients still matter.</p>
+              <div class="sheet food-day">
+                <button type="button" class="food-day-open" data-alison-food-cal-toggle aria-label="Open calendar">
+                  <p class="eyebrow" data-i18n="alisonFoodDay">Day</p>
+                  <p class="food-day-label" data-alison-food-day-label>Today</p>
+                  <p class="whisper" data-alison-food-day-hint>Today. Tap for another day.</p>
+                </button>
+                <p class="whisper" data-alison-food-day-tot hidden></p>
+                <div class="food-cal" data-alison-food-cal hidden>
+                  <div class="food-cal-nav">
+                    <button type="button" class="back" data-alison-food-cal-prev data-i18n="alisonFoodCalPrev">Prev</button>
+                    <p class="food-cal-title" data-alison-food-cal-title></p>
+                    <button type="button" class="back" data-alison-food-cal-next data-i18n="alisonFoodCalNext">Next</button>
+                  </div>
+                  <div class="food-cal-grid" data-alison-food-cal-grid></div>
+                  <div class="food-cal-quick">
+                    <button type="button" class="leave" data-alison-food-cal-yesterday data-i18n="alisonFoodYesterday">Yesterday</button>
+                    <button type="button" class="leave" data-alison-food-cal-today data-i18n="alisonFoodToday">Today</button>
+                  </div>
+                  <button type="button" class="back food-cal-close" data-alison-food-cal-close data-i18n="alisonFoodCalClose">Close calendar</button>
+                </div>
               </div>
-              <ul class="log" data-alison-food-log></ul>
+              <section class="sheet food-slot" data-alison-food-slot="breakfast">
+                <div class="food-slot-head">
+                  <p class="room-title" data-i18n="alisonFoodBreakfast">Breakfast</p>
+                  <p class="whisper food-slot-sub" data-alison-food-sub></p>
+                </div>
+                <ul class="log" data-alison-food-log></ul>
+                <button type="button" class="leave" data-alison-food-add-open data-i18n="alisonAddFood">Add Food</button>
+                <div class="food-add-panel" data-alison-food-add-panel hidden>
+                  <div class="add-row">
+                    <input type="text" data-alison-food-input autocomplete="off" enterkeyhint="done" maxlength="80" placeholder="Type a food" aria-label="Type a food" />
+                    <button type="button" data-alison-food-add data-i18n="alisonAdd">Add</button>
+                  </div>
+                  <p class="whisper" data-i18n="alisonFoodAmountHint">Saves as 1 Serving. No invented calories on a typed food.</p>
+                </div>
+              </section>
+              <section class="sheet food-slot" data-alison-food-slot="lunch">
+                <div class="food-slot-head">
+                  <p class="room-title" data-i18n="alisonFoodLunch">Lunch</p>
+                  <p class="whisper food-slot-sub" data-alison-food-sub></p>
+                </div>
+                <ul class="log" data-alison-food-log></ul>
+                <button type="button" class="leave" data-alison-food-add-open data-i18n="alisonAddFood">Add Food</button>
+                <div class="food-add-panel" data-alison-food-add-panel hidden>
+                  <div class="add-row">
+                    <input type="text" data-alison-food-input autocomplete="off" enterkeyhint="done" maxlength="80" placeholder="Type a food" aria-label="Type a food" />
+                    <button type="button" data-alison-food-add data-i18n="alisonAdd">Add</button>
+                  </div>
+                  <p class="whisper" data-i18n="alisonFoodAmountHint">Saves as 1 Serving. No invented calories on a typed food.</p>
+                </div>
+              </section>
+              <section class="sheet food-slot" data-alison-food-slot="dinner">
+                <div class="food-slot-head">
+                  <p class="room-title" data-i18n="alisonFoodDinner">Dinner</p>
+                  <p class="whisper food-slot-sub" data-alison-food-sub></p>
+                </div>
+                <ul class="log" data-alison-food-log></ul>
+                <button type="button" class="leave" data-alison-food-add-open data-i18n="alisonAddFood">Add Food</button>
+                <div class="food-add-panel" data-alison-food-add-panel hidden>
+                  <div class="add-row">
+                    <input type="text" data-alison-food-input autocomplete="off" enterkeyhint="done" maxlength="80" placeholder="Type a food" aria-label="Type a food" />
+                    <button type="button" data-alison-food-add data-i18n="alisonAdd">Add</button>
+                  </div>
+                  <p class="whisper" data-i18n="alisonFoodAmountHint">Saves as 1 Serving. No invented calories on a typed food.</p>
+                </div>
+              </section>
+              <section class="sheet food-slot" data-alison-food-slot="snack">
+                <div class="food-slot-head">
+                  <p class="room-title" data-i18n="alisonFoodSnacks">Snacks</p>
+                  <p class="whisper food-slot-sub" data-alison-food-sub></p>
+                </div>
+                <ul class="log" data-alison-food-log></ul>
+                <button type="button" class="leave" data-alison-food-add-open data-i18n="alisonAddFood">Add Food</button>
+                <div class="food-add-panel" data-alison-food-add-panel hidden>
+                  <div class="add-row">
+                    <input type="text" data-alison-food-input autocomplete="off" enterkeyhint="done" maxlength="80" placeholder="Type a food" aria-label="Type a food" />
+                    <button type="button" data-alison-food-add data-i18n="alisonAdd">Add</button>
+                  </div>
+                  <p class="whisper" data-i18n="alisonFoodAmountHint">Saves as 1 Serving. No invented calories on a typed food.</p>
+                </div>
+              </section>
             </div>
             <div class="room" data-room="journal" hidden>
               <p class="app-name" data-i18n="alisonTabJournal">Journal</p>
@@ -139,16 +215,16 @@
     </div>
     <p><span data-i18n="supportPrefix">Support:</span> <!--email_off--><a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a><!--/email_off-->.</p>
   </footer>
-  <script src="../i18n/en.js?v=e7"></script>
-  <script src="../i18n/rtl.js?v=e7"></script>
-  <script src="../i18n/cjk.js?v=e7"></script>
-  <script src="../i18n/indic.js?v=e7"></script>
-  <script src="../i18n/iberian.js?v=e7"></script>
-  <script src="../i18n/west.js?v=e7"></script>
-  <script src="../i18n/east.js?v=e7"></script>
-  <script src="../i18n2.js?v=e7"></script>
-  <script src="../i18n3.js?v=e7"></script>
-  <script src="../i18n.js?v=e7"></script>
-  <script src="../site.js?v=e7"></script>
+  <script src="../i18n/en.js?v=a76"></script>
+  <script src="../i18n/rtl.js?v=a76"></script>
+  <script src="../i18n/cjk.js?v=a76"></script>
+  <script src="../i18n/indic.js?v=a76"></script>
+  <script src="../i18n/iberian.js?v=a76"></script>
+  <script src="../i18n/west.js?v=a76"></script>
+  <script src="../i18n/east.js?v=a76"></script>
+  <script src="../i18n2.js?v=a76"></script>
+  <script src="../i18n3.js?v=a76"></script>
+  <script src="../i18n.js?v=a76"></script>
+  <script src="../site.js?v=a76"></script>
 </body>
 </html>
