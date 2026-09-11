@@ -14,7 +14,7 @@
 <link rel="icon" href="favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script src="locale.js?v=e7"></script>
-  <link rel="stylesheet" href="site-1836.css?v=dock" />
+  <link rel="stylesheet" href="site-1836.css?v=handdock" />
   <style>
     body.power { --bloom-b: rgba(64, 168, 196, 0.28); --chroma-b: rgba(64, 168, 196, 0.22); }
     body.power .phone.play {
@@ -39,12 +39,11 @@
       <a href="pack-run.html">Pack Run</a>
       <a href="support.html" data-i18n="navSupport">Support</a>
     </nav>
-    <div class="dock-control" role="radiogroup" aria-label="Navigation island position">
-      <button type="button" class="dock-btn" role="radio" data-dock="top" aria-checked="true" tabindex="0" title="Dock navigation at top">Top</button>
-      <button type="button" class="dock-btn" role="radio" data-dock="bottom" aria-checked="false" tabindex="-1" title="Dock navigation at bottom">Bottom</button>
-    </div>
+    <button type="button" class="mast-grip" aria-label="Move navigation island. Drag to top or bottom. Alt+Up docks top. Alt+Down docks bottom." title="Drag island">
+      <span aria-hidden="true" class="mast-grip-dots">⋮⋮</span>
+    </button>
 
-  </header>
+</header>
   <main>
     <figure class="phone-wrap">
       <div class="phone pack play" data-rooms="pack" role="region" data-i18n-aria="packRoomsAria" aria-label="Pack Run. Opening, dogs, parks, Keep.">
@@ -156,6 +155,6 @@
   <script src="i18n2.js?v=e7"></script>
   <script src="i18n3.js?v=e7"></script>
   <script src="i18n.js?v=e7"></script>
-  <script src="site.js?v=dock"></script>
+  <script src="site.js?v=handdock"></script>
 </body>
 </html>

@@ -764,55 +764,92 @@
   });
 })();
 
-/* SITE_ISLAND_DOCK */
+/* SITE_ISLAND_HAND_DOCK */
 (function () {
   var KEY = "nightorders.mastDock";
   var body = document.body;
-  if (!body) return;
   var mast = document.querySelector(".mast");
-  if (!mast) return;
-  var group = document.querySelector(".dock-control");
-  if (!group) {
-    group = document.createElement("div");
-    group.className = "dock-control";
-    group.setAttribute("role", "radiogroup");
-    group.setAttribute("aria-label", "Navigation island position");
-    group.innerHTML =
-      '<button type="button" class="dock-btn" role="radio" data-dock="top" aria-checked="true" tabindex="0" title="Dock navigation at top">Top</button>' +
-      '<button type="button" class="dock-btn" role="radio" data-dock="bottom" aria-checked="false" tabindex="-1" title="Dock navigation at bottom">Bottom</button>';
-    mast.appendChild(group);
+  if (!body || !mast) return;
+
+  var grip = mast.querySelector(".mast-grip");
+  if (!grip) {
+    grip = document.createElement("button");
+    grip.type = "button";
+    grip.className = "mast-grip";
+    grip.setAttribute("aria-label", "Move navigation island. Drag to top or bottom. Alt+Up docks top. Alt+Down docks bottom.");
+    grip.title = "Drag island";
+    grip.innerHTML = '<span aria-hidden="true" class="mast-grip-dots">⋮⋮</span>';
+    mast.appendChild(grip);
   }
-  var buttons = [].slice.call(group.querySelectorAll("[data-dock]"));
+  var legacy = mast.querySelector(".dock-control");
+  if (legacy) legacy.remove();
+
   function apply(dock, persist) {
     var v = dock === "bottom" ? "bottom" : "top";
     body.classList.toggle("mast-dock-bottom", v === "bottom");
     document.documentElement.classList.remove("mast-dock-bottom-pending");
-    buttons.forEach(function (b) {
-      var on = b.getAttribute("data-dock") === v;
-      b.setAttribute("aria-checked", on ? "true" : "false");
-      b.tabIndex = on ? 0 : -1;
-    });
+    mast.setAttribute("data-dock", v);
     if (persist) {
       try { localStorage.setItem(KEY, v); } catch (e) {}
     }
   }
+
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) {}
   apply(saved === "bottom" ? "bottom" : "top", false);
-  group.addEventListener("click", function (e) {
-    var b = e.target.closest("[data-dock]");
-    if (!b || !group.contains(b)) return;
-    apply(b.getAttribute("data-dock"), true);
-  });
-  group.addEventListener("keydown", function (e) {
-    var i = buttons.indexOf(document.activeElement);
-    if (i < 0) return;
-    var n = i;
-    if (e.key === "ArrowRight" || e.key === "ArrowDown") n = (i + 1) % buttons.length;
-    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = (i - 1 + buttons.length) % buttons.length;
-    else return;
+
+  var dragging = false;
+  var startY = 0;
+  var baseY = 0;
+  var pointerId = null;
+
+  function interactiveTarget(t) {
+    return t && t.closest && t.closest("a, button:not(.mast-grip), input, textarea, select, [role='radio']");
+  }
+
+  function onDown(e) {
+    if (e.button != null && e.button !== 0) return;
+    if (interactiveTarget(e.target) && !e.target.closest(".mast-grip")) return;
+    if (!e.target.closest(".mast-grip") && e.target.closest("a")) return;
+    dragging = true;
+    pointerId = e.pointerId;
+    startY = e.clientY;
+    var rect = mast.getBoundingClientRect();
+    baseY = rect.top;
+    mast.classList.add("mast-dragging");
+    try { mast.setPointerCapture(pointerId); } catch (err) {}
     e.preventDefault();
-    apply(buttons[n].getAttribute("data-dock"), true);
-    buttons[n].focus();
+  }
+
+  function onMove(e) {
+    if (!dragging || e.pointerId !== pointerId) return;
+    var dy = e.clientY - startY;
+    mast.style.transform = "translate(-50%, " + dy + "px)";
+  }
+
+  function onUp(e) {
+    if (!dragging || (pointerId != null && e.pointerId !== pointerId)) return;
+    dragging = false;
+    mast.classList.remove("mast-dragging");
+    try { mast.releasePointerCapture(pointerId); } catch (err) {}
+    pointerId = null;
+    var dy = e.clientY - startY;
+    mast.style.transform = "";
+    if (Math.abs(dy) < 8) return;
+    var rect = mast.getBoundingClientRect();
+    var center = baseY + dy + rect.height / 2;
+    var dock = center > window.innerHeight / 2 ? "bottom" : "top";
+    apply(dock, true);
+  }
+
+  mast.addEventListener("pointerdown", onDown);
+  mast.addEventListener("pointermove", onMove);
+  mast.addEventListener("pointerup", onUp);
+  mast.addEventListener("pointercancel", onUp);
+
+  mast.addEventListener("keydown", function (e) {
+    if (!e.altKey) return;
+    if (e.key === "ArrowUp") { apply("top", true); e.preventDefault(); }
+    if (e.key === "ArrowDown") { apply("bottom", true); e.preventDefault(); }
   });
 })();
