@@ -896,7 +896,7 @@
   });
 })();
 
-/* SITE_MASTHEAD_ANIMATE */
+/* SITE_MASTHEAD_ANIMATE masthead6 */
 (function () {
   var reduce = false;
   try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}

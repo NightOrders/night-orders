@@ -2067,7 +2067,7 @@ body {
   }
 }
 
-/* SITE_MAST_TRUE_BOTTOM */
+/* SITE_MAST_TRUE_BOTTOM masthead6 */
 body.mast-dock-bottom .mast,
 html.mast-dock-bottom-pending .mast {
   top: auto;
@@ -2089,7 +2089,7 @@ html.mast-dock-bottom-pending main {
   }
 }
 
-/* SITE_MASTHEAD_ANIMATE */
+/* SITE_MASTHEAD_ANIMATE masthead6 */
 .page-home.studio-first .masthead-band--amazing .motto {
   opacity: 0.88;
   transform: translateY(8px);
