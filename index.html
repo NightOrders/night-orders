@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
   <title>Night Orders</title>
-  <meta name="description" content="Small studio. Alison, Pack Run, and Stellar Anvil. The record stays with you." />
+  <meta name="description" content="Independent studio in Boulder. Phone-first apps. The record stays with you. No account. No ads." />
   <link rel="canonical" href="https://nightorders.app/" />
   <meta property="og:title" content="Night Orders" />
-  <meta property="og:description" content="Small studio. Alison, Pack Run, and Stellar Anvil. The record stays with you." />
+  <meta property="og:description" content="Independent studio in Boulder. Phone-first apps. The record stays with you. No account. No ads." />
   <meta property="og:url" content="https://nightorders.app/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
@@ -16,50 +16,71 @@
   <script src="locale.js?v=e7"></script>
   <link rel="stylesheet" href="site-1836.css?v=e7" />
   <style>
-    .page-home .apps-grid { display: grid; gap: 1.25rem; margin: 0.6rem 0 1.6rem; }
-    @media (min-width: 900px) {
-      .page-home .apps-grid { grid-template-columns: repeat(3, 1fr); }
+    .page-home.studio-first .studio { max-width: 40rem; margin-bottom: 2rem; }
+    .page-home.studio-first .mark-lg { font-size: 1.85rem; margin: 0 0 0.35rem; }
+    .page-home.studio-first .studio-lede { margin: 0.75rem 0 0.5rem; max-width: 38rem; }
+    .page-home.studio-first .studio-line { margin: 0.35rem 0; color: var(--mute); }
+    .page-home.studio-first .studio-support { margin: 0.85rem 0 0; }
+    .page-home .apps-heading { margin: 0 0 0.35rem; font-size: 1.15rem; }
+    .page-home .apps-note { margin: 0 0 0.75rem; color: var(--mute); font-size: 0.95rem; }
+    .page-home .tablist { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 1rem 0 1.25rem; }
+    .page-home .tab {
+      min-height: 44px; padding: 0.55rem 1rem;
+      border: 1px solid var(--line); border-radius: 999px;
+      background: transparent; color: var(--ink); cursor: pointer;
+      font: inherit;
     }
-    .page-home main { max-width: min(74rem, calc(100% - 1.2rem)); }
-    .studio-line { margin: 0.35rem 0 1.2rem; color: var(--mute); font-size: 0.95rem; }
-    .app-card {
-      display: flex; flex-direction: column; gap: 0.45rem;
-      padding: 1.05rem 1.1rem 1.15rem;
-      border: 1px solid var(--line); border-radius: 1.15rem;
-      background: color-mix(in srgb, var(--canvas) 72%, transparent);
+    .page-home .tab[aria-selected="true"] {
+      border-color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent);
     }
-    .app-card .one-liner { color: var(--mute); margin: 0; }
-    .app-card .open { min-height: 44px; display: inline-flex; align-items: center; }
-    .app-card .card-shot { margin: 0.35rem 0 0.2rem; border-radius: 0.85rem; overflow: hidden; border: 1px solid var(--line); }
-    .app-card .card-shot img { display: block; width: 100%; height: auto; aspect-ratio: 390/844; object-fit: cover; object-position: center top; }
-    .card-alison { border-color: color-mix(in srgb, var(--accent) 22%, var(--line)); }
-    .card-pack { border-color: color-mix(in srgb, var(--accent) 16%, var(--line)); }
-    .card-anvil { border-color: color-mix(in srgb, var(--accent) 28%, var(--line)); }
-    .app-card .links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center; }
+    .page-home .tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .page-home .tabpanel { max-width: 40rem; }
+    .page-home .tabpanel[hidden] { display: none; }
+    .page-home .tabpanel .one-liner { color: var(--mute); }
+    .page-home .open { min-height: 44px; display: inline-flex; align-items: center; }
+    .page-home .links { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 0.85rem; }
+    .page-home .mast-apps { opacity: 0.72; font-size: 0.92rem; }
+    @media (prefers-reduced-motion: reduce) {
+      .page-home .tabpanel { transition: none; }
+    }
   </style>
 </head>
-<body class="page-home home-apps">
+<body class="page-home studio-first">
   <header class="mast">
     <p class="mark">Night Orders</p>
     <nav class="mast-nav" aria-label="Site">
       <a href="index.html" aria-current="page">Night Orders</a>
-      <a href="alison.html">Alison</a>
-      <a href="pack-run.html">Pack Run</a>
-      <a href="stellar-anvil.html">Stellar Anvil</a>
       <a href="support.html">Support</a>
+      <span class="mast-apps" aria-hidden="true">
+        <a href="alison.html">Alison</a>
+        <a href="pack-run.html">Pack Run</a>
+        <a href="stellar-anvil.html">Stellar Anvil</a>
+      </span>
     </nav>
   </header>
   <main>
-    <p class="motto">The record stays with you.</p>
-    <p class="studio-line">Small studio. Three apps. Records stay on your phone.</p>
+    <section class="studio" aria-labelledby="studio-title">
+      <h1 id="studio-title" class="mark-lg">Night Orders</h1>
+      <p class="motto">The record stays with you.</p>
+      <p class="studio-lede">Night Orders is a small independent studio in Boulder, Colorado. We build phone-first apps. Your record stays on your device. No account. No ads.</p>
+      <p class="studio-line">We ship carefully. Support is human when you need it.</p>
+      <p class="studio-support">
+        <a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a>
+      </p>
+    </section>
 
-    <section class="apps-grid" aria-label="Apps">
-      <article class="app-card card-alison">
-        <h2>Alison</h2>
+    <section class="studio-apps" aria-labelledby="apps-heading">
+      <h2 id="apps-heading" class="apps-heading">Apps</h2>
+      <p class="apps-note">Three products. Open a tab for details, or open the full product page.</p>
+
+      <div class="tablist" role="tablist" aria-label="Night Orders apps">
+        <button type="button" class="tab" role="tab" id="tab-alison" aria-controls="panel-alison" aria-selected="true" tabindex="0">Alison</button>
+        <button type="button" class="tab" role="tab" id="tab-pack" aria-controls="panel-pack" aria-selected="false" tabindex="-1">Pack Run</button>
+        <button type="button" class="tab" role="tab" id="tab-anvil" aria-controls="panel-anvil" aria-selected="false" tabindex="-1">Stellar Anvil</button>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="panel-alison" aria-labelledby="tab-alison">
         <p class="one-liner">On-device headache journal. Ingredients and symptoms stay with you.</p>
-        <figure class="card-shot">
-          <img src="media/alison/card-g1.webp" width="390" height="844" alt="Alison — Yours" loading="lazy" decoding="async" />
-        </figure>
         <p>Alison is a personal headache journal on your phone. Log what you eat and how you feel. The journal stays on this device.</p>
         <p>Not a medical device. Not a diagnosis. Not a forecast.</p>
         <p>Journal stays readable without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
@@ -68,14 +89,10 @@
           <a class="open" href="alison.html">Open Alison</a>
           <a href="privacy-alison.html">Privacy</a>
         </p>
-      </article>
+      </div>
 
-      <article class="app-card card-pack">
-        <h2>Pack Run</h2>
+      <div class="tabpanel" role="tabpanel" id="panel-pack" aria-labelledby="tab-pack" hidden>
         <p class="one-liner">Are dogs at this park?</p>
-        <figure class="card-shot">
-          <img src="media/pack/card-g1.webp" width="390" height="844" alt="Pack Run — live occupancy" loading="lazy" decoding="async" />
-        </figure>
         <p>Check in from your phone. The board shows a count, not names. A check-in lasts 90 minutes, then it is erased.</p>
         <p>Location is When In Use to find nearby parks. Deny location and a short list still works.</p>
         <p>Park list stays without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
@@ -84,14 +101,10 @@
           <a class="open" href="pack-run.html">Open Pack Run</a>
           <a href="privacy-pack-run.html">Privacy</a>
         </p>
-      </article>
+      </div>
 
-      <article class="app-card card-anvil">
-        <h2>Stellar Anvil</h2>
+      <div class="tabpanel" role="tabpanel" id="panel-anvil" aria-labelledby="tab-anvil" hidden>
         <p class="one-liner">Marks to Ignite to Star Ash.</p>
-        <figure class="card-shot">
-          <img src="media/anvil/card-g1.webp" width="390" height="844" alt="Stellar Anvil — Marks" loading="lazy" decoding="async" />
-        </figure>
         <p>A Night Orders forge under a cold sky. Hold the heat. Earn Marks. Ignite to Star Ash. Progress stays on this phone.</p>
         <p>Paid App Store download $0.99. One purchase. No in-app purchases. No account. No ads.</p>
         <p class="links">
@@ -99,7 +112,7 @@
           <a href="privacy-anvil.html">Privacy</a>
           <a href="support-anvil.html">Support</a>
         </p>
-      </article>
+      </div>
     </section>
   </main>
   <footer class="foot">
@@ -116,6 +129,48 @@
     <p>Night Orders. No ads. No account.</p>
     <p><span>Support:</span> <!--email_off--><a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a><!--/email_off-->.</p>
   </footer>
+  <script>
+(function () {
+  var list = document.querySelector(".tablist");
+  if (!list) return;
+  var tabs = [].slice.call(list.querySelectorAll('[role="tab"]'));
+  function select(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      var p = document.getElementById(t.getAttribute("aria-controls"));
+      if (p) { if (on) p.removeAttribute("hidden"); else p.setAttribute("hidden", ""); }
+    });
+    if (focus) tab.focus();
+    var map = { "tab-alison": "alison", "tab-pack": "pack-run", "tab-anvil": "stellar-anvil" };
+    if (map[tab.id] && history.replaceState) history.replaceState(null, "", "#" + map[tab.id]);
+  }
+  list.addEventListener("click", function (e) {
+    var t = e.target.closest('[role="tab"]');
+    if (t && list.contains(t)) select(t, false);
+  });
+  list.addEventListener("keydown", function (e) {
+    var i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+    var next = i;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") next = (i + 1) % tabs.length;
+    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") next = (i - 1 + tabs.length) % tabs.length;
+    else if (e.key === "Home") next = 0;
+    else if (e.key === "End") next = tabs.length - 1;
+    else if (e.key === "Enter" || e.key === " ") { select(tabs[i], false); e.preventDefault(); return; }
+    else return;
+    e.preventDefault();
+    select(tabs[next], true);
+  });
+  var hash = (location.hash || "").replace(/^#/, "");
+  var start = { alison: "tab-alison", "pack-run": "tab-pack", "stellar-anvil": "tab-anvil" }[hash];
+  if (start) {
+    var el = document.getElementById(start);
+    if (el) select(el, false);
+  }
+})();
+  </script>
   <script src="i18n/en.js?v=e7"></script>
   <script src="i18n/rtl.js?v=e7"></script>
   <script src="i18n/cjk.js?v=e7"></script>
