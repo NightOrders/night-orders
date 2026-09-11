@@ -1877,7 +1877,7 @@ body {
   }
 }
 
-/* SITE_HOME_MASTHEAD_AMAZING */
+/* SITE_HOME_MASTHEAD_AMAZING masthead4 */
 .page-home.studio-first .home-masthead {
   margin-bottom: 2rem;
 }
@@ -1994,7 +1994,7 @@ body {
 }
 
 .page-home.studio-first .masthead-art {
-  display: none;
+  display: none !important; /* phone copy-first; desktop media unlocks */
   pointer-events: none;
   user-select: none;
 }
@@ -2023,7 +2023,7 @@ body {
     max-width: 46rem;
   }
   .page-home.studio-first .masthead-art {
-    display: grid;
+    display: grid !important;
     grid-template-columns: 1fr;
     gap: 0.55rem;
     transform: perspective(900px) rotateY(6deg);
