@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
   <title>Night Orders</title>
-  <meta name="description" content="The record stays with you. Alison, Pack Run, and Stellar Anvil." />
+  <meta name="description" content="Small studio. Alison, Pack Run, and Stellar Anvil. The record stays with you." />
   <link rel="canonical" href="https://nightorders.app/" />
   <meta property="og:title" content="Night Orders" />
-  <meta property="og:description" content="The record stays with you." />
+  <meta property="og:description" content="Small studio. Alison, Pack Run, and Stellar Anvil. The record stays with you." />
   <meta property="og:url" content="https://nightorders.app/" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon.ico" sizes="32x32" />
@@ -16,127 +16,33 @@
   <script src="locale.js?v=e7"></script>
   <link rel="stylesheet" href="site-1836.css?v=e7" />
   <style>
-    body.home-apps main { max-width: min(74rem, calc(100% - 1.2rem)); }
+    .page-home .apps-grid { display: grid; gap: 1.25rem; margin: 0.6rem 0 1.6rem; }
+    @media (min-width: 900px) {
+      .page-home .apps-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .page-home main { max-width: min(74rem, calc(100% - 1.2rem)); }
     .studio-line { margin: 0.35rem 0 1.2rem; color: var(--mute); font-size: 0.95rem; }
-    .apps-grid {
-      display: grid;
-      gap: 1.1rem;
-      align-items: stretch;
-      margin: 0.6rem 0 1.6rem;
-    }
-    @media (min-width: 54rem) {
-      .apps-grid { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-    }
     .app-card {
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
+      display: flex; flex-direction: column; gap: 0.45rem;
       padding: 1.05rem 1.1rem 1.15rem;
-      border: 1px solid var(--line);
-      border-radius: 1.15rem;
+      border: 1px solid var(--line); border-radius: 1.15rem;
       background: color-mix(in srgb, var(--canvas) 72%, transparent);
-      box-shadow:
-        inset 0 1px 0 color-mix(in srgb, var(--spec, #fff) 40%, transparent),
-        0 18px 40px -28px var(--depth, rgba(0,0,0,0.35));
-      min-height: 12rem;
     }
-    .app-card h2 {
-      margin: 0;
-      font-size: 1.35rem;
-      font-weight: 620;
-      letter-spacing: -0.03em;
-    }
-    .app-card .one-liner { margin: 0; color: var(--mute); font-size: 0.95rem; }
-    .app-card p { margin: 0; color: var(--ink); }
-    .app-card .links {
-      margin-top: auto;
-      padding-top: 0.55rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem 0.9rem;
-    }
-    .app-card .links a { min-height: 44px; display: inline-flex; align-items: center; }
-
-    .card-art {
-      display: block;
-      margin: 0 0 0.35rem;
-      border-radius: 0.95rem;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--field) 80%, #000);
-      aspect-ratio: 390 / 844;
-      max-height: 18rem;
-    }
-    .card-art img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-    .app-card .links a.cta {
-      font-weight: 700;
-      color: #0C1116;
-      background: color-mix(in srgb, var(--accent) 88%, var(--field));
-      border-radius: 999px;
-      padding: 0 0.95rem;
-      text-decoration: none;
-      border-bottom: 0;
-      min-height: 44px;
-    }
-    .app-card .links a.cta:hover { background: var(--accent); }
-    .shot-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
-      gap: 0.55rem;
-      margin: 1rem 0 1.25rem;
-    }
-    .shot-gallery figure {
-      margin: 0;
-      border-radius: 0.85rem;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--field) 80%, #000);
-    }
-    .shot-gallery img {
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 390 / 844;
-      object-fit: cover;
-      object-position: center top;
-    }
-    .shot-gallery figcaption {
-      padding: 0.35rem 0.45rem 0.45rem;
-      color: var(--mute);
-      font-size: 0.72rem;
-    }
-    @media (any-hover: hover) {
-      .app-card {
-        transition: transform 180ms ease, box-shadow 180ms ease;
-      }
-      .app-card:hover,
-      .app-card:focus-within {
-        transform: translateY(-3px);
-        box-shadow:
-          inset 0 1px 0 color-mix(in srgb, var(--spec, #fff) 40%, transparent),
-          0 22px 44px -26px var(--depth, rgba(0,0,0,0.4));
-      }
-      .app-card:active { transform: scale(0.98); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .app-card { transition: none; }
-      .app-card:hover,
-      .app-card:focus-within,
-      .app-card:active { transform: none; }
-    }
+    .app-card .one-liner { color: var(--mute); margin: 0; }
+    .app-card .open { min-height: 44px; display: inline-flex; align-items: center; }
+    .app-card .card-shot { margin: 0.35rem 0 0.2rem; border-radius: 0.85rem; overflow: hidden; border: 1px solid var(--line); }
+    .app-card .card-shot img { display: block; width: 100%; height: auto; aspect-ratio: 390/844; object-fit: cover; object-position: center top; }
+    .card-alison { border-color: color-mix(in srgb, var(--accent) 22%, var(--line)); }
+    .card-pack { border-color: color-mix(in srgb, var(--accent) 16%, var(--line)); }
+    .card-anvil { border-color: color-mix(in srgb, var(--accent) 28%, var(--line)); }
+    .app-card .links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center; }
   </style>
 </head>
-<body class="home-apps">
+<body class="page-home home-apps">
   <header class="mast">
     <p class="mark">Night Orders</p>
     <nav class="mast-nav" aria-label="Site">
-      <a href="index.html">Night Orders</a>
+      <a href="index.html" aria-current="page">Night Orders</a>
       <a href="alison.html">Alison</a>
       <a href="pack-run.html">Pack Run</a>
       <a href="stellar-anvil.html">Stellar Anvil</a>
@@ -148,48 +54,48 @@
     <p class="studio-line">Small studio. Three apps. Records stay on your phone.</p>
 
     <section class="apps-grid" aria-label="Apps">
-      <article class="app-card">
-        <a class="card-art" href="alison.html">
-          <img src="media/alison/card-g1.webp" width="390" height="844" alt="Alison — Yours" loading="lazy" decoding="async" />
-        </a>
+      <article class="app-card card-alison">
         <h2>Alison</h2>
         <p class="one-liner">On-device headache journal. Ingredients and symptoms stay with you.</p>
+        <figure class="card-shot">
+          <img src="media/alison/card-g1.webp" width="390" height="844" alt="Alison — Yours" loading="lazy" decoding="async" />
+        </figure>
         <p>Alison is a personal headache journal on your phone. Log what you eat and how you feel. The journal stays on this device.</p>
         <p>Not a medical device. Not a diagnosis. Not a forecast.</p>
         <p>Journal stays readable without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
         <p>No account. No ads.</p>
         <p class="links">
-          <a class="cta" href="alison.html">Open</a>
+          <a class="open" href="alison.html">Open Alison</a>
           <a href="privacy-alison.html">Privacy</a>
         </p>
       </article>
 
-      <article class="app-card">
-        <a class="card-art" href="pack-run.html">
-          <img src="media/pack/card-g1.webp" width="390" height="844" alt="Pack Run — live occupancy" loading="lazy" decoding="async" />
-        </a>
+      <article class="app-card card-pack">
         <h2>Pack Run</h2>
         <p class="one-liner">Are dogs at this park?</p>
+        <figure class="card-shot">
+          <img src="media/pack/card-g1.webp" width="390" height="844" alt="Pack Run — live occupancy" loading="lazy" decoding="async" />
+        </figure>
         <p>Check in from your phone. The board shows a count, not names. A check-in lasts 90 minutes, then it is erased.</p>
         <p>Location is When In Use to find nearby parks. Deny location and a short list still works.</p>
         <p>Park list stays without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
         <p>No account. No ads.</p>
         <p class="links">
-          <a class="cta" href="pack-run.html">Open</a>
+          <a class="open" href="pack-run.html">Open Pack Run</a>
           <a href="privacy-pack-run.html">Privacy</a>
         </p>
       </article>
 
-      <article class="app-card">
-        <a class="card-art" href="stellar-anvil.html">
-          <img src="media/anvil/card-g1.webp" width="390" height="844" alt="Stellar Anvil — Marks" loading="lazy" decoding="async" />
-        </a>
+      <article class="app-card card-anvil">
         <h2>Stellar Anvil</h2>
         <p class="one-liner">Marks to Ignite to Star Ash.</p>
+        <figure class="card-shot">
+          <img src="media/anvil/card-g1.webp" width="390" height="844" alt="Stellar Anvil — Marks" loading="lazy" decoding="async" />
+        </figure>
         <p>A Night Orders forge under a cold sky. Hold the heat. Earn Marks. Ignite to Star Ash. Progress stays on this phone.</p>
         <p>Paid App Store download $0.99. One purchase. No in-app purchases. No account. No ads.</p>
         <p class="links">
-          <a class="cta" href="stellar-anvil.html">Open</a>
+          <a class="open" href="stellar-anvil.html">Open Stellar Anvil</a>
           <a href="privacy-anvil.html">Privacy</a>
           <a href="support-anvil.html">Support</a>
         </p>

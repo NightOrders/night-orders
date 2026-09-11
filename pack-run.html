@@ -4,137 +4,58 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="color-scheme" content="light dark" />
-  <title data-i18n="titlePack">Pack Run — Night Orders</title>
-  <meta name="description" data-i18n-content="descPack" content="Pack Run: are dogs at this park. Check-in lasts 90 minutes, then it is erased." />
+  <title>Pack Run — Night Orders</title>
+  <meta name="description" content="Are dogs at this park? Counts, not names. Ninety minutes, then erased." />
   <link rel="canonical" href="https://nightorders.app/pack-run.html" />
-  <meta property="og:title" data-i18n-content="titlePack" content="Pack Run — Night Orders" />
-  <meta property="og:description" data-i18n-content="descMotto" content="The record stays with you." />
+  <meta property="og:title" content="Pack Run — Night Orders" />
+  <meta property="og:description" content="Are dogs at this park? Counts, not names. Ninety minutes, then erased." />
   <meta property="og:url" content="https://nightorders.app/pack-run.html" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-<link rel="icon" href="favicon.ico" sizes="32x32" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" href="favicon.ico" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script src="locale.js?v=e7"></script>
   <link rel="stylesheet" href="site-1836.css?v=e7" />
   <style>
-    body.power { --bloom-b: color-mix(in srgb, var(--accent) 18%, transparent); --chroma-b: color-mix(in srgb, var(--ink) 10%, transparent); }
-    body.power .phone.play {
-      --w: min(26rem, 92vw);
-      width: var(--w);
-      max-width: 100%;
-      height: min(42rem, calc(100dvh - var(--chrome-stack)));
-      min-height: 28rem;
-      max-height: calc(100dvh - var(--chrome-stack));
-    }
-
-    .shot-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
-      gap: 0.55rem;
-      margin: 1rem 0 1.25rem;
-    }
-    .shot-gallery figure {
-      margin: 0;
-      border-radius: 0.85rem;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--field) 80%, #000);
-    }
-    .shot-gallery img {
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 390 / 844;
-      object-fit: cover;
-      object-position: center top;
-    }
-    .shot-gallery figcaption {
-      padding: 0.35rem 0.45rem 0.45rem;
-      color: var(--mute);
-      font-size: 0.72rem;
-    }
+    .page-pack .product-pack { max-width: 48ch; letter-spacing: 0.01em; }
+    .page-pack .board-count { font-size: 1.15rem; color: var(--ink); margin: 0.4rem 0 0.8rem; }
+    .shot-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(7.5rem,1fr));gap:.55rem;margin:1rem 0 1.25rem}
+    .shot-gallery figure{margin:0;border-radius:.85rem;overflow:hidden;border:1px solid var(--line);background:color-mix(in srgb,var(--field) 80%,#000)}
+    .shot-gallery img{display:block;width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:center top}
+    .shot-gallery figcaption{padding:.35rem .45rem .45rem;color:var(--mute);font-size:.72rem}
   </style>
 </head>
-<body class="power">
+<body class="page-pack">
   <header class="mast">
     <p class="mark"><a href="index.html">Night Orders</a></p>
-    <nav class="mast-nav" data-i18n-aria="navAria" aria-label="Site">
+    <nav class="mast-nav" aria-label="Site">
       <a href="index.html">Night Orders</a>
       <a href="alison.html">Alison</a>
-      <a href="pack-run.html">Pack Run</a>
-      <a href="support.html" data-i18n="navSupport">Support</a>
+      <a href="pack-run.html" aria-current="page">Pack Run</a>
+      <a href="stellar-anvil.html">Stellar Anvil</a>
+      <a href="support.html">Support</a>
     </nav>
   </header>
-  <main>
-    <figure class="phone-wrap">
-      <div class="phone pack play" data-rooms="pack" role="region" data-i18n-aria="packRoomsAria" aria-label="Pack Run. Opening, dogs, parks, Keep.">
-        <div class="phone-inner">
-          <div class="chrome"><span class="clock">9:41</span><span class="island" aria-hidden="true"></span></div>
-          <div class="screen rooms-screen">
-            <div class="room is-on opening" data-room="opening">
-              <p class="whisper">Pack Run</p>
-              <p class="app-name" data-i18n="packTagline">One park. One count.</p>
-              <p class="whisper" data-i18n="packOpeningLine">Check-in lasts 90 minutes, then it's gone. Still here? Check in again. The count is this park, this pack. If the board is quiet, it's just this phone. Location is only to find nearby parks.</p>
-              <p class="no-ads" data-i18n="packNoAds">No ads forever</p>
-              <p class="whisper privacy-line" data-i18n="packPrivacyRoom">When In Use, parks only. 90 minutes, then erased. No account. No GPS track.</p>
-              <a class="privacy-link" href="privacy-pack-run.html" data-i18n="packPrivacyPolicy">Privacy policy</a>
-              <button type="button" class="open-btn pack-open-btn" data-pack-open data-i18n="packOpen">OPEN</button>
-            </div>
-            <div class="room" data-room="parks" hidden>
-              <p class="app-name" data-i18n="packTabParks">Parks</p>
-              <p class="whisper" data-i18n="packNearby">Nearby parks. Counts, no names.</p>
-              <button type="button" class="park-btn count-row" data-pack-park="named" data-pack-to-checkin>
-                <span class="park-meta">
-                  <span data-pack-park-label data-i18n="packNamedPark">Named park</span>
-                  <span class="whisper" data-i18n="packErase">Erases in 90 minutes.</span>
-                </span>
-                <span class="count-num" data-pack-count="named">0</span>
-              </button>
-              <button type="button" class="park-btn count-row" data-pack-park="hill" data-pack-to-checkin>
-                <span class="park-meta">
-                  <span data-pack-park-label data-i18n="packHillPark">Hill park</span>
-                  <span class="whisper" data-i18n="packErase">Erases in 90 minutes.</span>
-                </span>
-                <span class="count-num" data-pack-count="hill">0</span>
-              </button>
-              <p class="whisper" data-i18n="packThisPhone">This phone only.</p>
-            </div>
-            <div class="room" data-room="checkin" hidden>
-              <button type="button" class="back" data-pack-to-parks data-i18n="packBack">Parks</button>
-              <p class="app-name" data-pack-park-title data-i18n="packNamedPark">Named park</p>
-              <p class="whisper" data-i18n="packNoNames">No names on the park board.</p>
-              <p class="count-num" data-pack-detail-count>0</p>
-              <button type="button" class="check" data-pack-checkin data-i18n="packCheckIn">Check in</button>
-              <button type="button" class="leave" data-pack-leave hidden data-i18n="packLeave">Leave</button>
-              <p class="erase" data-pack-ttl data-i18n="packErase">Erases in 90 minutes.</p>
-              <p class="whisper" data-i18n="packNoPhoto">No photo. No GPS track.</p>
-            </div>
-            <div class="room" data-room="dogs" hidden>
-              <p class="app-name" data-i18n="packTabDogs">Dogs</p>
-              <p class="whisper" data-i18n="packDogsWhisper">Your dogs. On this phone. No names on the park board.</p>
-              <div class="add-row">
-                <input type="text" data-pack-dog-input autocomplete="off" enterkeyhint="done" maxlength="40" placeholder="Dog name" aria-label="Dog name" />
-                <button type="button" data-pack-dog-add data-i18n="packAddDog">Add a dog</button>
-              </div>
-              <ul class="log" data-pack-dog-log></ul>
-            </div>
-            <div class="room" data-room="keep" hidden>
-              <p class="app-name" data-i18n="packTabKeep">Keep</p>
-              <p class="whisper" data-i18n="packKeepTrial">30-day free trial, then $0.99 / month through Apple.</p>
-              <p class="whisper" data-i18n="packKeepPaid">Not a paid download.</p>
-              <p class="whisper" data-i18n="packKeepRoom">The live count stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.</p>
-              <p class="whisper" data-i18n="packKeepMute">No ads. Auto-renews. Cancel in Apple Subscriptions.</p>
-              <a class="privacy-link" href="privacy-pack-run.html" data-i18n="packPrivacyPolicy">Privacy policy</a>
-            </div>
-          </div>
-          <nav class="glass-bar pack-tabbar" hidden role="tablist" data-i18n-aria="packTabAria" aria-label="Pack Run">
-            <button type="button" class="nav-tab" role="tab" data-tab="parks" aria-selected="false" data-i18n="packTabParks">Parks</button>
-            <button type="button" class="nav-tab" role="tab" data-tab="dogs" aria-selected="false" data-i18n="packTabDogs">Dogs</button>
-            <button type="button" class="nav-tab" role="tab" data-tab="keep" aria-selected="false" data-i18n="packTabKeep">Keep</button>
-          </nav>
-        </div>
-      </div>
-      <figcaption data-i18n="packFig">OPEN. Dogs, parks, Keep.</figcaption>
-    </figure>
+  <main class="prose product-pack">
+    <p class="motto">Pack Run</p>
+    <p class="kicker">The record stays with you.</p>
+    <p class="one-liner">Are dogs at this park?</p>
+
+    <p class="board-count">The board shows a count, not names.</p>
+    <p>Check in from your phone. The board shows a count, not names.</p>
+    <p>A check-in lasts 90 minutes, then it is erased.</p>
+    <p>Location is When In Use to find nearby parks. Deny location and a short list still works.</p>
+
+    <h2>Keep</h2>
+    <p>Park list stays without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
+    <p>No account. No ads.</p>
+
+    <h2>On the board</h2>
+    <ul>
+      <li>See a park count, not names</li>
+      <li>Check in for 90 minutes</li>
+      <li>Park list stays without Keep</li>
+      <li>You check in. You do not host the park.</li>
+    </ul>
 
     <section class="shot-gallery" aria-label="Pack Run store shots">
       <figure>
@@ -159,34 +80,23 @@
       </figure>
     </section>
 
-    <p class="motto">Pack Run</p>
-    <p class="kicker" data-i18n="motto">The record stays with you.</p>
-
-    <div class="keep">
-      <h2 data-i18n="keepH">Keep</h2>
-      <p data-i18n="packKeepP">Park list stays without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
-    </div>
-
-    <p class="note" data-i18n="packNote">Location is When In Use, for nearby parks. Deny it and a short list still works. No background tracking. No account. No chat.</p>
-
-    <p class="legal-row">
-      <a href="privacy-pack-run.html" data-i18n="navPrivacy">Privacy</a>
-      <a href="support.html" data-i18n="navSupport">Support</a>
-      <a href="faq.html" data-i18n="navFaq">FAQ</a>
-      <a href="legal.html" data-i18n="navLegal">Legal</a>
+    <p class="product-links">
+      <a href="privacy-pack-run.html">Pack Run privacy</a>
+      · <a href="support.html">Support</a>
+      · <!--email_off--><a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a><!--/email_off-->
     </p>
-    <p class="coming" data-i18n="coming">Coming to the App Store</p>
+    <p class="mirror"><a href="index.html">Night Orders</a> · <a href="alison.html">Alison</a> · <a href="stellar-anvil.html">Stellar Anvil</a></p>
   </main>
   <footer class="foot">
     <div class="foot-links">
       <a href="alison.html">Alison</a>
       <a href="pack-run.html">Pack Run</a>
-      <a href="support.html" data-i18n="navSupport">Support</a>
-      <a href="faq.html" data-i18n="navFaq">FAQ</a>
-      <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
-      <a href="legal.html" data-i18n="navLegal">Legal</a>
+      <a href="stellar-anvil.html">Stellar Anvil</a>
+      <a href="support.html">Support</a>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="legal.html">Legal</a>
     </div>
-    <p><span data-i18n="supportPrefix">Support:</span> <!--email_off--><a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a><!--/email_off-->.</p>
   </footer>
   <script src="i18n/en.js?v=e7"></script>
   <script src="i18n/rtl.js?v=e7"></script>

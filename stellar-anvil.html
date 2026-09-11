@@ -16,97 +16,45 @@
   <script src="locale.js?v=e7"></script>
   <link rel="stylesheet" href="site-1836.css?v=e7" />
   <style>
-
-    .card-art {
-      display: block;
-      margin: 0 0 0.35rem;
-      border-radius: 0.95rem;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--field) 80%, #000);
-      aspect-ratio: 390 / 844;
-      max-height: 18rem;
-    }
-    .card-art img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-    .app-card .links a.cta {
-      font-weight: 700;
-      color: #0C1116;
-      background: color-mix(in srgb, var(--accent) 88%, var(--field));
-      border-radius: 999px;
-      padding: 0 0.95rem;
-      text-decoration: none;
-      border-bottom: 0;
-      min-height: 44px;
-    }
-    .app-card .links a.cta:hover { background: var(--accent); }
-    .shot-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
-      gap: 0.55rem;
-      margin: 1rem 0 1.25rem;
-    }
-    .shot-gallery figure {
-      margin: 0;
-      border-radius: 0.85rem;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: color-mix(in srgb, var(--field) 80%, #000);
-    }
-    .shot-gallery img {
-      display: block;
-      width: 100%;
-      height: auto;
-      aspect-ratio: 390 / 844;
-      object-fit: cover;
-      object-position: center top;
-    }
-    .shot-gallery figcaption {
-      padding: 0.35rem 0.45rem 0.45rem;
-      color: var(--mute);
-      font-size: 0.72rem;
-    }
-    @media (any-hover: hover) {
-      .app-card {
-        transition: transform 180ms ease, box-shadow 180ms ease;
-      }
-      .app-card:hover,
-      .app-card:focus-within {
-        transform: translateY(-3px);
-        box-shadow:
-          inset 0 1px 0 color-mix(in srgb, var(--spec, #fff) 40%, transparent),
-          0 22px 44px -26px var(--depth, rgba(0,0,0,0.4));
-      }
-      .app-card:active { transform: scale(0.98); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .app-card { transition: none; }
-      .app-card:hover,
-      .app-card:focus-within,
-      .app-card:active { transform: none; }
-    }
+    .page-anvil .product-anvil { max-width: 56ch; }
+    .page-anvil { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent); }
+    .shot-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(7.5rem,1fr));gap:.55rem;margin:1rem 0 1.25rem}
+    .shot-gallery figure{margin:0;border-radius:.85rem;overflow:hidden;border:1px solid var(--line);background:color-mix(in srgb,var(--field) 80%,#000)}
+    .shot-gallery img{display:block;width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:center top}
+    .shot-gallery figcaption{padding:.35rem .45rem .45rem;color:var(--mute);font-size:.72rem}
   </style>
 </head>
-<body>
+<body class="page-anvil">
   <header class="mast">
     <p class="mark"><a href="index.html">Night Orders</a></p>
     <nav class="mast-nav" aria-label="Site">
       <a href="index.html">Night Orders</a>
       <a href="alison.html">Alison</a>
       <a href="pack-run.html">Pack Run</a>
-      <a href="stellar-anvil.html">Stellar Anvil</a>
+      <a href="stellar-anvil.html" aria-current="page">Stellar Anvil</a>
       <a href="support.html">Support</a>
     </nav>
   </header>
-  <main class="prose">
+  <main class="prose product-anvil">
     <p class="motto">Stellar Anvil</p>
     <p class="kicker">The record stays with you.</p>
     <p class="note">Night Orders · Paid App Store download $0.99 · No in-app purchases</p>
+
+    <p>Stellar Anvil is a Night Orders original: a forge under a cold sky where heat has a sweet band and every Mark you earn can Ignite into Star Ash.</p>
+    <p>You strike for heat, keep the band honest, unlock Marks and Chronicle, then Ignite. The loop is Marks to Ignite to Ash. Progress stays on this phone.</p>
+    <p>Paid App Store download $0.99. One purchase. No in-app purchases. No account. No ads. Not free to play.</p>
+
+    <h2>Price</h2>
+    <p>Paid App Store download $0.99. One purchase through Apple. No subscriptions. No in-app purchases.</p>
+
+    <h2>What you can do</h2>
+    <ul>
+      <li>Strike and hold heat in the sweet band</li>
+      <li>Earn Marks and open Chronicle</li>
+      <li>Ignite Marks into Star Ash</li>
+      <li>Hire drones when the forge can carry them</li>
+      <li>Play offline on this phone</li>
+    </ul>
 
     <section class="shot-gallery" aria-label="Store shots">
       <figure>
@@ -131,26 +79,13 @@
       </figure>
     </section>
 
-    <p>Stellar Anvil is a Night Orders original: a forge under a cold sky where heat has a sweet band and every Mark you earn can Ignite into Star Ash.</p>
-    <p>You strike for heat, keep the band honest, unlock Marks and Chronicle, then Ignite. The loop is Marks to Ignite to Ash. Progress stays on this phone.</p>
-    <p>Paid App Store download $0.99. One purchase. No in-app purchases. No account. No ads. Not free to play.</p>
-
-    <h2>Price</h2>
-    <p>Paid App Store download $0.99. One purchase through Apple. No subscriptions. No in-app purchases.</p>
-
-    <h2>What you can do</h2>
-    <ul>
-      <li>Strike and hold heat in the sweet band</li>
-      <li>Earn Marks and open Chronicle</li>
-      <li>Ignite Marks into Star Ash</li>
-      <li>Hire drones when the forge can carry them</li>
-      <li>Play offline on this phone</li>
-    </ul>
-
     <h2>Privacy and support</h2>
-    <p><a href="privacy-anvil.html">Stellar Anvil privacy</a> · <a href="support-anvil.html">Stellar Anvil support</a> · <a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a></p>
-
-    <p class="mirror"><a href="alison.html">Alison</a> · <a href="pack-run.html">Pack Run</a> · <a href="support.html">Support</a> · <a href="legal.html">Legal</a></p>
+    <p>
+      <a href="privacy-anvil.html">Stellar Anvil privacy</a>
+      · <a href="support-anvil.html">Stellar Anvil support</a>
+      · <!--email_off--><a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a><!--/email_off-->
+    </p>
+    <p class="mirror"><a href="index.html">Night Orders</a> · <a href="alison.html">Alison</a> · <a href="pack-run.html">Pack Run</a></p>
   </main>
   <footer class="foot">
     <div class="foot-links">
