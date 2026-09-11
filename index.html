@@ -56,6 +56,80 @@
       gap: 0.35rem 0.9rem;
     }
     .app-card .links a { min-height: 44px; display: inline-flex; align-items: center; }
+
+    .card-art {
+      display: block;
+      margin: 0 0 0.35rem;
+      border-radius: 0.95rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--field) 80%, #000);
+      aspect-ratio: 390 / 844;
+      max-height: 18rem;
+    }
+    .card-art img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .app-card .links a.cta {
+      font-weight: 700;
+      color: #0C1116;
+      background: color-mix(in srgb, var(--accent) 88%, var(--field));
+      border-radius: 999px;
+      padding: 0 0.95rem;
+      text-decoration: none;
+      border-bottom: 0;
+      min-height: 44px;
+    }
+    .app-card .links a.cta:hover { background: var(--accent); }
+    .shot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+      gap: 0.55rem;
+      margin: 1rem 0 1.25rem;
+    }
+    .shot-gallery figure {
+      margin: 0;
+      border-radius: 0.85rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--field) 80%, #000);
+    }
+    .shot-gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 390 / 844;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .shot-gallery figcaption {
+      padding: 0.35rem 0.45rem 0.45rem;
+      color: var(--mute);
+      font-size: 0.72rem;
+    }
+    @media (any-hover: hover) {
+      .app-card {
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+      .app-card:hover,
+      .app-card:focus-within {
+        transform: translateY(-3px);
+        box-shadow:
+          inset 0 1px 0 color-mix(in srgb, var(--spec, #fff) 40%, transparent),
+          0 22px 44px -26px var(--depth, rgba(0,0,0,0.4));
+      }
+      .app-card:active { transform: scale(0.98); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .app-card { transition: none; }
+      .app-card:hover,
+      .app-card:focus-within,
+      .app-card:active { transform: none; }
+    }
   </style>
 </head>
 <body class="home-apps">
@@ -75,6 +149,9 @@
 
     <section class="apps-grid" aria-label="Apps">
       <article class="app-card">
+        <a class="card-art" href="alison.html">
+          <img src="media/alison/card-g1.webp" width="390" height="844" alt="Alison — Yours" loading="lazy" decoding="async" />
+        </a>
         <h2>Alison</h2>
         <p class="one-liner">On-device headache journal. Ingredients and symptoms stay with you.</p>
         <p>Alison is a personal headache journal on your phone. Log what you eat and how you feel. The journal stays on this device.</p>
@@ -82,12 +159,15 @@
         <p>Journal stays readable without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
         <p>No account. No ads.</p>
         <p class="links">
-          <a href="alison.html">Alison</a>
+          <a class="cta" href="alison.html">Open</a>
           <a href="privacy-alison.html">Privacy</a>
         </p>
       </article>
 
       <article class="app-card">
+        <a class="card-art" href="pack-run.html">
+          <img src="media/pack/card-g1.webp" width="390" height="844" alt="Pack Run — live occupancy" loading="lazy" decoding="async" />
+        </a>
         <h2>Pack Run</h2>
         <p class="one-liner">Are dogs at this park?</p>
         <p>Check in from your phone. The board shows a count, not names. A check-in lasts 90 minutes, then it is erased.</p>
@@ -95,18 +175,21 @@
         <p>Park list stays without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
         <p>No account. No ads.</p>
         <p class="links">
-          <a href="pack-run.html">Pack Run</a>
+          <a class="cta" href="pack-run.html">Open</a>
           <a href="privacy-pack-run.html">Privacy</a>
         </p>
       </article>
 
       <article class="app-card">
+        <a class="card-art" href="stellar-anvil.html">
+          <img src="media/anvil/card-g1.webp" width="390" height="844" alt="Stellar Anvil — Marks" loading="lazy" decoding="async" />
+        </a>
         <h2>Stellar Anvil</h2>
         <p class="one-liner">Marks to Ignite to Star Ash.</p>
         <p>A Night Orders forge under a cold sky. Hold the heat. Earn Marks. Ignite to Star Ash. Progress stays on this phone.</p>
         <p>Paid App Store download $0.99. One purchase. No in-app purchases. No account. No ads.</p>
         <p class="links">
-          <a href="stellar-anvil.html">Stellar Anvil</a>
+          <a class="cta" href="stellar-anvil.html">Open</a>
           <a href="privacy-anvil.html">Privacy</a>
           <a href="support-anvil.html">Support</a>
         </p>

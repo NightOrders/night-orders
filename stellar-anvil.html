@@ -15,6 +15,82 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script src="locale.js?v=e7"></script>
   <link rel="stylesheet" href="site-1836.css?v=e7" />
+  <style>
+
+    .card-art {
+      display: block;
+      margin: 0 0 0.35rem;
+      border-radius: 0.95rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--field) 80%, #000);
+      aspect-ratio: 390 / 844;
+      max-height: 18rem;
+    }
+    .card-art img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .app-card .links a.cta {
+      font-weight: 700;
+      color: #0C1116;
+      background: color-mix(in srgb, var(--accent) 88%, var(--field));
+      border-radius: 999px;
+      padding: 0 0.95rem;
+      text-decoration: none;
+      border-bottom: 0;
+      min-height: 44px;
+    }
+    .app-card .links a.cta:hover { background: var(--accent); }
+    .shot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+      gap: 0.55rem;
+      margin: 1rem 0 1.25rem;
+    }
+    .shot-gallery figure {
+      margin: 0;
+      border-radius: 0.85rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--field) 80%, #000);
+    }
+    .shot-gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 390 / 844;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .shot-gallery figcaption {
+      padding: 0.35rem 0.45rem 0.45rem;
+      color: var(--mute);
+      font-size: 0.72rem;
+    }
+    @media (any-hover: hover) {
+      .app-card {
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+      .app-card:hover,
+      .app-card:focus-within {
+        transform: translateY(-3px);
+        box-shadow:
+          inset 0 1px 0 color-mix(in srgb, var(--spec, #fff) 40%, transparent),
+          0 22px 44px -26px var(--depth, rgba(0,0,0,0.4));
+      }
+      .app-card:active { transform: scale(0.98); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .app-card { transition: none; }
+      .app-card:hover,
+      .app-card:focus-within,
+      .app-card:active { transform: none; }
+    }
+  </style>
 </head>
 <body>
   <header class="mast">
@@ -31,6 +107,29 @@
     <p class="motto">Stellar Anvil</p>
     <p class="kicker">The record stays with you.</p>
     <p class="note">Night Orders · Paid App Store download $0.99 · No in-app purchases</p>
+
+    <section class="shot-gallery" aria-label="Store shots">
+      <figure>
+        <img src="media/anvil/gallery-01.webp" width="390" height="844" alt="Stellar Anvil cold open" decoding="async" />
+        <figcaption>Cold open</figcaption>
+      </figure>
+      <figure>
+        <img src="media/anvil/gallery-02.webp" width="390" height="844" alt="Stellar Anvil strike heat" loading="lazy" decoding="async" />
+        <figcaption>Strike heat</figcaption>
+      </figure>
+      <figure>
+        <img src="media/anvil/gallery-03.webp" width="390" height="844" alt="Stellar Anvil sweet band" loading="lazy" decoding="async" />
+        <figcaption>Sweet band</figcaption>
+      </figure>
+      <figure>
+        <img src="media/anvil/gallery-04.webp" width="390" height="844" alt="Stellar Anvil Marks" loading="lazy" decoding="async" />
+        <figcaption>Marks</figcaption>
+      </figure>
+      <figure>
+        <img src="media/anvil/gallery-05.webp" width="390" height="844" alt="Stellar Anvil ash ignite" loading="lazy" decoding="async" />
+        <figcaption>Ash ignite</figcaption>
+      </figure>
+    </section>
 
     <p>Stellar Anvil is a Night Orders original: a forge under a cold sky where heat has a sweet band and every Mark you earn can Ignite into Star Ash.</p>
     <p>You strike for heat, keep the band honest, unlock Marks and Chronicle, then Ignite. The loop is Marks to Ignite to Ash. Progress stays on this phone.</p>
