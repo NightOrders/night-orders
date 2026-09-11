@@ -39,11 +39,16 @@
       <a href="pack-run.html">Pack Run</a>
       <a href="support.html" data-i18n="navSupport">Support</a>
     </nav>
-    <button type="button" class="mast-grip" aria-label="Move navigation island. Drag to top or bottom. Alt+Up docks top. Alt+Down docks bottom." title="Drag island">
+    
+    <button type="button" class="mast-grip" aria-label="Drag navigation island to top or bottom" title="Drag island">
       <span aria-hidden="true" class="mast-grip-dots">⋮⋮</span>
     </button>
+    <div class="dock-control" role="radiogroup" aria-label="Navigation island position">
+      <button type="button" class="dock-btn" role="radio" data-dock="top" aria-checked="true" tabindex="0" title="Dock navigation at top">Top</button>
+      <button type="button" class="dock-btn" role="radio" data-dock="bottom" aria-checked="false" tabindex="-1" title="Dock navigation at bottom">Bottom</button>
+    </div>
 
-</header>
+  </header>
   <main>
     <figure class="phone-wrap">
       <div class="phone pack play" data-rooms="pack" role="region" data-i18n-aria="packRoomsAria" aria-label="Pack Run. Opening, dogs, parks, Keep.">

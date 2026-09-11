@@ -771,24 +771,41 @@
   var mast = document.querySelector(".mast");
   if (!body || !mast) return;
 
+  var group = mast.querySelector(".dock-control");
+  if (!group) {
+    group = document.createElement("div");
+    group.className = "dock-control";
+    group.setAttribute("role", "radiogroup");
+    group.setAttribute("aria-label", "Navigation island position");
+    group.innerHTML =
+      '<button type="button" class="dock-btn" role="radio" data-dock="top" aria-checked="true" tabindex="0" title="Dock navigation at top">Top</button>' +
+      '<button type="button" class="dock-btn" role="radio" data-dock="bottom" aria-checked="false" tabindex="-1" title="Dock navigation at bottom">Bottom</button>';
+    mast.appendChild(group);
+  }
+
   var grip = mast.querySelector(".mast-grip");
   if (!grip) {
     grip = document.createElement("button");
     grip.type = "button";
     grip.className = "mast-grip";
-    grip.setAttribute("aria-label", "Move navigation island. Drag to top or bottom. Alt+Up docks top. Alt+Down docks bottom.");
+    grip.setAttribute("aria-label", "Drag navigation island to top or bottom");
     grip.title = "Drag island";
     grip.innerHTML = '<span aria-hidden="true" class="mast-grip-dots">⋮⋮</span>';
-    mast.appendChild(grip);
+    mast.insertBefore(grip, group);
   }
-  var legacy = mast.querySelector(".dock-control");
-  if (legacy) legacy.remove();
+
+  var buttons = [].slice.call(group.querySelectorAll("[data-dock]"));
 
   function apply(dock, persist) {
     var v = dock === "bottom" ? "bottom" : "top";
     body.classList.toggle("mast-dock-bottom", v === "bottom");
     document.documentElement.classList.remove("mast-dock-bottom-pending");
     mast.setAttribute("data-dock", v);
+    buttons.forEach(function (b) {
+      var on = b.getAttribute("data-dock") === v;
+      b.setAttribute("aria-checked", on ? "true" : "false");
+      b.tabIndex = on ? 0 : -1;
+    });
     if (persist) {
       try { localStorage.setItem(KEY, v); } catch (e) {}
     }
@@ -798,25 +815,44 @@
   try { saved = localStorage.getItem(KEY); } catch (e) {}
   apply(saved === "bottom" ? "bottom" : "top", false);
 
+  group.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-dock]");
+    if (!b || !group.contains(b)) return;
+    apply(b.getAttribute("data-dock"), true);
+  });
+  group.addEventListener("keydown", function (e) {
+    var i = buttons.indexOf(document.activeElement);
+    if (i < 0) return;
+    var n = i;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") n = (i + 1) % buttons.length;
+    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = (i - 1 + buttons.length) % buttons.length;
+    else return;
+    e.preventDefault();
+    apply(buttons[n].getAttribute("data-dock"), true);
+    buttons[n].focus();
+  });
+
   var dragging = false;
   var startY = 0;
   var baseY = 0;
   var pointerId = null;
+  var mastH = 0;
 
-  function interactiveTarget(t) {
-    return t && t.closest && t.closest("a, button:not(.mast-grip), input, textarea, select, [role='radio']");
+  function isNavOrDock(t) {
+    return t && t.closest && t.closest("a[href], .dock-btn, input, textarea, select");
   }
 
   function onDown(e) {
     if (e.button != null && e.button !== 0) return;
-    if (interactiveTarget(e.target) && !e.target.closest(".mast-grip")) return;
-    if (!e.target.closest(".mast-grip") && e.target.closest("a")) return;
+    if (isNavOrDock(e.target)) return;
     dragging = true;
     pointerId = e.pointerId;
     startY = e.clientY;
     var rect = mast.getBoundingClientRect();
     baseY = rect.top;
+    mastH = rect.height;
     mast.classList.add("mast-dragging");
+    document.documentElement.classList.add("mast-no-select");
     try { mast.setPointerCapture(pointerId); } catch (err) {}
     e.preventDefault();
   }
@@ -831,15 +867,14 @@
     if (!dragging || (pointerId != null && e.pointerId !== pointerId)) return;
     dragging = false;
     mast.classList.remove("mast-dragging");
+    document.documentElement.classList.remove("mast-no-select");
     try { mast.releasePointerCapture(pointerId); } catch (err) {}
     pointerId = null;
     var dy = e.clientY - startY;
     mast.style.transform = "";
     if (Math.abs(dy) < 8) return;
-    var rect = mast.getBoundingClientRect();
-    var center = baseY + dy + rect.height / 2;
-    var dock = center > window.innerHeight / 2 ? "bottom" : "top";
-    apply(dock, true);
+    var center = baseY + dy + mastH / 2;
+    apply(center > window.innerHeight / 2 ? "bottom" : "top", true);
   }
 
   mast.addEventListener("pointerdown", onDown);
