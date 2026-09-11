@@ -763,3 +763,56 @@
     }
   });
 })();
+
+/* SITE_ISLAND_DOCK */
+(function () {
+  var KEY = "nightorders.mastDock";
+  var body = document.body;
+  if (!body) return;
+  var mast = document.querySelector(".mast");
+  if (!mast) return;
+  var group = document.querySelector(".dock-control");
+  if (!group) {
+    group = document.createElement("div");
+    group.className = "dock-control";
+    group.setAttribute("role", "radiogroup");
+    group.setAttribute("aria-label", "Navigation island position");
+    group.innerHTML =
+      '<button type="button" class="dock-btn" role="radio" data-dock="top" aria-checked="true" tabindex="0" title="Dock navigation at top">Top</button>' +
+      '<button type="button" class="dock-btn" role="radio" data-dock="bottom" aria-checked="false" tabindex="-1" title="Dock navigation at bottom">Bottom</button>';
+    mast.appendChild(group);
+  }
+  var buttons = [].slice.call(group.querySelectorAll("[data-dock]"));
+  function apply(dock, persist) {
+    var v = dock === "bottom" ? "bottom" : "top";
+    body.classList.toggle("mast-dock-bottom", v === "bottom");
+    document.documentElement.classList.remove("mast-dock-bottom-pending");
+    buttons.forEach(function (b) {
+      var on = b.getAttribute("data-dock") === v;
+      b.setAttribute("aria-checked", on ? "true" : "false");
+      b.tabIndex = on ? 0 : -1;
+    });
+    if (persist) {
+      try { localStorage.setItem(KEY, v); } catch (e) {}
+    }
+  }
+  var saved = null;
+  try { saved = localStorage.getItem(KEY); } catch (e) {}
+  apply(saved === "bottom" ? "bottom" : "top", false);
+  group.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-dock]");
+    if (!b || !group.contains(b)) return;
+    apply(b.getAttribute("data-dock"), true);
+  });
+  group.addEventListener("keydown", function (e) {
+    var i = buttons.indexOf(document.activeElement);
+    if (i < 0) return;
+    var n = i;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") n = (i + 1) % buttons.length;
+    else if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = (i - 1 + buttons.length) % buttons.length;
+    else return;
+    e.preventDefault();
+    apply(buttons[n].getAttribute("data-dock"), true);
+    buttons[n].focus();
+  });
+})();

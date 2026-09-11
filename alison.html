@@ -22,6 +22,9 @@
     .shot-gallery img{display:block;width:100%;height:auto;aspect-ratio:390/844;object-fit:cover;object-position:center top}
     .shot-gallery figcaption{padding:.35rem .45rem .45rem;color:var(--mute);font-size:.72rem}
   </style>
+  <script>
+(function(){try{if(localStorage.getItem("nightorders.mastDock")==="bottom")document.documentElement.classList.add("mast-dock-bottom-pending");}catch(e){}})();
+  </script>
 </head>
 <body class="page-alison">
   <header class="mast">
@@ -33,6 +36,11 @@
       <a href="stellar-anvil.html">Stellar Anvil</a>
       <a href="support.html">Support</a>
     </nav>
+    <div class="dock-control" role="radiogroup" aria-label="Navigation island position">
+      <button type="button" class="dock-btn" role="radio" data-dock="top" aria-checked="true" tabindex="0" title="Dock navigation at top">Top</button>
+      <button type="button" class="dock-btn" role="radio" data-dock="bottom" aria-checked="false" tabindex="-1" title="Dock navigation at bottom">Bottom</button>
+    </div>
+
   </header>
   <main class="prose product-alison">
     <p class="motto">Alison</p>
