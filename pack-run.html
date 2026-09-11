@@ -25,6 +25,33 @@
       min-height: 28rem;
       max-height: calc(100dvh - var(--chrome-stack));
     }
+
+    .shot-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+      gap: 0.55rem;
+      margin: 1rem 0 1.25rem;
+    }
+    .shot-gallery figure {
+      margin: 0;
+      border-radius: 0.85rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--field) 80%, #000);
+    }
+    .shot-gallery img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 390 / 844;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .shot-gallery figcaption {
+      padding: 0.35rem 0.45rem 0.45rem;
+      color: var(--mute);
+      font-size: 0.72rem;
+    }
   </style>
 </head>
 <body class="power">
@@ -108,6 +135,29 @@
       </div>
       <figcaption data-i18n="packFig">OPEN. Dogs, parks, Keep.</figcaption>
     </figure>
+
+    <section class="shot-gallery" aria-label="Pack Run store shots">
+      <figure>
+        <img src="media/pack/gallery-01.webp" width="390" height="844" alt="Pack Run open light" decoding="async" />
+        <figcaption>Open light</figcaption>
+      </figure>
+      <figure>
+        <img src="media/pack/gallery-02.webp" width="390" height="844" alt="Pack Run live occupancy" loading="lazy" decoding="async" />
+        <figcaption>Live occupancy</figcaption>
+      </figure>
+      <figure>
+        <img src="media/pack/gallery-03.webp" width="390" height="844" alt="Pack Run doggy" loading="lazy" decoding="async" />
+        <figcaption>Doggy</figcaption>
+      </figure>
+      <figure>
+        <img src="media/pack/gallery-04.webp" width="390" height="844" alt="Pack Run photo wash" loading="lazy" decoding="async" />
+        <figcaption>Photo wash</figcaption>
+      </figure>
+      <figure>
+        <img src="media/pack/gallery-05.webp" width="390" height="844" alt="Pack Run Keep" loading="lazy" decoding="async" />
+        <figcaption>Keep</figcaption>
+      </figure>
+    </section>
 
     <p class="motto">Pack Run</p>
     <p class="kicker" data-i18n="motto">The record stays with you.</p>
