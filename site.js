@@ -895,3 +895,54 @@
     if (e.key === "ArrowDown") { apply("bottom", true); e.preventDefault(); }
   });
 })();
+
+/* SITE_MASTHEAD_ANIMATE */
+(function () {
+  var reduce = false;
+  try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  var motto = document.querySelector(".page-home .masthead-band--amazing .motto");
+  if (motto) {
+    if (reduce) {
+      motto.classList.add("is-in");
+    } else if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) {
+            motto.classList.add("is-in");
+            requestAnimationFrame(function () { motto.classList.add("is-breath"); });
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.55 });
+      io.observe(motto);
+    } else {
+      motto.classList.add("is-in", "is-breath");
+    }
+  }
+
+  var band = document.querySelector(".page-home .masthead-band--amazing");
+  var art = band && band.querySelector(".masthead-art");
+  if (!band || !art || reduce) return;
+  if (!window.matchMedia("(pointer: fine)").matches && !("ontouchstart" in window)) return;
+
+  function setTilt(clientX, clientY) {
+    var r = band.getBoundingClientRect();
+    var x = ((clientX - r.left) / r.width) * 2 - 1;
+    var y = ((clientY - r.top) / r.height) * 2 - 1;
+    band.style.setProperty("--mx", String(Math.max(-1, Math.min(1, x))));
+    band.style.setProperty("--my", String(Math.max(-1, Math.min(1, y))));
+    band.classList.add("is-tilting");
+  }
+  function clearTilt() {
+    band.classList.remove("is-tilting");
+    band.style.setProperty("--mx", "0");
+    band.style.setProperty("--my", "0");
+  }
+  band.addEventListener("pointermove", function (e) {
+    if (e.pointerType === "mouse" || e.pointerType === "pen" || e.pointerType === "touch") {
+      setTilt(e.clientX, e.clientY);
+    }
+  });
+  band.addEventListener("pointerleave", clearTilt);
+  band.addEventListener("pointercancel", clearTilt);
+})();

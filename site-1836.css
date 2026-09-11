@@ -2066,3 +2066,117 @@ body {
     display: none;
   }
 }
+
+/* SITE_MAST_TRUE_BOTTOM */
+body.mast-dock-bottom .mast,
+html.mast-dock-bottom-pending .mast {
+  top: auto;
+  bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+}
+body.mast-dock-bottom main,
+html.mast-dock-bottom-pending main {
+  padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)) !important;
+}
+@media (max-width: 51.99rem) {
+  /* override prior +3.35rem lift */
+  body.mast-dock-bottom .mast,
+  html.mast-dock-bottom-pending .mast {
+    bottom: max(0.5rem, env(safe-area-inset-bottom, 0px)) !important;
+  }
+  body.mast-dock-bottom main,
+  html.mast-dock-bottom-pending main {
+    padding-bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+}
+
+/* SITE_MASTHEAD_ANIMATE */
+.page-home.studio-first .masthead-band--amazing .motto {
+  opacity: 0.88;
+  transform: translateY(8px);
+  transition: opacity 480ms ease, transform 480ms ease;
+}
+.page-home.studio-first .masthead-band--amazing .motto.is-in {
+  opacity: 1;
+  transform: none;
+}
+.page-home.studio-first .masthead-band--amazing .motto.is-in.is-breath {
+  animation: masthead-motto-breath 4.5s ease-in-out infinite;
+}
+@keyframes masthead-motto-breath {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.86; }
+}
+
+.page-home.studio-first .masthead-stitch {
+  transition: border-color 200ms ease, box-shadow 200ms ease, color 200ms ease;
+}
+.page-home.studio-first .masthead-stitch:hover,
+.page-home.studio-first .masthead-stitch:focus-visible {
+  color: var(--ink);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent),
+    0 0 24px color-mix(in srgb, var(--accent) 18%, transparent);
+  outline: none;
+}
+.page-home.studio-first .masthead-stitch[tabindex="0"] { cursor: default; }
+
+.page-home.studio-first .masthead-art {
+  transform-style: preserve-3d;
+  transition: transform 120ms ease-out;
+}
+.page-home.studio-first .masthead-still {
+  transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+}
+.page-home.studio-first .masthead-band--amazing.is-tilting .masthead-art {
+  transform: perspective(900px)
+    rotateY(calc(var(--mx, 0) * 6deg))
+    rotateX(calc(var(--my, 0) * -5deg));
+}
+
+.page-home.studio-first .browse-apps {
+  position: relative;
+  overflow: hidden;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+.page-home.studio-first .browse-apps::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, color-mix(in srgb, var(--spec, #fff) 22%, transparent) 50%, transparent 70%);
+  background-size: 220% 100%;
+  background-position: 120% 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+@media (any-hover: hover) {
+  .page-home.studio-first .browse-apps:hover {
+    border-color: var(--accent);
+    box-shadow: 0 8px 22px color-mix(in srgb, #000 28%, transparent);
+    transform: translateY(-2px);
+  }
+  .page-home.studio-first .browse-apps:hover::after {
+    opacity: 1;
+    animation: masthead-sheen 1.1s ease;
+  }
+}
+.page-home.studio-first .browse-apps:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-home.studio-first .masthead-band--amazing .motto,
+  .page-home.studio-first .masthead-band--amazing .motto.is-in,
+  .page-home.studio-first .masthead-art,
+  .page-home.studio-first .masthead-still,
+  .page-home.studio-first .browse-apps,
+  .page-home.studio-first .browse-apps::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .page-home.studio-first .masthead-band--amazing .motto.is-breath {
+    animation: none !important;
+  }
+}
