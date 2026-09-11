@@ -27,22 +27,115 @@
     .page-home .tab {
       min-height: 44px; padding: 0.55rem 1rem;
       border: 1px solid var(--line); border-radius: 999px;
-      background: transparent; color: var(--ink); cursor: pointer;
+      background: transparent; color: var(--mute); cursor: pointer;
       font: inherit;
     }
     .page-home .tab[aria-selected="true"] {
+      color: var(--ink);
       border-color: var(--accent); box-shadow: inset 0 -2px 0 var(--accent);
     }
-    .page-home .tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-    .page-home .tabpanel { max-width: 40rem; }
-    .page-home .tabpanel[hidden] { display: none; }
-    .page-home .tabpanel .one-liner { color: var(--mute); }
     .page-home .open { min-height: 44px; display: inline-flex; align-items: center; }
     .page-home .links { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-top: 0.85rem; }
     .page-home .mast-apps { opacity: 0.72; font-size: 0.92rem; }
+    .page-home .tabpanel .one-liner { color: var(--mute); }
+    .page-home .tabpanel[hidden] { display: none; }
+
     @media (prefers-reduced-motion: reduce) {
-      .page-home .tabpanel { transition: none; }
+      .page-home.studio-first .motto,
+      .page-home .tabpanel,
+      .page-home .tab,
+      .page-home .mail-pill,
+      .page-home .panel-art img { transition: none !important; animation: none !important; }
     }
+    .page-home.studio-first .mark-lg {
+      transition: text-shadow 180ms ease, color 180ms ease;
+    }
+    @media (any-hover: hover) {
+      .page-home.studio-first .mark-lg:hover {
+        text-shadow: 0 0 24px color-mix(in srgb, var(--accent) 35%, transparent);
+      }
+    }
+    .page-home.studio-first .mark-lg:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: 4px;
+    }
+    .page-home.studio-first .motto.is-in {
+      opacity: 1; transform: none;
+    }
+    .page-home.studio-first .motto {
+      opacity: 0.92; transform: translateY(6px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    .page-home .mail-pill {
+      display: inline-flex; align-items: center; min-height: 44px;
+      padding: 0.45rem 0.95rem; border-radius: 999px;
+      border: 1px solid var(--line); color: var(--ink); text-decoration: none;
+      transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+    }
+    @media (any-hover: hover) {
+      .page-home .mail-pill:hover {
+        border-color: var(--accent); transform: translateY(-2px);
+        box-shadow: 0 6px 18px color-mix(in srgb, #000 35%, transparent);
+      }
+    }
+    .page-home .mail-pill:active { transform: scale(0.98); }
+    .page-home .browse-apps {
+      display: inline-flex; min-height: 44px; align-items: center;
+      margin-top: 0.75rem; color: var(--mute);
+    }
+    .page-home .tab {
+      transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease;
+    }
+    .page-home .tab:focus-visible {
+      outline: 2px solid var(--accent); outline-offset: 3px;
+    }
+    .page-home .tab[aria-selected="true"] {
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+      border-color: var(--accent);
+      box-shadow: inset 0 -2px 0 var(--accent);
+    }
+    @media (any-hover: hover) {
+      .page-home .tab:not([aria-selected="true"]):hover {
+        border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+      }
+    }
+    .page-home .tabpanel {
+      display: grid; gap: 1rem; max-width: 40rem;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    @media (min-width: 800px) {
+      .page-home .tabpanel:not([hidden]) {
+        grid-template-columns: minmax(7.5rem, 11rem) 1fr;
+        align-items: start;
+      }
+    }
+    .page-home .panel-art {
+      margin: 0; border-radius: 0.85rem; overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .page-home .panel-art img {
+      display: block; width: 100%; height: auto; aspect-ratio: 390 / 844;
+      object-fit: cover; object-position: center top;
+    }
+    .page-home .record-strip {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0 0.35rem;
+    }
+    .page-home .record-strip [role="radio"] {
+      min-height: 44px; padding: 0.4rem 0.85rem; border-radius: 999px;
+      border: 1px solid var(--line); background: transparent; color: var(--mute); cursor: pointer;
+      font: inherit;
+    }
+    .page-home .record-strip [role="radio"][aria-checked="true"] {
+      color: var(--ink); border-color: var(--accent);
+      box-shadow: inset 0 -2px 0 var(--accent);
+    }
+    .page-home .record-caption { color: var(--mute); max-width: 38rem; min-height: 2.8em; }
+    .page-home .scroll-cue {
+      position: sticky; bottom: 0.75rem; margin: 1rem auto 0; width: max-content;
+      min-height: 44px; padding: 0.4rem 0.9rem; border-radius: 999px;
+      border: 1px solid var(--line); background: color-mix(in srgb, var(--canvas) 88%, transparent);
+      color: var(--mute); cursor: pointer; font: inherit;
+    }
+    .page-home .scroll-cue[hidden] { display: none; }
   </style>
 </head>
 <body class="page-home studio-first">
@@ -60,13 +153,20 @@
   </header>
   <main>
     <section class="studio" aria-labelledby="studio-title">
-      <h1 id="studio-title" class="mark-lg">Night Orders</h1>
+      <h1 id="studio-title" class="mark-lg" tabindex="0">Night Orders</h1>
       <p class="motto">The record stays with you.</p>
       <p class="studio-lede">Night Orders is a small independent studio in Boulder, Colorado. We build phone-first apps. Your record stays on your device. No account. No ads.</p>
       <p class="studio-line">We ship carefully. Support is human when you need it.</p>
+      <div class="record-strip" role="radiogroup" aria-label="How the record stays with you">
+        <button type="button" role="radio" aria-checked="true" tabindex="0" data-caption="Your journal, park count, and forge progress stay on this device.">On your phone</button>
+        <button type="button" role="radio" aria-checked="false" tabindex="-1" data-caption="Nothing to sign up for. Support is mail when you need it.">No account</button>
+        <button type="button" role="radio" aria-checked="false" tabindex="-1" data-caption="We do not sell attention. The product is the product.">No ads</button>
+      </div>
+      <p class="record-caption" id="record-caption" aria-live="polite">Your journal, park count, and forge progress stay on this device.</p>
       <p class="studio-support">
-        <a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a>
+        <a class="mail mail-pill" href="mailto:support@nightorders.app">support@nightorders.app</a>
       </p>
+      <p><a class="browse-apps" href="#apps-heading">Browse apps</a></p>
     </section>
 
     <section class="studio-apps" aria-labelledby="apps-heading">
@@ -80,40 +180,57 @@
       </div>
 
       <div class="tabpanel" role="tabpanel" id="panel-alison" aria-labelledby="tab-alison">
-        <p class="one-liner">On-device headache journal. Ingredients and symptoms stay with you.</p>
-        <p>Alison is a personal headache journal on your phone. Log what you eat and how you feel. The journal stays on this device.</p>
-        <p>Not a medical device. Not a diagnosis. Not a forecast.</p>
-        <p>Journal stays readable without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
-        <p>No account. No ads.</p>
-        <p class="links">
-          <a class="open" href="alison.html">Open Alison</a>
-          <a href="privacy-alison.html">Privacy</a>
-        </p>
+        <figure class="panel-art">
+          <img src="media/alison/gallery-02.webp" width="390" height="844" alt="Alison — Yours" loading="lazy" decoding="async" />
+        </figure>
+        <div class="panel-copy">
+          <p class="one-liner">On-device headache journal. Ingredients and symptoms stay with you.</p>
+          <p>Alison is a personal headache journal on your phone. Log what you eat and how you feel. The journal stays on this device.</p>
+          <p>Not a medical device. Not a diagnosis. Not a forecast.</p>
+          <p>Journal stays readable without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for new Start, Food, and Health pull. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
+          <p>No account. No ads.</p>
+          <p class="links">
+            <a class="open" href="alison.html">Open Alison</a>
+            <a href="privacy-alison.html">Privacy</a>
+          </p>
+        </div>
       </div>
 
       <div class="tabpanel" role="tabpanel" id="panel-pack" aria-labelledby="tab-pack" hidden>
-        <p class="one-liner">Are dogs at this park?</p>
-        <p>Check in from your phone. The board shows a count, not names. A check-in lasts 90 minutes, then it is erased.</p>
-        <p>Location is When In Use to find nearby parks. Deny location and a short list still works.</p>
-        <p>Park list stays without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
-        <p>No account. No ads.</p>
-        <p class="links">
-          <a class="open" href="pack-run.html">Open Pack Run</a>
-          <a href="privacy-pack-run.html">Privacy</a>
-        </p>
+        <figure class="panel-art">
+          <img src="media/pack/gallery-03.webp" width="390" height="844" alt="Pack Run — board" loading="lazy" decoding="async" />
+        </figure>
+        <div class="panel-copy">
+          <p class="one-liner">Are dogs at this park?</p>
+          <p>Check in from your phone. The board shows a count, not names. A check-in lasts 90 minutes, then it is erased.</p>
+          <p>Location is When In Use to find nearby parks. Deny location and a short list still works.</p>
+          <p>Park list stays without Keep. Keep is a 30-day free trial, then $0.99/month through Apple for check-in. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen. Cancel in Apple Subscriptions.</p>
+          <p>No account. No ads.</p>
+          <p class="links">
+            <a class="open" href="pack-run.html">Open Pack Run</a>
+            <a href="privacy-pack-run.html">Privacy</a>
+          </p>
+        </div>
       </div>
 
       <div class="tabpanel" role="tabpanel" id="panel-anvil" aria-labelledby="tab-anvil" hidden>
-        <p class="one-liner">Marks to Ignite to Star Ash.</p>
-        <p>A Night Orders forge under a cold sky. Hold the heat. Earn Marks. Ignite to Star Ash. Progress stays on this phone.</p>
-        <p>Paid App Store download $0.99. One purchase. No in-app purchases. No account. No ads.</p>
-        <p class="links">
-          <a class="open" href="stellar-anvil.html">Open Stellar Anvil</a>
-          <a href="privacy-anvil.html">Privacy</a>
-          <a href="support-anvil.html">Support</a>
-        </p>
+        <figure class="panel-art">
+          <img src="media/anvil/gallery-04.webp" width="390" height="844" alt="Stellar Anvil — Marks" loading="lazy" decoding="async" />
+        </figure>
+        <div class="panel-copy">
+          <p class="one-liner">Marks to Ignite to Star Ash.</p>
+          <p>A Night Orders forge under a cold sky. Hold the heat. Earn Marks. Ignite to Star Ash. Progress stays on this phone.</p>
+          <p>Paid App Store download $0.99. One purchase. No in-app purchases. No account. No ads.</p>
+          <p class="links">
+            <a class="open" href="stellar-anvil.html">Open Stellar Anvil</a>
+            <a href="privacy-anvil.html">Privacy</a>
+            <a href="support-anvil.html">Support</a>
+          </p>
+        </div>
       </div>
     </section>
+
+    <button type="button" class="scroll-cue" id="scroll-cue" hidden>Apps below</button>
   </main>
   <footer class="foot">
     <div class="foot-links">
@@ -168,6 +285,75 @@
   if (start) {
     var el = document.getElementById(start);
     if (el) select(el, false);
+  }
+})();
+  </script>
+  <script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var motto = document.querySelector(".page-home.studio-first .motto");
+  if (motto && !reduce && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { motto.classList.add("is-in"); io.disconnect(); }
+      });
+    }, { threshold: 0.6 });
+    io.observe(motto);
+  } else if (motto) motto.classList.add("is-in");
+
+  var strip = document.querySelector(".record-strip");
+  var caption = document.getElementById("record-caption");
+  if (strip && caption) {
+    var radios = [].slice.call(strip.querySelectorAll('[role="radio"]'));
+    function pick(btn, focus) {
+      radios.forEach(function (r) {
+        var on = r === btn;
+        r.setAttribute("aria-checked", on ? "true" : "false");
+        r.tabIndex = on ? 0 : -1;
+      });
+      caption.textContent = btn.getAttribute("data-caption") || "";
+      if (focus) btn.focus();
+    }
+    strip.addEventListener("click", function (e) {
+      var b = e.target.closest('[role="radio"]');
+      if (b) pick(b, false);
+    });
+    strip.addEventListener("keydown", function (e) {
+      var i = radios.indexOf(document.activeElement);
+      if (i < 0) return;
+      var n = i;
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") n = (i + 1) % radios.length;
+      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = (i - 1 + radios.length) % radios.length;
+      else return;
+      e.preventDefault();
+      pick(radios[n], true);
+    });
+  }
+
+  var cue = document.getElementById("scroll-cue");
+  var apps = document.getElementById("apps-heading");
+  if (cue && apps) {
+    var shown = false;
+    var t = window.setTimeout(function () {
+      if (!shown && window.scrollY < 40) cue.hidden = false;
+    }, 1200);
+    function hide() { cue.hidden = true; shown = true; window.clearTimeout(t); }
+    cue.addEventListener("click", function () {
+      hide();
+      apps.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      var tab = document.getElementById("tab-alison");
+      if (tab) tab.focus();
+    });
+    window.addEventListener("scroll", function () { if (window.scrollY > 80) hide(); }, { passive: true });
+    window.addEventListener("keydown", function (e) { if (e.key === "Escape") hide(); });
+  }
+
+  var browse = document.querySelector(".browse-apps");
+  if (browse && apps) {
+    browse.addEventListener("click", function (e) {
+      e.preventDefault();
+      apps.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    });
   }
 })();
   </script>
