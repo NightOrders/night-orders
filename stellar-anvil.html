@@ -14,7 +14,7 @@
   <link rel="icon" href="favicon.ico" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <script src="locale.js?v=e7"></script>
-  <link rel="stylesheet" href="site-1836.css?v=handdock3" />
+  <link rel="stylesheet" href="site-1836.css?v=mobile1" />
   <style>
     .page-anvil .product-anvil { max-width: 56ch; }
     .page-anvil { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent); }
@@ -24,8 +24,16 @@
     .shot-gallery figcaption{padding:.35rem .45rem .45rem;color:var(--mute);font-size:.72rem}
   </style>
   <script>
-(function(){try{if(localStorage.getItem("nightorders.mastDock")==="bottom")document.documentElement.classList.add("mast-dock-bottom-pending");}catch(e){}})();
-  </script>
+(function () {
+  try {
+    var saved = localStorage.getItem("nightorders.mastDock");
+    var phone = window.matchMedia("(max-width: 51.99rem)").matches;
+    if (saved === "bottom" || (!saved && phone)) {
+      document.documentElement.classList.add("mast-dock-bottom-pending");
+    }
+  } catch (e) {}
+})();
+</script>
 </head>
 <body class="page-anvil">
   <header class="mast">
@@ -120,6 +128,6 @@
   <script src="i18n2.js?v=e7"></script>
   <script src="i18n3.js?v=e7"></script>
   <script src="i18n.js?v=e7"></script>
-  <script src="site.js?v=handdock3"></script>
+  <script src="site.js?v=mobile1"></script>
 </body>
 </html>

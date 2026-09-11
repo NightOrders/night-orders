@@ -1618,3 +1618,141 @@ html.mast-dock-bottom-pending .scroll-cue {
   .mark { max-width: 5.5rem; letter-spacing: 0.1em; }
   .dock-btn { padding: 0.2rem 0.38rem; }
 }
+
+/* SITE_MOBILE_OPTIMIZE A */
+html {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+body {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+@media (max-width: 51.99rem) {
+  .phone,
+  .phone-wrap {
+    min-height: max(22rem, calc(100dvh - var(--chrome-stack, 4.2rem)));
+    max-height: calc(100dvh - var(--chrome-stack, 4.2rem));
+  }
+}
+
+/* SITE_MOBILE_OPTIMIZE C */
+@media (max-width: 51.99rem) {
+  .page-home.studio-first .studio {
+    max-width: none;
+    margin-bottom: 1.35rem;
+  }
+  .page-home.studio-first .mark-lg {
+    font-size: clamp(1.65rem, 7vw, 2rem);
+    letter-spacing: -0.03em;
+    margin: 0 0 0.45rem;
+  }
+  .page-home.studio-first .motto {
+    font-size: clamp(1.15rem, 4.6vw, 1.45rem);
+    line-height: 1.2;
+  }
+  .page-home.studio-first .studio-lede {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    margin: 0.85rem 0 0.65rem;
+    max-width: none;
+  }
+  .page-home.studio-first .studio-line {
+    font-size: 0.95rem;
+    margin: 0.45rem 0;
+  }
+  .page-home .apps-heading {
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+  }
+  .page-home .apps-note {
+    font-size: 0.98rem;
+    margin-bottom: 0.9rem;
+  }
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* SITE_MOBILE_OPTIMIZE D */
+@media (max-width: 51.99rem) {
+  .page-home .tablist {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.4rem;
+    margin: 0.75rem 0 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    padding-bottom: 0.2rem;
+  }
+  .page-home .tab {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    min-height: 48px;
+    min-width: 44px;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .page-home .tabpanel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    max-width: none;
+  }
+  .page-home .panel-art {
+    max-width: 14rem;
+    margin-inline: auto;
+  }
+  .page-home .open {
+    min-height: 48px;
+    padding: 0.65rem 1.15rem;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    font-weight: 650;
+  }
+  .page-home .links {
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+}
+
+/* SITE_MOBILE_OPTIMIZE E */
+@media (max-width: 51.99rem) {
+  .page-home .record-strip {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 1.1rem 0 0.45rem;
+  }
+  .page-home .record-strip [role="radio"] {
+    flex: 0 0 auto;
+    min-height: 48px;
+    padding: 0.55rem 0.95rem;
+    font-size: 0.9rem;
+  }
+  .page-home .record-caption {
+    font-size: 0.95rem;
+    min-height: 3.2em;
+    margin-bottom: 0.35rem;
+  }
+  .page-home .mail-pill {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+  }
+  .page-home .studio-support { margin-top: 1rem; }
+  .page-home .browse-apps {
+    min-height: 48px;
+    font-size: 0.95rem;
+  }
+  .page-home .scroll-cue { display: none !important; }
+}

@@ -813,7 +813,14 @@
 
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) {}
-  apply(saved === "bottom" ? "bottom" : "top", false);
+  var phone = false;
+  try { phone = window.matchMedia("(max-width: 51.99rem)").matches; } catch (e) {}
+  var initial = saved === "bottom" || saved === "top"
+    ? saved
+    : (phone ? "bottom" : "top");
+  apply(initial, false);
+  // Do NOT persist the automatic phone default until user docks/drags/clicks —
+  // so rotating to desktop later does not stick bottom forever.
 
   group.addEventListener("click", function (e) {
     var b = e.target.closest("[data-dock]");
