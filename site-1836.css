@@ -1876,3 +1876,193 @@ body {
     background: var(--field, var(--canvas));
   }
 }
+
+/* SITE_HOME_MASTHEAD_AMAZING */
+.page-home.studio-first .home-masthead {
+  margin-bottom: 2rem;
+}
+.page-home.studio-first .masthead-band--amazing {
+  position: relative;
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.5rem 1.35rem 1.55rem;
+  border-radius: 1.55rem;
+  border: 0.5px solid var(--rim, var(--line));
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(90% 70% at 85% 10%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 55%),
+    radial-gradient(70% 60% at 8% 90%, color-mix(in srgb, var(--sea, #3a6) 22%, transparent), transparent 50%),
+    radial-gradient(120% 100% at 50% -10%, color-mix(in srgb, var(--spec, #fff) 12%, transparent), transparent 45%),
+    color-mix(in srgb, var(--field, var(--canvas)) 55%, transparent);
+  -webkit-backdrop-filter: blur(22px) saturate(1.65);
+  backdrop-filter: blur(22px) saturate(1.65);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--spec, #fff) 30%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, var(--field) 35%, transparent),
+    0 22px 50px -30px var(--shadow, #000);
+}
+.page-home.studio-first .masthead-band--amazing::before {
+  content: "";
+  position: absolute;
+  inset: -40% -20%;
+  z-index: 0;
+  pointer-events: none;
+  background: conic-gradient(
+    from 210deg at 50% 40%,
+    transparent 0deg,
+    color-mix(in srgb, var(--accent) 16%, transparent) 60deg,
+    transparent 120deg,
+    color-mix(in srgb, var(--sea, #3a6) 12%, transparent) 200deg,
+    transparent 280deg
+  );
+  opacity: 0.55;
+  animation: masthead-aurora 18s linear infinite;
+}
+.page-home.studio-first .masthead-band--amazing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    color-mix(in srgb, var(--spec, #fff) 14%, transparent) 48%,
+    transparent 62%
+  );
+  background-size: 220% 100%;
+  animation: masthead-sheen 9s ease-in-out infinite;
+  opacity: 0.35;
+}
+@keyframes masthead-aurora {
+  to { transform: rotate(360deg); }
+}
+@keyframes masthead-sheen {
+  0%, 100% { background-position: 120% 0; }
+  50% { background-position: -20% 0; }
+}
+
+.page-home.studio-first .masthead-copy,
+.page-home.studio-first .masthead-art {
+  position: relative;
+  z-index: 1;
+}
+.page-home.studio-first .masthead-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.page-home.studio-first .masthead-band--amazing .mark-lg {
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.035em;
+  text-shadow: 0 0 28px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+.page-home.studio-first .masthead-band--amazing .motto {
+  margin: 0.15rem 0 0.65rem;
+  font-size: clamp(1.35rem, 4.5vw, 1.85rem);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  max-width: 22ch;
+}
+.page-home.studio-first .masthead-stitch {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  margin: 0 0 1rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 0.5px solid var(--rim, var(--line));
+  background: color-mix(in srgb, var(--canvas) 35%, transparent);
+  color: var(--mute);
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+}
+.page-home.studio-first .masthead-band--amazing .studio-lede {
+  margin: 0 0 0.45rem;
+  max-width: 36rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.page-home.studio-first .masthead-band--amazing .studio-line {
+  margin: 0;
+  color: var(--mute);
+}
+
+.page-home.studio-first .masthead-art {
+  display: none;
+  pointer-events: none;
+  user-select: none;
+}
+.page-home.studio-first .masthead-still {
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 0.5px solid var(--rim, var(--line));
+  box-shadow: 0 16px 36px -22px var(--shadow, #000);
+  background: var(--field);
+}
+.page-home.studio-first .masthead-still img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 390 / 844;
+  object-fit: cover;
+  object-position: center top;
+}
+
+@media (min-width: 52rem) {
+  .page-home.studio-first .masthead-band--amazing {
+    grid-template-columns: minmax(9.5rem, 12.5rem) 1fr;
+    align-items: center;
+    padding: 1.85rem 1.75rem 1.9rem;
+    max-width: 46rem;
+  }
+  .page-home.studio-first .masthead-art {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    transform: perspective(900px) rotateY(6deg);
+  }
+  .page-home.studio-first .masthead-still--b {
+    transform: translateX(0.55rem) scale(0.96);
+    opacity: 0.92;
+  }
+  .page-home.studio-first .masthead-still--c {
+    transform: translateX(1.05rem) scale(0.92);
+    opacity: 0.84;
+  }
+}
+
+@media (max-width: 51.99rem) {
+  .page-home.studio-first .masthead-band--amazing {
+    padding: 1.25rem 1.05rem 1.3rem;
+    border-radius: 1.25rem;
+  }
+  .page-home.studio-first .masthead-band--amazing .motto {
+    font-size: clamp(1.25rem, 5.5vw, 1.55rem);
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-home.studio-first .masthead-band--amazing::before,
+  .page-home.studio-first .masthead-band--amazing::after {
+    animation: none !important;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .page-home.studio-first .masthead-band--amazing {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--field, var(--canvas));
+  }
+  .page-home.studio-first .masthead-band--amazing::before,
+  .page-home.studio-first .masthead-band--amazing::after {
+    display: none;
+  }
+}
