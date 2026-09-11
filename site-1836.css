@@ -1756,3 +1756,38 @@ body {
   }
   .page-home .scroll-cue { display: none !important; }
 }
+
+/* SITE_MOBILE_OPTIMIZE_DELTA — close WATCH */
+@media (max-width: 51.99rem) {
+  .page-home.studio-first .mark-lg {
+    font-size: clamp(2rem, 8.2vw, 2.5rem); /* ~32–40px */
+    line-height: 1.15;
+  }
+
+  main {
+    padding-left: 1.5rem !important;  /* 24px */
+    padding-right: 1.5rem !important;
+  }
+
+  .page-home .tab,
+  .page-home .open,
+  .page-home .mail-pill,
+  .page-home .browse-apps,
+  .page-home .record-strip [role="radio"] {
+    min-height: 48px !important;
+  }
+
+  .page-home .browse-apps {
+    display: flex !important;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 650;
+  }
+}
