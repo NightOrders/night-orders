@@ -1791,3 +1791,88 @@ body {
     font-weight: 650;
   }
 }
+
+/* SITE_HOME_MASTHEAD */
+.page-home.studio-first .home-masthead {
+  margin-bottom: 1.75rem;
+}
+.page-home.studio-first .masthead-band {
+  position: relative;
+  padding: 1.35rem 1.25rem 1.4rem;
+  border-radius: 1.35rem;
+  border: 0.5px solid var(--rim, var(--line));
+  background:
+    radial-gradient(120% 90% at 12% 0%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 55%),
+    color-mix(in srgb, var(--sea, var(--field)) 14%, color-mix(in srgb, var(--field, var(--canvas)) 50%, transparent));
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  backdrop-filter: blur(18px) saturate(1.4);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, var(--spec, #fff) 22%, transparent),
+    0 18px 40px -28px var(--shadow, #000);
+  overflow: hidden;
+}
+.page-home.studio-first .masthead-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ink) 4%, transparent), transparent 40%);
+  opacity: 0.7;
+}
+.page-home.studio-first .masthead-eyebrow {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.page-home.studio-first .masthead-band .mark-lg,
+.page-home.studio-first .masthead-band .motto,
+.page-home.studio-first .masthead-band .masthead-stitch,
+.page-home.studio-first .masthead-band .studio-lede,
+.page-home.studio-first .masthead-band .studio-line {
+  position: relative;
+  z-index: 1;
+}
+.page-home.studio-first .masthead-stitch {
+  margin: 0.55rem 0 0.85rem;
+  color: var(--mute);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+.page-home.studio-first .masthead-band .studio-lede {
+  margin-top: 0.35rem;
+}
+
+@media (max-width: 51.99rem) {
+  .page-home.studio-first .masthead-band {
+    padding: 1.15rem 1rem 1.2rem;
+    border-radius: 1.15rem;
+  }
+  .page-home.studio-first .masthead-stitch {
+    font-size: 0.9rem;
+    line-height: 1.35;
+  }
+  .page-home.studio-first .home-masthead {
+    margin-top: 0.15rem;
+  }
+}
+
+@media (min-width: 52rem) {
+  .page-home.studio-first .masthead-band {
+    padding: 1.75rem 1.6rem 1.8rem;
+    max-width: 40rem;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .page-home.studio-first .masthead-band {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--field, var(--canvas));
+  }
+}
