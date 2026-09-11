@@ -1760,7 +1760,7 @@ body {
 /* SITE_MOBILE_OPTIMIZE_DELTA — close WATCH */
 @media (max-width: 51.99rem) {
   .page-home.studio-first .mark-lg {
-    font-size: clamp(2rem, 8.2vw, 2.5rem); /* ~32–40px */
+    font-size: clamp(32px, 8.2vw, 40px) !important; /* close WATCH 32–40 */
     line-height: 1.15;
   }
 
