@@ -7,7 +7,7 @@
   <title data-i18n="titlePrivacyAlison">Privacy — Alison — Night Orders</title>
   <link rel="canonical" href="https://nightorders.app/privacy-alison.html" />
   <meta property="og:title" content="Privacy — Alison — Night Orders" />
-  <meta property="og:description" data-i18n-content="descMotto" content="Data is beautiful, and it is yours. Device and account only." />
+  <meta property="og:description" data-i18n-content="descMotto" content="No account. No ads. No tracking. Your journal stays on your device." />
   <meta property="og:url" content="https://nightorders.app/privacy-alison.html" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="icon" href="favicon.ico" sizes="32x32" />
@@ -47,23 +47,25 @@
   </header>
   <main class="prose">
     <p class="motto">Alison privacy</p>
-        <p class="kicker">Data is beautiful, and it is yours.</p>
-        <p>Alison is a personal headache journal from Night Orders. Your journal stays <strong>device and account only</strong>. No Night Orders password. No ads. No analytics. No chat. Alison is <strong>not a medical device</strong>. It does not diagnose, treat, cure, or prevent migraine or any condition. You can override any hint and delete any row.</p>
+        <p class="kicker">No account. No ads. No tracking. Your journal stays on your device.</p>
+        <p>Alison has no account and no Alison server. Your journal, food log, symptom entries and photos stay on your device, and we do not collect them. We do not sell your data, use it for ads, or track you across apps or sites. To answer a request Alison sends your location to weather and pollen services (coordinates, and in the US a ZIP code) and food search terms to a food database; we do not link this to your identity.</p>
+        <p>Alison is a personal headache journal from Night Orders. It is <strong>not a medical device</strong>. It is not a diagnosis. It does not diagnose, treat, cure, or prevent migraine or any condition. You can override any hint and delete any row.</p>
         <table class="table">
-          <tr><th>Account</th><td>Your Apple ID only, for private iCloud when sync is available. No Night Orders password.</td></tr>
-          <tr><th>Journal</th><td>Device and account only. Export/Import first. Optional private iCloud for the same Apple ID when sync is available. Night Orders does not keep your journal as a studio cloud store. Deleting the app without a backup can remove rows on that device.</td></tr>
-          <tr><th>Export / Import</th><td>Move your journal between devices you control. Prefer Export/Import before relying on sync.</td></tr>
-          <tr><th>Private iCloud</th><td>When sync is available. Same Apple ID. Private to you. Night Orders does not read other users’ private stores.</td></tr>
+          <tr><th>Account</th><td>None. Alison has no sign-up, no Night Orders password, and no Alison server.</td></tr>
+          <tr><th>Journal</th><td>Stays on your phone. Night Orders does not receive it and does not keep it. Deleting the app deletes the journal on the phone. Apple’s own device backup, if you use one, is between you and Apple.</td></tr>
+          <tr><th>iCloud</th><td>Alison 1.2 does not sync through iCloud. If a later version adds sync, this page will change.</td></tr>
+          <tr><th>Share and copy</th><td>Share journal, copy it for your clinician, save a PDF, or print it. Your journal is shared only when you tap one of those. The clinic letter restates your log. It is not a diagnosis.</td></tr>
           <tr><th>Apple Watch</th><td>Optional. Start and intensity on the paired devices only.</td></tr>
-          <tr><th>Apple Health</th><td>Optional. Alison can read food, water, and sleep already in Apple Health on that device. Deny still works. Alison does not write diagnoses to Health. <strong>HealthKit / Health samples are never uploaded to Night Orders cloud.</strong> Each device re-reads Health after you grant.</td></tr>
-                <tr><th>Open Food Facts</th><td>Live search when you look up a food. Optional camera barcode. The photo is not saved. Deny still works. You can type the code.</td></tr>
-          <tr><th>Location</th><td>When In Use, optional. Weather, pollen, and pressure only. No Always. Journal still works if denied.</td></tr>
-          <tr><th>Notes</th><td>Off by default. Warn-only when the same things have shown up together three times. Not a medical alarm. Not a forecast. No daily nag.</td></tr>
+          <tr><th>Apple Health</th><td>Optional and read-only. Alison asks to read food, water, sleep, menstrual flow, caffeine, and alcohol as a journal overlay, not a diagnosis. Food includes energy (calories) values. You choose which on Apple’s permission sheet. Deny and the journal still works. Alison does not write to Apple Health. <strong>Health samples are never uploaded to Night Orders cloud.</strong> Each device re-reads Health after you grant.</td></tr>
+          <tr><th>Open Food Facts</th><td>When you look up a food, Alison sends your search text or barcode to Open Food Facts (world.openfoodfacts.org), which returns the ingredients. The camera barcode scan is optional. The photo is not saved. Deny and the journal still works. You can type the code.</td></tr>
+          <tr><th>Weather and location</th><td>Optional. Alison asks for location When In Use, and uses it when you tap weather. No Always. When you do, the phone sends its coordinates to Open-Meteo (api.open-meteo.com and air-quality-api.open-meteo.com) for pressure, humidity, air quality, and pollen. It sends the same coordinates to OpenStreetMap Nominatim (nominatim.openstreetmap.org) to look up your place and ZIP code. In the US and its territories, Alison then sends that 5-digit ZIP code, not the coordinates, to pollen.com (www.pollen.com) for a pollen index. A ZIP code is coarse location. Those services see your network address and the coordinates or ZIP code, and handle them under their own policies. Night Orders does not receive these lookups. No journal rows are sent. Deny location and the journal still works.</td></tr>
+          <tr><th>Update check</th><td>Alison asks Apple’s iTunes lookup for the newest version (the request carries the app’s bundle ID and your storefront country) and asks nightorders.app for a small version file. Like any request, each shows your network address to that server. Neither carries journal data.</td></tr>
+          <tr><th>Notes</th><td>Off by default. A note shows only when the same things have shown up together three times. Not a forecast. No daily nag.</td></tr>
           <tr><th>Sale / ads / IDFA</th><td>Not used. We do not sell personal information and we do not share it for ads.</td></tr>
-          <tr><th>Keep</th><td>30-day free trial, then $0.99 / month through Apple. Journal readable without Keep. New Start, Food, and Health pull wait on Keep. Cancel in Apple Subscriptions.</td></tr>
+          <tr><th>Keep</th><td>Through Apple: 1-month free trial for new subscribers, then $0.99/month (local price varies). Journal readable without Keep. After your first 24 hours, new Start, Food, and Health pull need Keep. Cancel in Apple Subscriptions.</td></tr>
         </table>
-        <p>Optional Notes look at diary facts you already logged—foods, weather, sleep, meds, environment—and only after the same pairing shows up three times. That is what has shown up together, not a forecast. Those observations stay device and account only.</p>
-        <p>Support: <!--email_off--><a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a><!--/email_off-->.</p>
+        <p>Optional Notes look at diary facts you already logged—foods, weather, sleep, meds, environment—and only after the same pairing shows up three times. That is what has shown up together, not a forecast and not a cause. Those observations stay on your phone.</p>
+        <p>Support: <a class="mail" href="mailto:support@nightorders.app">support@nightorders.app</a>.</p>
         <p class="mirror"><a href="support.html">Support</a> · <a href="legal.html">Legal</a> · <a href="faq.html">FAQ</a></p>
   </main>
   <footer class="foot">
