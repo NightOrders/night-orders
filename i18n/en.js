@@ -138,7 +138,7 @@
  homeAdsA: "No account. No ads. No tracking. No plus, no confetti.",
  homeKeep: "What is Keep?",
  homeKeepA:
- "Keep is through Apple: 1-month free trial for new subscribers, then $0.99/month (local price varies). Alison: the journal stays readable without Keep; after your first 24 hours, new Start, Food, and Health pull need Keep. Pack Run: the park list stays; check-in waits on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+ "Keep is through Apple. Alison: 1-month free trial for new subscribers, then $0.99/month (local price varies). Pack Run: 1-month free trial for new subscribers in the US, then $0.99/month through Apple. Alison: the journal stays readable without Keep; after your first 24 hours, new Start, Food, and Health pull need Keep. Pack Run: the park list stays; check-in waits on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
  homeReach: "How do I reach you?",
  titleFaq: "FAQ — Night Orders",
  faqMotto: "FAQ",
