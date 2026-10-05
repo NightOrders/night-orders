@@ -122,7 +122,7 @@
  packGoneNow: "Gone.",
  packGoneIn: "Gone in",
  packNoPhoto: "No photo. No GPS track.",
- packKeepTrial: "Keep: 1-month free trial for new subscribers in the US, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions.",
+ packKeepTrial: "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions.",
  packKeepPaid: "Not a paid download.",
  packKeepRoom: "The live count stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.",
  packKeepMute: "No ads. Auto-renews. Cancel in Apple Subscriptions.",
@@ -138,7 +138,7 @@
  homeAdsA: "No account. No ads. No tracking. No plus, no confetti.",
  homeKeep: "What is Keep?",
  homeKeepA:
- "Keep is through Apple. Alison: 1-month free trial for new subscribers, then $0.99/month (local price varies). Pack Run: 1-month free trial for new subscribers in the US, then $0.99 a month (local price varies) through Apple. Alison: the journal stays readable without Keep; after your first 24 hours, new Start, Food, and Health pull need Keep. Pack Run: the park list stays; check-in waits on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+ "Keep is through Apple. Alison: 1-month free trial for new subscribers, then $0.99/month (local price varies). Pack Run: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Alison: the journal stays readable without Keep; after your first 24 hours, new Start, Food, and Health pull need Keep. Pack Run: the park list stays; check-in waits on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
  homeReach: "How do I reach you?",
  titleFaq: "FAQ — Night Orders",
  faqMotto: "FAQ",
@@ -165,7 +165,7 @@
  "Location is While Using, parks only. Your photos and dog names stay on this phone. The park search sends your location to OpenStreetMap-based services (see Privacy). No account.",
  packKeepQ: "Keep?",
  packKeepA:
- "Keep: 1-month free trial for new subscribers in the US, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Park list stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.",
+ "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Park list stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.",
  titleAlison: "Alison — Night Orders",
  descAlison: "Alison is a personal headache journal. On your device. Not a medical device.",
  alisonLede: "Personal headache journal. On your device. No account.",
@@ -204,7 +204,7 @@
  packProseMute:
  "Check in at a park and the count goes up. Parks stay separate. Your photos and dog names stay on this phone. You can still see the park list without Keep.",
  packKeepP:
- "Park list stays without Keep. Keep: 1-month free trial for new subscribers in the US, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen.",
+ "Park list stays without Keep. Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen.",
  packNote:
  "Location is While Using, for nearby parks. Deny it and a short list still works. No background tracking. No account. No chat.",
  packWhoLongA:
@@ -223,7 +223,7 @@
  packAcct: "Do I need an account?",
  packAcctA: "No. No chat. No ads. Dogs you add live on your device.",
  packKeepCancelA:
- "Keep: 1-month free trial for new subscribers in the US, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Park list stays without it. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions, not in Pack Run.",
+ "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Park list stays without it. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions, not in Pack Run.",
  titleSupport: "Support — Night Orders",
  supportMotto: "Support",
  alisonSupportAria: "Alison support",
@@ -252,7 +252,7 @@
  "That's on purpose. Check-in lasts 90 minutes, or until you leave. Still at the park? Check in again. Camera and photos stay on this phone.",
  supportKeepIn: "I can't check in",
  supportKeepInA:
- "Park list stays. Keep: 1-month free trial for new subscribers in the US, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.",
+ "Park list stays. Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.",
  alisonPrivacyLink: "Alison privacy",
  packPrivacyLink: "Pack Run privacy",
  titleLegal: "Legal — Night Orders",
