@@ -29,7 +29,7 @@
     anvilBlurb: "Marks to Ignite to Star Ash. Paid App Store download $0.99. No in-app purchases. No account. No ads.",
     anvilOneLiner: "Marks to Ignite to Star Ash.",
 
-    packBlurb: "Are dogs at this park. Check-in lasts 90 minutes, then it is erased.",
+    packBlurb: "Pack Run finds dog parks near you. Pack Run sends nothing to a Night Orders server.",
  coming: "Coming to the App Store",
  footLine: "Night Orders. No ads. No account.",
  supportPrefix: "Support:",
@@ -93,57 +93,57 @@
  packTabAria: "Pack Run",
  packTabDogs: "Dogs",
  packTabParks: "Parks",
- packTabCheckIn: "Check-in",
+ packTabCheckIn: "Maps",
  packTabKeep: "Keep",
  packTabPrivacy: "Privacy",
  packOpen: "OPEN",
  packNoAds: "No ads forever",
- packTagline: "One park. One count.",
+ packTagline: "Dog parks near you.",
  packOpeningLine:
- "Check-in lasts 90 minutes, then it's gone. Still here? Check in again. The count is this park, this pack. If the board is quiet, it's just this phone. Location is only to find nearby parks.",
+ "Pack Run finds dog parks near you and keeps a profile for your dog. A live park count is not part of this version. Location is only to find nearby parks.",
  packPrivacyPolicy: "Privacy policy",
- packDogsWhisper: "Your dogs. On this phone. No names on the park board.",
+ packDogsWhisper: "Your dogs. On this phone. Not sent anywhere.",
  packAddDog: "Add a dog",
  packEdit: "Edit",
  packSave: "Save",
  packDelete: "Delete",
  packDogOnPhone: "On this phone",
  packDogSample: "Maple",
- packNoNames: "No names on the park board.",
- packNearby: "Nearby parks. Counts, no names.",
+ packNoNames: "Your dogs and photos stay on this phone.",
+ packNearby: "Nearby dog parks.",
  packNamedPark: "Named park",
  packHillPark: "Hill park",
  packThisPhone: "This phone only.",
  packBack: "Parks",
- packCheckIn: "Check in",
+ packCheckIn: "Directions",
  packLeave: "Leave",
- packErase: "Erases in 90 minutes.",
- packEraseAt: "Erases at",
+ packErase: "Directions open in Apple Maps.",
+ packEraseAt: "Directions",
  packGoneNow: "Gone.",
- packGoneIn: "Gone in",
+ packGoneIn: "Directions",
  packNoPhoto: "No photo. No GPS track.",
  packKeepTrial: "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions.",
  packKeepPaid: "Not a paid download.",
- packKeepRoom: "The live count stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.",
+ packKeepRoom: "The park finder and one dog are free. Keep unlocks dogs 2 to 8. If Keep ends, the dogs you added stay.",
  packKeepMute: "No ads. Auto-renews. Cancel in Apple Subscriptions.",
  packKeepStore: "Keep is in the App Store build.",
- packPrivacyRoom: "While Using, parks only. 90 minutes, then erased. No account. No GPS track.",
+ packPrivacyRoom: "While Using the App only. About 1 km, rounded, goes to park search. Nothing to a Night Orders server. No account.",
  packFig: "OPEN. Dogs, parks, Keep.",
  homeWhat: "What is this?",
  homeWhatA: "A small studio. Three apps: Alison, Pack Run, and Stellar Anvil. The record stays with you.",
  homeData: "Where does my data live?",
  homeDataA:
- "On your device. No Night Orders account. Alison does not upload the journal. Pack Run check-in is park, pack size, time, and a hashed device id for 90 minutes, then erased.",
+ "On your device. No Night Orders account. Alison does not upload the journal. Pack Run sends nothing to a Night Orders server.",
  homeAds: "Is there an account? Ads?",
  homeAdsA: "No account. No ads. No tracking. No plus, no confetti.",
  homeKeep: "What is Keep?",
  homeKeepA:
- "Keep is through Apple. Alison: 1-month free trial for new subscribers, then $0.99/month (local price varies). Pack Run: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Alison: the journal stays readable without Keep; after your first 24 hours, new Start, Food, and Health pull need Keep. Pack Run: the park list stays; check-in waits on Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+ "Keep is through Apple. Alison: 1-month free trial for new subscribers, then $0.99/month (local price varies). Pack Run: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Alison: the journal stays readable without Keep; after your first 24 hours, new Start, Food, and Health pull need Keep. Pack Run: the park finder and one dog are free; Keep unlocks dogs 2 to 8; if Keep ends, the dogs you added stay. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
  homeReach: "How do I reach you?",
  titleFaq: "FAQ — Night Orders",
  faqMotto: "FAQ",
  faqDataA:
- "On your device. No Night Orders account. GDPR / CCPA: we do not sell personal information and we do not share it for ads. Pack Run check-in sends the park, the dog count, the time and a random per-install code. It lasts 90 minutes, then it is erased.",
+ "On your device. No Night Orders account. GDPR / CCPA: we do not sell personal information and we do not share it for ads. Pack Run sends nothing to a Night Orders server.",
  faqAds: "Ads? Account?",
  faqAdsA: "No ads. No tracking. No account. No plus, no confetti.",
  alisonWhat: "What is Alison?",
@@ -156,16 +156,16 @@
  faqWatchFoodA:
  "Optional. Watch: start and intensity, same journal. Apple Health is read-only and optional: food, water, sleep, menstrual flow, caffeine, and alcohol. Food lookups send your search or barcode to Open Food Facts, which supplies the ingredients. You can override any hint and delete any row. Deny and the journal still works.",
  packWhat: "What is Pack Run?",
- packWhatA: "Are dogs at this park. Nearby parks when location is on. Check-in lasts 90 minutes, then it is erased.",
- packWho: "How do park counts work?",
+ packWhatA: "Pack Run finds dog parks near you when location is on, and keeps a profile for your dog. A live park count is not part of this version.",
+ packWho: "Is there a live park count?",
  packWhoA:
- "You check in from your phone. Parks don't share with each other, and nobody owns a park.",
+ "Not in this version. Pack Run lists nearby OpenStreetMap dog parks and how far away each one is.",
  packFollow: "Does it follow me?",
  packFollowA:
  "Location is While Using, parks only. Your photos and dog names stay on this phone. The park search sends your location to OpenStreetMap-based services (see Privacy). No account.",
  packKeepQ: "Keep?",
  packKeepA:
- "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Park list stays. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.",
+ "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. The park finder and one dog are free. Keep unlocks dogs 2 to 8. If Keep ends, the dogs you added stay.",
  titleAlison: "Alison — Night Orders",
  descAlison: "Alison is a personal headache journal. On your device. Not a medical device.",
  alisonLede: "Personal headache journal. On your device. No account.",
@@ -197,33 +197,33 @@
  alisonKeepCancelA:
  "Keep is through Apple: 1-month free trial for new subscribers, then $0.99/month (local price varies). Journal stays readable without it. After your first 24 hours, new Start, Food, and Health pull need Keep. When the trial or Keep ends, those services end. Cancel in Apple Subscriptions, not in Alison.",
  titlePack: "Pack Run — Night Orders",
- descPack: "Pack Run: are dogs at this park. Check-in lasts 90 minutes, then it is erased.",
- packLede: "Are dogs at this park. Nearby parks when location is on.",
+ descPack: "Pack Run finds dog parks near you and keeps a profile for your dog.",
+ packLede: "Pack Run finds dog parks near you when location is on.",
  packProse1:
- "One job: are dogs at this park. The list shows a count, not names. Still there after 90 minutes? Check in again.",
+ "One job: find dog parks near you. See how far away each one is, and get directions in Apple Maps.",
  packProseMute:
- "Check in at a park and the count goes up. Parks stay separate. Your photos and dog names stay on this phone. You can still see the park list without Keep.",
+ "Set up your dog with a name and a photo. Your photos and dog names stay on this phone. The park finder stays free without Keep.",
  packKeepP:
- "Park list stays without Keep. Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. When the trial or Keep ends, check-in ends with it. Restore on the Keep screen.",
+ "The park finder and one dog are free. Keep unlocks dogs 2 to 8. Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. If Keep ends, the dogs you added stay. Restore on the Keep screen.",
  packNote:
- "Location is While Using, for nearby parks. Deny it and a short list still works. No background tracking. No account. No chat.",
+ "Location is While Using the App, for nearby parks. If you do not allow location, Pack Run cannot list parks; the rest of the app still works. No background location. No account. No chat.",
  packWhoLongA:
- "You check in from your phone. A park in one city doesn't see a park in another. Nobody owns a park, and you don't run anything extra on your phone.",
- packPosted: "What do other people see?",
+ "Not in this version. Pack Run lists nearby OpenStreetMap dog parks and how far away each one is, and opens Apple Maps for directions.",
+ packPosted: "What leaves my phone?",
  packPostedA:
- "The park, how many dogs, and when. Names and photos stay on this phone. After 90 minutes it is erased. Leave and it is gone now.",
- packWhy90: "Why 90 minutes?",
- packWhy90A: "So the board is now, not last week. Still at the park? Check in again. Empty parks stay empty.",
- packHowMany: "How many dogs at a park?",
+ "Only an approximate location, rounded to about 1 km, for park search. Names and photos stay on this phone. Pack Run sends nothing to a Night Orders server.",
+ packWhy90: "Is there a check-in?",
+ packWhy90A: "Not in this version. Pack Run finds parks and keeps your dog profiles.",
+ packHowMany: "How do I find a park?",
  packHowManyA:
- "Each park shows a live count. When it's busy, the oldest check-in drops off so the board stays current. Parks stay separate. With location off, you still get a short list.",
+ "Allow location While Using the App. Pack Run lists nearby OpenStreetMap dog parks and how far away each one is. A live park count is not part of this version.",
  packLoc: "Location?",
  packLocA:
- "Location is While Using, and only if you want it. Nearby dog parks when it is on. Turn it off and you still get a short list. Nothing runs in the background.",
+ "Location is While Using the App, and only if you want it. Nearby dog parks when it is on. If you turn it off, Pack Run cannot list parks; the rest of the app still works. Nothing runs in the background.",
  packAcct: "Do I need an account?",
  packAcctA: "No. No chat. No ads. Dogs you add live on your device.",
  packKeepCancelA:
- "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Park list stays without it. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it. Cancel in Apple Subscriptions, not in Pack Run.",
+ "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. The park finder and one dog are free. Keep unlocks dogs 2 to 8. If Keep ends, the dogs you added stay. Cancel in Apple Subscriptions, not in Pack Run.",
  titleSupport: "Support — Night Orders",
  supportMotto: "Support",
  alisonSupportAria: "Alison support",
@@ -243,16 +243,16 @@
  "Journal stays readable. Keep is through Apple: 1-month free trial for new subscribers, then $0.99/month (local price varies). After your first 24 hours, new Start, Food, and Health pull need Keep. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
  packSupportAria: "Pack Run support",
  packSupportNote:
- "Are dogs at this park. Check-in lasts 90 minutes, then it is erased.",
+ "Pack Run finds dog parks near you. Pack Run sends nothing to a Night Orders server.",
  supportNoParks: "No nearby parks",
  supportNoParksA:
- "Allow location While Using, parks only. If location is off, or the map is down, a short list still works.",
- supportGone: "Check-in disappeared",
+ "Allow location While Using the App. If location is off, Pack Run cannot list parks; the rest of the app still works.",
+ supportGone: "Where are my dogs stored?",
  supportGoneA:
- "That's on purpose. Check-in lasts 90 minutes, or until you leave. Still at the park? Check in again. Camera and photos stay on this phone.",
- supportKeepIn: "I can't check in",
+ "On this phone. Dogs and photos are not sent anywhere. Deleting the app removes them, and we cannot restore them, because we never had a copy.",
+ supportKeepIn: "I can't add another dog",
  supportKeepInA:
- "Park list stays. Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Check-in waits on Keep. When the trial or Keep ends, check-in ends with it.",
+ "One dog is free. Keep unlocks dogs 2 to 8. Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. If Keep ends, the dogs you added stay.",
  alisonPrivacyLink: "Alison privacy",
  packPrivacyLink: "Pack Run privacy",
  titleLegal: "Legal — Night Orders",
@@ -283,17 +283,17 @@
  htmlLang: "en-GB",
  packLetsGo: "Let's go",
  packLocA:
- "Location is While Using, and only if you want it. Nearby parks when it is on. Turn it off and you still get a short list. Nothing runs in the background."
+ "Location is While Using the App, and only if you want it. Nearby dog parks when it is on. If you turn it off, Pack Run cannot list parks; the rest of the app still works. Nothing runs in the background."
  });
  catalogs["en-AU"] = assign(catalogs["en-US"], {
  htmlLang: "en-AU",
  packLocA:
- "Location is While Using, and only if you want it. Nearby dog parks when it is on. Turn it off and you still get a short list. Nothing runs in the background."
+ "Location is While Using the App, and only if you want it. Nearby dog parks when it is on. If you turn it off, Pack Run cannot list parks; the rest of the app still works. Nothing runs in the background."
  });
  catalogs["en-CA"] = assign(catalogs["en-US"], {
  htmlLang: "en-CA",
  packLocA:
- "Location is While Using, and only if you want it. Nearby dog parks when it is on. Turn it off and you still get a short list. Nothing runs in the background."
+ "Location is While Using the App, and only if you want it. Nearby dog parks when it is on. If you turn it off, Pack Run cannot list parks; the rest of the app still works. Nothing runs in the background."
  });
 
  function pickStorefront(raw) {

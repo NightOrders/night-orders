@@ -2180,3 +2180,103 @@ html.mast-dock-bottom-pending main {
     animation: none !important;
   }
 }
+
+/* SITE75 polish (tester F1-F3, F5, F6). Draft 2026-10-16. */
+/* F1: long links wrap instead of forcing sideways scroll */
+main a, .foot a { overflow-wrap: anywhere; word-break: break-word; }
+a.mail { overflow-wrap: break-word; word-break: normal; }
+/* F2: floating bar targets at least 44x44, bar never wider than the screen */
+.mast-nav a, .dock-btn { min-height: 44px; min-width: 44px; box-sizing: border-box; }
+@media (max-width: 51.99rem) {
+  .dock-btn { min-width: 44px; min-height: 44px; }
+  body:not(.mast-dock-bottom) .mast,
+  html:not(.mast-dock-bottom-pending) .mast { min-height: 44px; }
+  .mast { max-width: calc(100vw - 1rem); flex-wrap: wrap; row-gap: 0.25rem; }
+  .dock-control { flex-shrink: 1; min-width: 0; }
+}
+.mark { display: inline-flex; align-items: center; min-height: 44px; }
+/* F3: banner stills side by side, no empty card space; Apps cue stays below the banner */
+@media (min-width: 52rem) {
+  .page-home.studio-first .masthead-band--amazing { grid-template-columns: minmax(14rem, 18rem) 1fr; }
+  .page-home.studio-first .masthead-art { grid-template-columns: 1fr 1fr; align-self: center; }
+  .page-home.studio-first .masthead-still--c { transform: translateY(1.2rem) scale(0.96); }
+}
+/* F5: footer text aligned with footer links; AA contrast in light mode */
+.foot p, .foot p.identity { max-width: 62rem; margin-left: auto !important; margin-right: auto !important; }
+.foot-links a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
+@media (prefers-color-scheme: light) {
+  .foot { color: var(--ink); background: color-mix(in srgb, var(--field) 94%, transparent); }
+  .foot a { color: var(--ink); }
+}
+/* Panel and product links: 44px tap height */
+.page-home .links a, .product-links a { display: inline-flex; align-items: center; min-height: 44px; }
+/* F6: phone banner copy gets the full card width at large text */
+@media (max-width: 51.99rem) {
+  .page-home.studio-first .masthead-band--amazing { padding-inline: 12px; }
+  .page-home.studio-first .masthead-band--amazing .motto { font-size: clamp(1.1rem, 5vw, 1.55rem); }
+  main { padding-inline: max(10px, env(safe-area-inset-left, 0px)) !important; }
+}
+.mast-grip { min-width: 44px !important; min-height: 44px !important; }
+.mark a, a.mark, .mast > a:first-child { display: inline-flex; align-items: center; min-height: 44px; }
+/* SITE75 R2 */
+/* R2-1: wide tables wrap inside the content column */
+.table { table-layout: fixed; max-width: 100%; }
+.table th, .table td { overflow-wrap: anywhere; word-break: break-word; }
+@media (max-width: 51.99rem) {
+  .table, .table tbody, .table tr, .table th, .table td { display: block; width: auto; }
+  .table th { padding-bottom: 0; border-bottom: 0; }
+}
+/* R2-3: light scheme keeps a light page all the way down (no near-black tail behind dark text) */
+@media (prefers-color-scheme: light) {
+  body {
+    background:
+      radial-gradient(70rem 36rem at var(--lx) var(--ly), color-mix(in srgb, var(--accent) 8%, transparent) 0%, transparent 58%),
+      linear-gradient(180deg, var(--field) 0%, var(--field) 100%);
+  }
+  :root { --mute: #4f5d58; }
+}
+.mark a, .mark { color: var(--ink); }
+/* R2-4: in-content link rows get 44x44 tap targets */
+.legal-row a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
+/* R2-3: muted text lifted in dark scheme so it clears 4.5:1 on the lighter glass cards too */
+@media (prefers-color-scheme: dark) { :root { --mute: #b4c0bc; } }
+/* R3: masthead stitch and eyebrow at full ink on a steadier backing */
+.page-home.studio-first .masthead-stitch { color: var(--ink); background: color-mix(in srgb, var(--canvas) 88%, transparent); }
+.page-home.studio-first .masthead-eyebrow { color: var(--ink); }
+/* R5 */
+main p, main li, main td { overflow-wrap: anywhere; }
+.page-home.studio-first main { max-width: calc(40rem + 36px); }
+main .shot-gallery figcaption { color: var(--ink); font-size: max(12px, 0.75rem); }
+@media (prefers-color-scheme: light) { main .shot-gallery figure { background: var(--field); } }
+.page-home .foot { margin-top: 2.5rem; }
+.page-home .foot, .page-home .foot a { color: var(--ink); }
+main .links a { display: inline-flex; align-items: center; min-height: 44px; }
+/* R6: mail pill site-wide (was home-only) */
+.mail-pill {
+  display: inline-flex; align-items: center; min-height: 44px; box-sizing: border-box;
+  padding: 0.45rem 0.95rem; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink); text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+@media (any-hover: hover) { .mail-pill:hover { border-color: var(--accent); transform: translateY(-2px); } }
+.mail-pill:active { transform: scale(0.98); }
+/* R6b: support-anvil bundle line (note beside a mail pill) at full ink */
+.note:has(.mail-pill) { color: var(--ink); }
+/* R7: every mail link is a pill, on every page, no page-class dependency */
+a.mail, a.mail-pill, a[href^="mailto:"] {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; min-width: 44px; box-sizing: border-box;
+  padding: 0.45rem 0.95rem; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink); text-decoration: none;
+  max-width: 100%; overflow-wrap: break-word; word-break: normal; text-align: center;
+  vertical-align: middle; line-height: 1.25;
+}
+/* compact inline pill inside prose sentences: smaller padding, same 44px tap height */
+p a.mail, li a.mail, td a.mail, p a[href^="mailto:"], li a[href^="mailto:"], td a[href^="mailto:"] {
+  padding: 0.2rem 0.6rem; margin-block: 0.1rem;
+}
+/* R8: pill plus trailing punctuation stay together; the pill may still wrap inside at the wbr */
+.nowrap-punct { white-space: nowrap; }
+.nowrap-punct a.mail { white-space: normal; }
+/* R9: links without a <wbr> (live off-package pages, or a mailto link without the mail class) may break anywhere instead of pushing the page sideways */
+a.mail:not(:has(wbr)), main a[href^="mailto:"]:not(:has(wbr)), a[href^="mailto:"]:not(:has(wbr)) { overflow-wrap: anywhere; }
