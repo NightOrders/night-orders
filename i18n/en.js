@@ -124,7 +124,7 @@
  packNoPhoto: "No photo. No GPS track.",
  packKeepTrial: "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions.",
  packKeepPaid: "Not a paid download.",
- packKeepRoom: "The park finder and one dog are free. Keep unlocks dogs 2 to 8. If Keep ends, the dogs you added stay.",
+ packKeepRoom: "Pack Run is free for 24 hours after you first open it. After that, a new park search and adding a dog need Keep. This is separate from Apple's 1-month free trial for new subscribers, which starts only when you subscribe. If Keep ends, new park searches and adding a dog wait again; nothing you saved is deleted.",
  packKeepMute: "No ads. Auto-renews. Cancel in Apple Subscriptions.",
  packKeepStore: "Keep is in the App Store build.",
  packPrivacyRoom: "While Using the App only. About 1 km, rounded, goes to park search. Nothing to a Night Orders server. No account.",
@@ -138,7 +138,7 @@
  homeAdsA: "No account. No ads. No tracking. No plus, no confetti.",
  homeKeep: "What is Keep?",
  homeKeepA:
- "Keep is through Apple. Alison: 1-month free trial for new subscribers, then $0.99/month (local price varies). Pack Run: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Alison: the journal stays readable without Keep; after your first 24 hours, new Start, Food, and Health pull need Keep. Pack Run: the park finder and one dog are free; Keep unlocks dogs 2 to 8; if Keep ends, the dogs you added stay. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
+ "Keep is through Apple. Alison: 1-month free trial for new subscribers, then $0.99/month (local price varies). Pack Run: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Alison: the journal stays readable without Keep; after your first 24 hours, new Start, Food, and Health pull need Keep. Pack Run: free for 24 hours after you first open it, then a new park search and adding a dog need Keep. This is separate from Apple's 1-month free trial for new subscribers, which starts only when you subscribe. If Keep ends, nothing you saved is deleted. When the trial or Keep ends, those services end. Restore on the Keep screen. Cancel in Apple Subscriptions.",
  homeReach: "How do I reach you?",
  titleFaq: "FAQ — Night Orders",
  faqMotto: "FAQ",
@@ -165,7 +165,7 @@
  "Location is While Using, parks only. Your photos and dog names stay on this phone. The park search sends your location to OpenStreetMap-based services (see Privacy). No account.",
  packKeepQ: "Keep?",
  packKeepA:
- "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. The park finder and one dog are free. Keep unlocks dogs 2 to 8. If Keep ends, the dogs you added stay.",
+ "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Pack Run is free for 24 hours after you first open it. After that, a new park search and adding a dog need Keep. This is separate from Apple's 1-month free trial for new subscribers, which starts only when you subscribe. If Keep ends, new park searches and adding a dog wait again; nothing you saved is deleted.",
  titleAlison: "Alison — Night Orders",
  descAlison: "Alison is a personal headache journal. On your device. Not a medical device.",
  alisonLede: "Personal headache journal. On your device. No account.",
@@ -202,9 +202,9 @@
  packProse1:
  "One job: find dog parks near you. See how far away each one is, and get directions in Apple Maps.",
  packProseMute:
- "Set up your dog with a name and a photo. Your photos and dog names stay on this phone. The park finder stays free without Keep.",
+ "Set up your dog with a name and a photo. Your photos and dog names stay on this phone.",
  packKeepP:
- "The park finder and one dog are free. Keep unlocks dogs 2 to 8. Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. If Keep ends, the dogs you added stay. Restore on the Keep screen.",
+ "Pack Run is free for 24 hours after you first open it. After that, a new park search and adding a dog need Keep. Your saved dogs stay on this phone, and you can still view, change or delete them. This is separate from Apple's 1-month free trial for new subscribers, which starts only when you subscribe. Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. If Keep ends, new park searches and adding a dog wait again; nothing you saved is deleted. Restore on the Keep screen.",
  packNote:
  "Location is While Using the App, for nearby parks. If you do not allow location, Pack Run cannot list parks; the rest of the app still works. No background location. No account. No chat.",
  packWhoLongA:
@@ -223,7 +223,7 @@
  packAcct: "Do I need an account?",
  packAcctA: "No. No chat. No ads. Dogs you add live on your device.",
  packKeepCancelA:
- "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. The park finder and one dog are free. Keep unlocks dogs 2 to 8. If Keep ends, the dogs you added stay. Cancel in Apple Subscriptions, not in Pack Run.",
+ "Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. Pack Run is free for 24 hours after you first open it. After that, a new park search and adding a dog need Keep. This is separate from Apple's 1-month free trial for new subscribers, which starts only when you subscribe. If Keep ends, new park searches and adding a dog wait again; nothing you saved is deleted. Cancel in Apple Subscriptions, not in Pack Run.",
  titleSupport: "Support — Night Orders",
  supportMotto: "Support",
  alisonSupportAria: "Alison support",
@@ -250,9 +250,9 @@
  supportGone: "Where are my dogs stored?",
  supportGoneA:
  "On this phone. Dogs and photos are not sent anywhere. Deleting the app removes them, and we cannot restore them, because we never had a copy.",
- supportKeepIn: "I can't add another dog",
+ supportKeepIn: "I can't search or add a dog",
  supportKeepInA:
- "One dog is free. Keep unlocks dogs 2 to 8. Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. If Keep ends, the dogs you added stay.",
+ "Pack Run is free for 24 hours after you first open it. After that, a new park search and adding a dog need Keep. This is separate from Apple's 1-month free trial for new subscribers, which starts only when you subscribe. Keep: 1-month free trial for new subscribers, then $0.99 a month (local price varies) through Apple. Auto-renews until you cancel; cancel at least 24 hours before the period ends in Apple Subscriptions. If Keep ends, new park searches and adding a dog wait again; nothing you saved is deleted.",
  alisonPrivacyLink: "Alison privacy",
  packPrivacyLink: "Pack Run privacy",
  titleLegal: "Legal — Night Orders",
