@@ -136,6 +136,10 @@
       color: var(--mute); cursor: pointer; font: inherit;
     }
     .page-home .scroll-cue[hidden] { display: none; }
+    /* DEFECT remill t8034u follow-on: Top/Bot dock pills read as nav on phone (Pat shot). Hide dock-control ≤51.99rem; mast-grip drag remains. */
+    @media (max-width: 51.99rem) {
+      .dock-control { display: none !important; }
+    }
   </style>
   <script>
 (function () {
@@ -219,7 +223,7 @@
 
       <div class="tabpanel" role="tabpanel" id="panel-alison" aria-labelledby="tab-alison">
         <figure class="panel-art">
-          <img src="media/alison/gallery-02.webp" width="390" height="844" alt="Alison — Yours" loading="lazy" decoding="async" />
+          <img src="media/alison/gallery-02.webp" width="390" height="844" alt="Alison — opening" loading="lazy" decoding="async" />
         </figure>
         <div class="panel-copy">
           <p>Alison, Stellar Anvil, and Pack Run are on the App Store.</p>
